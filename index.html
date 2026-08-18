@@ -1198,6 +1198,109 @@ body.account-page footer{display:none}
   .product-unlocked-content{grid-template-columns:1fr}
 }
 
+
+/* ===== CREDENCIALES DEMO VISIBLES ===== */
+.demo-credentials-card{
+  display:none;
+  margin-top:14px;
+  border:1px solid #d9e6f2;
+  border-radius:20px;
+  background:linear-gradient(145deg,#ffffff,#f7fbff);
+  box-shadow:0 14px 36px rgba(7,23,45,.08);
+  overflow:hidden;
+  animation:activationReveal .5s cubic-bezier(.2,.7,.2,1);
+}
+.demo-credentials-card.show{display:block}
+.demo-credentials-head{
+  padding:17px 18px;
+  background:linear-gradient(135deg,#07172d,#0c3b70);
+  color:#fff;
+}
+.demo-credentials-head small{
+  display:block;
+  color:#b9cee3;
+  font-size:.69rem;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  font-weight:900;
+  margin-bottom:4px;
+}
+.demo-credentials-head b{
+  font-size:1.02rem;
+  letter-spacing:-.2px;
+}
+.demo-credentials-body{
+  padding:17px;
+  display:grid;
+  gap:10px;
+}
+.demo-credential-row{
+  display:grid;
+  grid-template-columns:112px 1fr auto;
+  gap:10px;
+  align-items:center;
+  padding:11px 12px;
+  border:1px solid #e3ebf3;
+  border-radius:13px;
+  background:#fff;
+}
+.demo-credential-row span{
+  color:#728196;
+  font-size:.69rem;
+  font-weight:800;
+}
+.demo-credential-value{
+  min-width:0;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  color:#26384d;
+  font-size:.78rem;
+  font-weight:850;
+  word-break:break-all;
+}
+.demo-copy-btn{
+  border:1px solid #d8e4ee;
+  background:#f7fafc;
+  color:#3a536d;
+  border-radius:9px;
+  padding:7px 9px;
+  font-weight:850;
+  font-size:.67rem;
+  cursor:pointer;
+}
+.demo-copy-btn:hover{background:#eef5fb}
+.demo-auth-link{
+  color:#0b7fd8;
+  text-decoration:none;
+  font-weight:900;
+}
+.demo-auth-link:hover{text-decoration:underline}
+.demo-disclaimer{
+  margin-top:2px;
+  padding:10px 11px;
+  border-radius:11px;
+  background:#fff8e7;
+  border:1px solid #f1e1ad;
+  color:#6e591c;
+  font-size:.7rem;
+}
+@media(max-width:560px){
+  .demo-credential-row{grid-template-columns:1fr}
+  .demo-copy-btn{width:100%}
+}
+
+
+.demo-credentials-card.show{
+  display:block;
+}
+.demo-credentials-body .demo-credential-value{
+  white-space:normal;
+  overflow:visible;
+  text-overflow:clip;
+}
+.demo-credentials-head b{
+  text-transform:uppercase;
+}
+
 </style>
 </head>
 <body>
@@ -1744,39 +1847,44 @@ body.account-page footer{display:none}
         </div>
       </div>
 
-      <div class="secure-access-panel" id="secureAccessPanel">
-        <div class="secure-access-head">
-          <b>Área privada del servicio</b>
-          <small>La información sensible se mantiene protegida y no queda expuesta en el código fuente de la página.</small>
+      <div class="demo-credentials-card" id="demoCredentialsCard">
+        <div class="demo-credentials-head">
+          <small>Información desbloqueada</small>
+          <b>CHATGPT PLUS PRIVADA</b>
         </div>
 
-        <div class="secure-access-body">
-          <div class="secure-access-row">
-            <span>Cuenta asignada</span>
-            <strong class="secure-mask">••••••••@••••••.com</strong>
+        <div class="demo-credentials-body">
+          <div class="demo-credential-row">
+            <span>Correo</span>
+            <div class="demo-credential-value" id="demoEmail">tiffanyhardy3201@gmail.com</div>
+            <button class="demo-copy-btn" type="button" onclick="copyDemoCredential('demoEmail')">Copiar</button>
           </div>
 
-          <div class="secure-access-row">
+          <div class="demo-credential-row">
             <span>Contraseña</span>
-            <strong class="secure-mask">••••••••••••</strong>
+            <div class="demo-credential-value" id="demoPassword">Chatgpt666888</div>
+            <button class="demo-copy-btn" type="button" onclick="copyDemoCredential('demoPassword')">Copiar</button>
           </div>
 
-          <div class="secure-access-row">
-            <span>Verificación adicional</span>
-            <strong>Gestionada por soporte</strong>
+          <div class="demo-credential-row">
+            <span>Autenticador</span>
+            <div class="demo-credential-value" id="demoAuthenticator">IHTLVWXAXCKB2MKNSLK54D3WD6W4BVY2</div>
+            <button class="demo-copy-btn" type="button" onclick="copyDemoCredential('demoAuthenticator')">Copiar</button>
           </div>
 
-          <a class="secure-support-btn"
-             href="https://wa.me/573018964476?text=Hola%20IA%20Plus%20Colombia%2C%20ya%20activ%C3%A9%20mi%20c%C3%B3digo%20y%20necesito%20recibir%20la%20informaci%C3%B3n%20de%20mi%20servicio."
-             target="_blank"
-             rel="noopener">
-            💬 Solicitar información de acceso
-          </a>
+          <div class="demo-credential-row">
+            <span>2FA</span>
+            <a class="demo-auth-link" href="http://2FA.LIVE" target="_blank" rel="noopener">http://2FA.LIVE</a>
+            <button class="demo-copy-btn" type="button" onclick="copyStaticText('http://2FA.LIVE')">Copiar</button>
+          </div>
 
-          <div class="secure-warning">
-            Por seguridad, cualquier dato sensible se entrega únicamente por un canal controlado.
+          <div class="demo-disclaimer">
+            Información visible únicamente después de validar el código de activación.
           </div>
         </div>
+      </div>
+      </div>
+
       </div>
 
       <div class="activation-success-ribbon" id="activationSuccessRibbon">
@@ -2599,6 +2707,49 @@ const DEMO_ACTIVATION_CODES = {
 
 
 
+
+
+function copyStaticText(value) {
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(value)
+      .then(() => showToast("Copiado ✓"))
+      .catch(() => fallbackCopyDemo(value));
+  } else {
+    fallbackCopyDemo(value);
+  }
+}
+
+function copyDemoCredential(elementId) {
+  const el = $(elementId);
+  if (!el) return;
+
+  const value = el.textContent.trim();
+
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(value)
+      .then(() => showToast("Copiado ✓"))
+      .catch(() => fallbackCopyDemo(value));
+  } else {
+    fallbackCopyDemo(value);
+  }
+}
+
+function fallbackCopyDemo(value) {
+  const textarea = document.createElement("textarea");
+  textarea.value = value;
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.select();
+  try {
+    document.execCommand("copy");
+    showToast("Copiado ✓");
+  } catch (e) {
+    showToast("No fue posible copiar");
+  }
+  textarea.remove();
+}
+
 function setActivationProgress(step) {
   const steps = [
     $("activationStep1"),
@@ -2631,7 +2782,7 @@ function updateProductActivationAuthState() {
     loginBox.style.display = "block";
     form.classList.remove("show");
     $("unlockedService")?.classList.remove("show");
-    $("secureAccessPanel")?.classList.remove("show");
+    $("demoCredentialsCard")?.classList.remove("show");
     $("activationSuccessRibbon")?.classList.remove("show");
     $("activationMessage")?.classList.remove("show");
     setActivationProgress(1);
@@ -2643,7 +2794,7 @@ function resetProductActivationForCurrentProduct() {
   if (input) input.value = "";
 
   $("unlockedService")?.classList.remove("show");
-  $("secureAccessPanel")?.classList.remove("show");
+  $("demoCredentialsCard")?.classList.remove("show");
   $("activationMessage")?.classList.remove("show");
 
   if ($("productActivationTitle")) {
@@ -2662,6 +2813,8 @@ function resetProductActivationForCurrentProduct() {
       currentDetailProduct?.name || "Producto seleccionado";
   }
 
+  window.__showDemoCredentials = false;
+  $("demoCredentialsCard")?.classList.remove("show");
   $("activationSuccessRibbon")?.classList.remove("show");
   updateProductActivationAuthState();
 }
@@ -2699,6 +2852,7 @@ function activateServiceCode() {
 
   if (demo) {
     const productName = currentDetailProduct?.name || "Servicio adquirido";
+    window.__showDemoCredentials = true;
     showUnlockedService({
       ...demo,
       service: productName,
@@ -2717,12 +2871,13 @@ function activateServiceCode() {
           throw new Error(result?.message || "Código inválido o vencido.");
         }
 
+        window.__showDemoCredentials = false;
         showUnlockedService(result.service);
         activationMessage("Código válido. Servicio desbloqueado ✓", "ok");
       })
       .catch(error => {
         $("unlockedService")?.classList.remove("show");
-        $("secureAccessPanel")?.classList.remove("show");
+        $("demoCredentialsCard")?.classList.remove("show");
         $("activationSuccessRibbon")?.classList.remove("show");
         setActivationProgress(2);
         activationMessage(error.message || "Código inválido o vencido.", "error");
@@ -2732,7 +2887,7 @@ function activateServiceCode() {
   }
 
   $("unlockedService")?.classList.remove("show");
-  $("secureAccessPanel")?.classList.remove("show");
+  $("demoCredentialsCard")?.classList.remove("show");
   $("activationSuccessRibbon")?.classList.remove("show");
   setActivationProgress(2);
   activationMessage("Código inválido o todavía no registrado.", "error");
@@ -2750,7 +2905,11 @@ function showUnlockedService(service) {
     service.note || "El acceso se mantiene disponible durante la vigencia de tu compra.";
 
   $("unlockedService")?.classList.add("show");
-  $("secureAccessPanel")?.classList.add("show");
+  if (window.__showDemoCredentials) {
+    $("demoCredentialsCard")?.classList.add("show");
+  } else {
+    $("demoCredentialsCard")?.classList.remove("show");
+  }
   $("activationSuccessRibbon")?.classList.add("show");
   setActivationProgress(3);
 }
