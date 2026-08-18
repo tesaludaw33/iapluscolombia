@@ -711,6 +711,493 @@ body.account-page footer{display:none}
   .product-code-row button{height:42px}
 }
 
+
+/* ===== INFORMACIÓN DE ACCESO SEGURA ===== */
+.secure-access-panel{
+  display:none;
+  margin-top:12px;
+  border:1px solid #dce7f1;
+  border-radius:14px;
+  overflow:hidden;
+  background:#fff;
+}
+.secure-access-panel.show{display:block}
+.secure-access-head{
+  padding:11px 12px;
+  background:#f6f9fd;
+  border-bottom:1px solid #e6edf4;
+}
+.secure-access-head b{display:block;font-size:.86rem}
+.secure-access-head small{color:var(--muted);font-size:.7rem}
+.secure-access-body{padding:12px;display:grid;gap:9px}
+.secure-access-row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  font-size:.76rem;
+}
+.secure-access-row span{color:var(--muted)}
+.secure-mask{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.6px;
+  color:#31445a;
+}
+.secure-support-btn{
+  display:block;
+  margin-top:5px;
+  text-align:center;
+  border-radius:10px;
+  padding:10px 12px;
+  background:#22c55e;
+  color:#fff;
+  font-weight:900;
+  font-size:.78rem;
+}
+.secure-warning{
+  margin-top:7px;
+  padding:9px 10px;
+  border-radius:10px;
+  background:#fff8e5;
+  border:1px solid #f2e1ac;
+  color:#6e591b;
+  font-size:.71rem;
+}
+
+
+/* =========================================================
+   EXPERIENCIA PREMIUM DE ACTIVACIÓN
+   ========================================================= */
+.product-activation-box{
+  position:relative;
+  margin-top:22px;
+  border:1px solid rgba(121,163,205,.24);
+  border-radius:26px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 92% 4%,rgba(32,195,255,.13),transparent 28%),
+    linear-gradient(145deg,#ffffff 0%,#f8fbff 60%,#f2f8ff 100%);
+  box-shadow:0 18px 55px rgba(7,23,45,.10);
+}
+.product-activation-box:before{
+  content:"";
+  position:absolute;
+  left:0;right:0;top:0;
+  height:4px;
+  background:linear-gradient(90deg,#0d8cff,#20c3ff,#7b61ff);
+}
+.product-activation-head{
+  position:relative;
+  padding:23px 24px 18px;
+  background:transparent;
+  border-bottom:0;
+  align-items:center;
+}
+.activation-heading-wrap{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+.product-activation-icon{
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  background:linear-gradient(145deg,#07172d,#0d3f76);
+  box-shadow:0 10px 24px rgba(7,23,45,.20);
+  font-size:1.1rem;
+}
+.product-activation-head b{
+  font-size:1.06rem;
+  letter-spacing:-.2px;
+}
+.product-activation-head small{
+  margin-top:4px;
+  font-size:.76rem;
+  line-height:1.4;
+}
+.activation-security-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:#ecf8f2;
+  color:#17704a;
+  border:1px solid #d3eddf;
+  font-size:.69rem;
+  font-weight:900;
+  white-space:nowrap;
+}
+.activation-progress{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  padding:0 24px 19px;
+}
+.activation-step{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:10px 11px;
+  border-radius:13px;
+  background:rgba(255,255,255,.75);
+  border:1px solid #e3ebf4;
+  color:#718095;
+  font-size:.72rem;
+  font-weight:850;
+  transition:.25s ease;
+}
+.activation-step-number{
+  width:25px;
+  height:25px;
+  flex:0 0 auto;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#edf2f7;
+  color:#75869a;
+  font-size:.7rem;
+  font-weight:950;
+  transition:.25s ease;
+}
+.activation-step.active{
+  color:#145f99;
+  border-color:#b9dcf8;
+  background:#eef8ff;
+  box-shadow:0 7px 18px rgba(13,140,255,.08);
+}
+.activation-step.active .activation-step-number{
+  color:#fff;
+  background:linear-gradient(135deg,#0d8cff,#20c3ff);
+  box-shadow:0 5px 13px rgba(13,140,255,.24);
+}
+.activation-step.done{
+  color:#176b47;
+  border-color:#d1ebdd;
+  background:#effaf4;
+}
+.activation-step.done .activation-step-number{
+  color:#fff;
+  background:#20b66e;
+}
+.product-activation-body{
+  padding:0 24px 24px;
+}
+.product-activation-login{
+  padding:18px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#fffaf0,#fffdf7);
+  border:1px solid #f2dfae;
+  color:#66551d;
+  box-shadow:none;
+}
+.activation-login-inner{
+  display:grid;
+  grid-template-columns:44px 1fr auto;
+  align-items:center;
+  gap:13px;
+}
+.google-premium-icon{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  border:1px solid #eadfca;
+  box-shadow:0 7px 18px rgba(73,53,4,.06);
+  font-size:1.1rem;
+  font-weight:950;
+  color:#4285f4;
+}
+.activation-login-copy b{
+  display:block;
+  color:#3f3515;
+  font-size:.9rem;
+}
+.activation-login-copy span{
+  display:block;
+  margin-top:2px;
+  color:#76683a;
+  font-size:.74rem;
+}
+.product-activation-login button{
+  margin:0;
+  min-height:41px;
+  padding:0 14px;
+  border-radius:11px;
+  background:linear-gradient(135deg,#07172d,#0c3767);
+  box-shadow:0 8px 18px rgba(7,23,45,.14);
+}
+.product-activation-form{
+  border-radius:19px;
+  background:rgba(255,255,255,.82);
+  border:1px solid #e3ebf4;
+  padding:18px;
+}
+.activation-code-title{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:13px;
+}
+.activation-code-title b{
+  display:block;
+  color:#24364d;
+  font-size:.92rem;
+}
+.activation-code-title p{
+  margin:4px 0 0;
+  max-width:510px;
+  font-size:.75rem;
+}
+.activation-product-chip{
+  flex:0 0 auto;
+  padding:7px 10px;
+  border-radius:999px;
+  background:#edf6ff;
+  border:1px solid #d5e9fb;
+  color:#20699f;
+  font-size:.68rem;
+  font-weight:900;
+  max-width:170px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.product-code-row{
+  grid-template-columns:minmax(0,1fr) 120px;
+  gap:10px;
+}
+.product-code-row input{
+  height:49px;
+  border-radius:13px;
+  padding:0 15px;
+  background:#fff;
+  border-color:#d8e4ef;
+  font-size:.86rem;
+  transition:.2s;
+}
+.product-code-row input:focus{
+  border-color:#66b8f6;
+  box-shadow:0 0 0 4px rgba(13,140,255,.09);
+}
+.product-code-row button{
+  border-radius:13px;
+  background:linear-gradient(135deg,#0d8cff,#20b9f1);
+  box-shadow:0 9px 22px rgba(13,140,255,.20);
+  transition:.2s;
+}
+.product-code-row button:hover{
+  transform:translateY(-1px);
+  box-shadow:0 12px 25px rgba(13,140,255,.27);
+}
+.product-code-example{
+  display:inline-flex;
+  gap:5px;
+  align-items:center;
+  margin-top:9px;
+  padding:5px 8px;
+  border-radius:8px;
+  background:#f5f7fa;
+  color:#8693a2;
+  font-size:.67rem;
+}
+.product-code-message{
+  margin-top:12px;
+  border-radius:12px;
+  padding:11px 12px;
+}
+.product-unlocked{
+  margin-top:16px;
+  border:0;
+  border-radius:20px;
+  background:linear-gradient(145deg,#f0fff7,#f8fffb);
+  box-shadow:inset 0 0 0 1px #d0eddd;
+  overflow:hidden;
+  animation:activationReveal .45s cubic-bezier(.2,.7,.2,1);
+}
+.product-unlocked-top{
+  position:relative;
+  padding:18px 18px 14px 62px;
+  background:transparent;
+  border:0;
+}
+.product-unlocked-top:before{
+  content:"✓";
+  position:absolute;
+  left:17px;
+  top:15px;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  background:linear-gradient(135deg,#17ad67,#37ca85);
+  box-shadow:0 8px 18px rgba(23,173,103,.24);
+  font-weight:950;
+}
+.product-unlocked-top b{
+  font-size:1rem;
+  color:#164f37;
+}
+.product-unlocked-top small{
+  display:block;
+  margin-top:2px;
+  color:#5c7c6d;
+}
+.product-unlocked-content{
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  padding:0 17px 17px;
+}
+.product-unlocked-row{
+  display:block;
+  padding:11px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.76);
+  border:1px solid #dcefe5;
+}
+.product-unlocked-row span{
+  display:block;
+  font-size:.65rem;
+  margin-bottom:3px;
+}
+.product-unlocked-row strong{
+  display:block;
+  text-align:left;
+  font-size:.78rem;
+  color:#244b39;
+}
+.product-unlocked-note{
+  grid-column:1/-1;
+  margin:1px 0 0;
+  border-radius:12px;
+  background:#fff;
+  border-color:#e0eee6;
+  color:#577061;
+}
+.secure-access-panel{
+  margin-top:14px;
+  border:1px solid #d9e5f0;
+  border-radius:20px;
+  background:linear-gradient(145deg,#ffffff,#f7faff);
+  box-shadow:0 10px 30px rgba(7,23,45,.06);
+  animation:activationReveal .52s cubic-bezier(.2,.7,.2,1);
+}
+.secure-access-head{
+  position:relative;
+  padding:16px 17px 15px 54px;
+  background:transparent;
+  border-bottom:1px solid #e8eef5;
+}
+.secure-access-head:before{
+  content:"🔐";
+  position:absolute;
+  left:16px;
+  top:15px;
+  width:29px;
+  height:29px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  background:#edf5ff;
+}
+.secure-access-head b{
+  font-size:.9rem;
+  color:#26394f;
+}
+.secure-access-head small{
+  display:block;
+  margin-top:2px;
+  line-height:1.4;
+  color:#718095;
+}
+.secure-access-body{
+  padding:15px 17px 17px;
+  gap:8px;
+}
+.secure-access-row{
+  min-height:43px;
+  padding:8px 10px;
+  border-radius:11px;
+  background:#f8fafc;
+  border:1px solid #e8edf3;
+}
+.secure-access-row span{
+  font-size:.7rem;
+}
+.secure-access-row strong{
+  font-size:.76rem;
+  color:#304257;
+}
+.secure-mask{
+  padding:5px 8px;
+  border-radius:8px;
+  background:#edf2f7;
+  border:1px dashed #cfd9e4;
+}
+.secure-support-btn{
+  margin-top:5px;
+  border-radius:12px;
+  padding:11px 12px;
+  background:linear-gradient(135deg,#20b968,#25d475);
+  box-shadow:0 8px 20px rgba(32,185,104,.18);
+  transition:.2s;
+}
+.secure-support-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 11px 24px rgba(32,185,104,.25);
+}
+.secure-warning{
+  display:flex;
+  align-items:flex-start;
+  gap:7px;
+  border-radius:11px;
+}
+.secure-warning:before{
+  content:"🛡️";
+}
+.activation-success-ribbon{
+  display:none;
+  align-items:center;
+  gap:8px;
+  margin-top:14px;
+  padding:9px 11px;
+  border-radius:12px;
+  background:#eaf9f2;
+  border:1px solid #d1eddf;
+  color:#176a47;
+  font-size:.73rem;
+  font-weight:850;
+}
+.activation-success-ribbon.show{display:flex}
+@keyframes activationReveal{
+  from{opacity:0;transform:translateY(10px) scale(.99)}
+  to{opacity:1;transform:none}
+}
+@media(max-width:700px){
+  .activation-security-badge{display:none}
+  .activation-progress{grid-template-columns:1fr}
+  .activation-step{padding:9px 10px}
+  .activation-login-inner{grid-template-columns:44px 1fr}
+  .product-activation-login button{grid-column:1/-1;width:100%}
+  .activation-code-title{display:block}
+  .activation-product-chip{display:inline-flex;margin-top:8px}
+  .product-unlocked-content{grid-template-columns:1fr 1fr}
+}
+@media(max-width:500px){
+  .product-activation-head{padding:21px 18px 16px}
+  .activation-progress{padding:0 18px 16px}
+  .product-activation-body{padding:0 18px 18px}
+  .product-code-row{grid-template-columns:1fr}
+  .product-code-row button{height:46px}
+  .product-unlocked-content{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -1152,38 +1639,69 @@ body.account-page footer{display:none}
           <button class="pd-btn wa" type="button" onclick="sendSelectedProductToWhatsApp()">💬 Comprar por WhatsApp</button>
         </div>
 
+
 <div class="product-activation-box" id="productActivationBox">
   <div class="product-activation-head">
-    <div>
-      <b id="productActivationTitle">Activar este producto</b>
-      <small>Disponible para clientes que ya iniciaron sesión.</small>
+    <div class="activation-heading-wrap">
+      <div class="product-activation-icon">🔑</div>
+      <div>
+        <b id="productActivationTitle">Centro de activación</b>
+        <small>Activa y consulta tu servicio sin salir de la ficha del producto.</small>
+      </div>
     </div>
-    <div class="product-activation-icon">🔑</div>
+    <span class="activation-security-badge">🛡️ Sesión protegida</span>
+  </div>
+
+  <div class="activation-progress">
+    <div class="activation-step active" id="activationStep1">
+      <span class="activation-step-number">1</span>
+      <span>Iniciar sesión</span>
+    </div>
+    <div class="activation-step" id="activationStep2">
+      <span class="activation-step-number">2</span>
+      <span>Validar código</span>
+    </div>
+    <div class="activation-step" id="activationStep3">
+      <span class="activation-step-number">3</span>
+      <span>Servicio activo</span>
+    </div>
   </div>
 
   <div class="product-activation-body">
     <div class="product-activation-login" id="productActivationLogin">
-      Para usar un código de activación primero debes iniciar sesión con Google.
-      <br>
-      <button type="button" onclick="openAuthModal()">Iniciar sesión</button>
+      <div class="activation-login-inner">
+        <div class="google-premium-icon">G</div>
+        <div class="activation-login-copy">
+          <b>Identifica tu cuenta</b>
+          <span>Inicia sesión con Google para vincular la activación únicamente a tu perfil.</span>
+        </div>
+        <button type="button" onclick="openAuthModal()">Continuar con Google</button>
+      </div>
     </div>
 
     <div class="product-activation-form" id="productActivationForm">
-      <p id="productActivationDescription">
-        Ingresa el código correspondiente a este producto para desbloquear la información de tu servicio.
-      </p>
+      <div class="activation-code-title">
+        <div>
+          <b>Introduce tu código de activación</b>
+          <p id="productActivationDescription">
+            Ingresa el código correspondiente a este producto para validar tu compra y consultar el estado del servicio.
+          </p>
+        </div>
+        <span class="activation-product-chip" id="activationProductChip">Producto seleccionado</span>
+      </div>
 
       <div class="product-code-row">
         <input id="activationCodeInput"
                type="text"
                placeholder="IAPLUS-XXXX"
                maxlength="40"
-               autocomplete="off">
-        <button type="button" onclick="activateServiceCode()">Activar</button>
+               autocomplete="off"
+               aria-label="Código de activación">
+        <button type="button" onclick="activateServiceCode()">Validar código</button>
       </div>
 
       <div class="product-code-example">
-        Código de demostración: <b>IAPLUS-DEMO-2026</b>
+        ✦ Demo: <b>IAPLUS-DEMO-2026</b>
       </div>
 
       <div class="product-code-message" id="activationMessage"></div>
@@ -1206,7 +1724,7 @@ body.account-page footer{display:none}
           </div>
 
           <div class="product-unlocked-row">
-            <span>Vence</span>
+            <span>Vencimiento</span>
             <strong id="unlockedEnd">—</strong>
           </div>
 
@@ -1216,7 +1734,7 @@ body.account-page footer{display:none}
           </div>
 
           <div class="product-unlocked-row">
-            <span>Información del servicio</span>
+            <span>Modalidad</span>
             <strong id="unlockedAccess">Asignada al cliente</strong>
           </div>
 
@@ -1224,6 +1742,45 @@ body.account-page footer{display:none}
             El servicio permanece activo durante el periodo adquirido.
           </div>
         </div>
+      </div>
+
+      <div class="secure-access-panel" id="secureAccessPanel">
+        <div class="secure-access-head">
+          <b>Área privada del servicio</b>
+          <small>La información sensible se mantiene protegida y no queda expuesta en el código fuente de la página.</small>
+        </div>
+
+        <div class="secure-access-body">
+          <div class="secure-access-row">
+            <span>Cuenta asignada</span>
+            <strong class="secure-mask">••••••••@••••••.com</strong>
+          </div>
+
+          <div class="secure-access-row">
+            <span>Contraseña</span>
+            <strong class="secure-mask">••••••••••••</strong>
+          </div>
+
+          <div class="secure-access-row">
+            <span>Verificación adicional</span>
+            <strong>Gestionada por soporte</strong>
+          </div>
+
+          <a class="secure-support-btn"
+             href="https://wa.me/573018964476?text=Hola%20IA%20Plus%20Colombia%2C%20ya%20activ%C3%A9%20mi%20c%C3%B3digo%20y%20necesito%20recibir%20la%20informaci%C3%B3n%20de%20mi%20servicio."
+             target="_blank"
+             rel="noopener">
+            💬 Solicitar información de acceso
+          </a>
+
+          <div class="secure-warning">
+            Por seguridad, cualquier dato sensible se entrega únicamente por un canal controlado.
+          </div>
+        </div>
+      </div>
+
+      <div class="activation-success-ribbon" id="activationSuccessRibbon">
+        ✓ Activación completada y vinculada a tu sesión.
       </div>
     </div>
   </div>
@@ -2041,19 +2598,43 @@ const DEMO_ACTIVATION_CODES = {
 };
 
 
+
+function setActivationProgress(step) {
+  const steps = [
+    $("activationStep1"),
+    $("activationStep2"),
+    $("activationStep3")
+  ];
+
+  steps.forEach((element, index) => {
+    if (!element) return;
+    const current = index + 1;
+    element.classList.remove("active", "done");
+
+    if (current < step) element.classList.add("done");
+    else if (current === step) element.classList.add("active");
+  });
+}
+
 function updateProductActivationAuthState() {
   const loginBox = $("productActivationLogin");
   const form = $("productActivationForm");
   if (!loginBox || !form) return;
 
+  const alreadyUnlocked = $("unlockedService")?.classList.contains("show");
+
   if (isSignedIn()) {
     loginBox.style.display = "none";
     form.classList.add("show");
+    setActivationProgress(alreadyUnlocked ? 3 : 2);
   } else {
     loginBox.style.display = "block";
     form.classList.remove("show");
     $("unlockedService")?.classList.remove("show");
+    $("secureAccessPanel")?.classList.remove("show");
+    $("activationSuccessRibbon")?.classList.remove("show");
     $("activationMessage")?.classList.remove("show");
+    setActivationProgress(1);
   }
 }
 
@@ -2062,20 +2643,26 @@ function resetProductActivationForCurrentProduct() {
   if (input) input.value = "";
 
   $("unlockedService")?.classList.remove("show");
+  $("secureAccessPanel")?.classList.remove("show");
   $("activationMessage")?.classList.remove("show");
 
   if ($("productActivationTitle")) {
-    $("productActivationTitle").textContent =
-      "Activar " + (currentDetailProduct?.name || "este producto");
+    $("productActivationTitle").textContent = "Centro de activación";
   }
 
   if ($("productActivationDescription")) {
     $("productActivationDescription").textContent =
       "Ingresa el código asignado a " +
       (currentDetailProduct?.name || "este producto") +
-      " para desbloquear la información de tu servicio.";
+      " para validar tu compra y consultar el estado del servicio.";
   }
 
+  if ($("activationProductChip")) {
+    $("activationProductChip").textContent =
+      currentDetailProduct?.name || "Producto seleccionado";
+  }
+
+  $("activationSuccessRibbon")?.classList.remove("show");
   updateProductActivationAuthState();
 }
 
@@ -2135,6 +2722,9 @@ function activateServiceCode() {
       })
       .catch(error => {
         $("unlockedService")?.classList.remove("show");
+        $("secureAccessPanel")?.classList.remove("show");
+        $("activationSuccessRibbon")?.classList.remove("show");
+        setActivationProgress(2);
         activationMessage(error.message || "Código inválido o vencido.", "error");
       });
 
@@ -2142,6 +2732,9 @@ function activateServiceCode() {
   }
 
   $("unlockedService")?.classList.remove("show");
+  $("secureAccessPanel")?.classList.remove("show");
+  $("activationSuccessRibbon")?.classList.remove("show");
+  setActivationProgress(2);
   activationMessage("Código inválido o todavía no registrado.", "error");
 }
 
@@ -2157,6 +2750,9 @@ function showUnlockedService(service) {
     service.note || "El acceso se mantiene disponible durante la vigencia de tu compra.";
 
   $("unlockedService")?.classList.add("show");
+  $("secureAccessPanel")?.classList.add("show");
+  $("activationSuccessRibbon")?.classList.add("show");
+  setActivationProgress(3);
 }
 
 
