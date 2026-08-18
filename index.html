@@ -1578,6 +1578,235 @@ html{scroll-behavior:smooth}
 @media(max-width:980px){.account-extra-grid{grid-template-columns:1fr}.account-extra-card.wide{grid-column:auto}.admin-stat-grid.extended{grid-template-columns:repeat(2,1fr)}.coupon-form{grid-template-columns:1fr 1fr}.coupon-form button{grid-column:1/-1}.cart-promo{grid-template-columns:1fr}}
 @media(max-width:560px){.admin-stat-grid.extended{grid-template-columns:1fr 1fr}.stock-grid,.referral-metrics{grid-template-columns:1fr}.account-extra-card{padding:16px}}
 
+
+/* ===== IA PLUS PRO EXPERIENCE 2026 ===== */
+:root{
+  --ease-premium:cubic-bezier(.2,.8,.2,1);
+  --ease-spring:cubic-bezier(.16,1,.3,1);
+  --admin-bg:#07111f;
+  --admin-panel:#0d1b2c;
+  --admin-panel-2:#102236;
+  --admin-line:rgba(255,255,255,.085);
+  --admin-text:#edf6ff;
+  --admin-muted:#8fa5bd;
+  --admin-accent:#38bdf8;
+  --admin-success:#34d399;
+  --admin-warn:#fbbf24;
+  --admin-danger:#fb7185;
+}
+body{overflow-x:hidden}
+body::selection{background:#bce6ff;color:#07172d}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan),var(--yellow));z-index:9999;box-shadow:0 0 16px rgba(32,195,255,.45);transition:width .08s linear}
+header{transition:box-shadow .3s var(--ease-premium),background .3s var(--ease-premium)}
+header.scrolled{box-shadow:0 12px 34px rgba(7,23,45,.09);background:rgba(255,255,255,.94)}
+.hero{isolation:isolate}
+.hero::after{content:"";position:absolute;width:480px;height:480px;right:-180px;top:-210px;border-radius:50%;background:radial-gradient(circle,rgba(32,195,255,.2),transparent 65%);filter:blur(8px);animation:heroOrb 10s ease-in-out infinite alternate;pointer-events:none;z-index:0}
+.hero .container{position:relative;z-index:2}
+.hero h1,.hero p,.hero-buttons,.hero-points,.pill{animation:heroIn .8s var(--ease-spring) both}
+.hero p{animation-delay:.06s}.hero-buttons{animation-delay:.12s}.hero-points{animation-delay:.18s}
+.visual{animation:visualFloat 6s ease-in-out infinite}
+.main-brand-card,.ai-chip-card{transition:transform .45s var(--ease-spring),box-shadow .45s var(--ease-spring)}
+.main-brand-card:hover{transform:translateY(-6px) rotateX(2deg);box-shadow:0 34px 80px rgba(0,0,0,.31)}
+.ai-chip-card:hover{transform:translateY(-5px) scale(1.025)}
+.plan,.product,.value,.step,.account-extra-card,.profile-card,.orders-card{position:relative;transition:transform .35s var(--ease-spring),box-shadow .35s var(--ease-spring),border-color .35s ease}
+.plan::after,.product::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(13,140,255,.085),transparent 42%);opacity:0;transition:opacity .3s ease}
+.plan:hover::after,.product:hover::after{opacity:1}
+.plan:hover,.product:hover,.value:hover,.step:hover,.account-extra-card:hover{transform:translateY(-6px);box-shadow:0 22px 55px rgba(7,23,45,.11)}
+.btn,.buy,.plus-btn,.checkout,.account-action-btn,.refresh-orders,.service-renew-btn,.support-form button{transition:transform .2s var(--ease-spring),box-shadow .2s ease,background .2s ease}
+.btn:active,.buy:active,.plus-btn:active,.checkout:active,.account-action-btn:active{transform:scale(.97)}
+.reveal{opacity:0;transform:translateY(24px) scale(.985);filter:blur(4px);transition:opacity .72s var(--ease-premium),transform .72s var(--ease-spring),filter .72s ease}
+.reveal.in{opacity:1;transform:none;filter:none}
+.toast{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.mobile-pro-nav{display:none}
+@keyframes heroIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes visualFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes heroOrb{from{transform:translate3d(0,0,0) scale(.95)}to{transform:translate3d(-55px,55px,0) scale(1.12)}}
+
+/* ===== ADMIN PRO SHELL ===== */
+body.admin-page{background:var(--admin-bg);color:var(--admin-text)}
+body.admin-page header,body.admin-page footer{display:none!important}
+#adminPage.admin-pro{display:none;padding:0;min-height:100vh;background:
+ radial-gradient(circle at 80% -10%,rgba(56,189,248,.10),transparent 28%),
+ radial-gradient(circle at 5% 80%,rgba(34,197,94,.055),transparent 30%),
+ var(--admin-bg);color:var(--admin-text)}
+body.admin-page #adminPage.admin-pro{display:block!important}
+.admin-pro-shell{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh}
+.admin-pro-sidebar{position:sticky;top:0;height:100vh;padding:20px 15px;border-right:1px solid var(--admin-line);background:rgba(5,15,27,.88);backdrop-filter:blur(24px);display:flex;flex-direction:column;z-index:25}
+.admin-pro-brand{display:flex;align-items:center;gap:11px;padding:5px 8px 18px;border-bottom:1px solid var(--admin-line)}
+.admin-pro-brand-mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#0d8cff,#20c3ff);font-weight:950;color:#fff;box-shadow:0 10px 28px rgba(13,140,255,.28)}
+.admin-pro-brand strong{display:block;font-size:.92rem}.admin-pro-brand small{display:block;color:var(--admin-muted);font-size:.64rem;margin-top:1px;letter-spacing:.5px}
+.admin-pro-profile{position:relative;margin:16px 0;padding:12px;border:1px solid var(--admin-line);border-radius:16px;background:rgba(255,255,255,.035);display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:10px;min-width:0}
+.admin-pro-profile img{width:38px;height:38px;border-radius:12px;object-fit:cover;background:#19314b}.admin-pro-profile strong{display:block;font-size:.75rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.admin-pro-profile small{display:block;color:var(--admin-muted);font-size:.58rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.admin-pro-live{width:8px;height:8px;border-radius:50%;background:var(--admin-success);box-shadow:0 0 0 5px rgba(52,211,153,.1),0 0 18px rgba(52,211,153,.4)}.admin-pro-live.static{display:inline-block}
+.admin-pro-nav{display:grid;gap:5px;overflow:auto;padding-right:2px}.admin-pro-nav button{width:100%;border:0;background:transparent;color:#9eb2c8;padding:10px 12px;border-radius:11px;text-align:left;font:inherit;font-size:.75rem;font-weight:760;cursor:pointer;display:flex;align-items:center;gap:10px;transition:.2s var(--ease-premium)}.admin-pro-nav button span{width:20px;text-align:center;color:#7894b2;font-size:.9rem}.admin-pro-nav button:hover{background:rgba(255,255,255,.055);color:#fff}.admin-pro-nav button.active{background:linear-gradient(90deg,rgba(56,189,248,.16),rgba(56,189,248,.06));color:#dff5ff;box-shadow:inset 3px 0 var(--admin-accent)}.admin-pro-nav button.active span{color:var(--admin-accent)}
+.admin-pro-sidebar-foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--admin-line);display:grid;gap:6px}.admin-pro-sidebar-foot button{border:0;background:transparent;color:#8da4bd;padding:9px 10px;text-align:left;border-radius:10px;font-weight:780;font-size:.7rem;cursor:pointer}.admin-pro-sidebar-foot button:hover{background:rgba(255,255,255,.05);color:#fff}.admin-pro-sidebar-foot button.danger:hover{background:rgba(251,113,133,.09);color:#fecdd3}
+.admin-pro-main{min-width:0;padding:0 30px 50px}.admin-pro-topbar{position:sticky;top:0;z-index:20;height:88px;display:flex;align-items:center;justify-content:space-between;gap:20px;background:linear-gradient(180deg,rgba(7,17,31,.96) 0%,rgba(7,17,31,.86) 78%,rgba(7,17,31,0) 100%);backdrop-filter:blur(16px);padding-top:6px}.admin-pro-topbar h1{margin:3px 0 0;font-size:1.45rem;letter-spacing:-.5px;color:#fff}.admin-pro-eyebrow{display:block;color:#65c9f8;text-transform:uppercase;letter-spacing:1.3px;font-size:.59rem;font-weight:900}.admin-pro-top-actions{display:flex;align-items:center;gap:9px}.admin-session-chip{display:flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid var(--admin-line);background:rgba(255,255,255,.035);border-radius:13px}.admin-session-chip small{display:block;color:var(--admin-muted);font-size:.55rem}.admin-session-chip b{display:block;color:#d7edf9;font-size:.66rem;margin-top:1px}.admin-icon-btn{width:40px;height:40px;border:1px solid var(--admin-line);background:rgba(255,255,255,.04);color:#d8ebf8;border-radius:12px;cursor:pointer;font-size:1rem;transition:.2s}.admin-icon-btn:hover{background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.3);transform:rotate(20deg)}
+.admin-workspace{animation:adminWorkspaceIn .45s var(--ease-spring) both}.admin-pro-panel{display:none;animation:adminPanelIn .38s var(--ease-spring) both}.admin-pro-panel.active{display:block}.admin-section-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin:14px 0 18px}.admin-section-intro h2{margin:4px 0 5px;font-size:1.55rem;letter-spacing:-.5px}.admin-section-intro p{margin:0;color:var(--admin-muted);font-size:.76rem;max-width:680px}
+.pro-kpis{grid-template-columns:repeat(6,minmax(0,1fr));margin:14px 0 18px;gap:10px}.admin-stat.pro-stat{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.052),rgba(255,255,255,.025));border:1px solid var(--admin-line);box-shadow:none;color:#fff;padding:15px;border-radius:16px;min-height:118px;transition:.28s var(--ease-spring)}.admin-stat.pro-stat:hover{transform:translateY(-4px);background:rgba(255,255,255,.065);border-color:rgba(56,189,248,.24)}.admin-stat.pro-stat small{color:#8da5be;font-size:.59rem;letter-spacing:.4px}.admin-stat.pro-stat strong{font-size:1.52rem;margin-top:8px}.admin-stat.pro-stat span{color:#6f879f}.pro-stat-icon{position:absolute;right:13px;top:13px;width:29px;height:29px;border-radius:10px;display:grid;place-items:center;background:rgba(56,189,248,.09);color:#7dd3fc;font-size:.72rem;font-weight:900}.pro-stat-accent{background:linear-gradient(145deg,rgba(13,140,255,.18),rgba(32,195,255,.07))!important;border-color:rgba(56,189,248,.2)!important}
+.admin-overview-grid{display:grid;grid-template-columns:1.5fr .8fr;gap:14px;margin-bottom:14px}.admin-pro-card{background:linear-gradient(145deg,rgba(255,255,255,.048),rgba(255,255,255,.026));border:1px solid var(--admin-line);border-radius:18px;padding:18px;box-shadow:0 18px 45px rgba(0,0,0,.12)}.admin-pro-card.flush{padding:0;overflow:hidden}.admin-pro-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}.admin-pro-card-head small{display:block;color:#6ecbf5;text-transform:uppercase;letter-spacing:.8px;font-size:.55rem;font-weight:900}.admin-pro-card-head h2{margin:3px 0 0;font-size:.97rem;color:#f0f8ff}.admin-link-btn{border:0;background:transparent;color:#77cdf6;font-size:.67rem;font-weight:850;cursor:pointer}.admin-link-btn:hover{color:#fff}.admin-save-state{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.14);color:#8ce8bd;border-radius:999px;padding:5px 8px;font-size:.58rem;font-weight:850}
+.admin-revenue-chart{height:210px;display:flex;align-items:end;gap:9px;padding:18px 8px 4px;border-radius:14px;background:linear-gradient(180deg,rgba(56,189,248,.025),transparent),repeating-linear-gradient(to top,rgba(255,255,255,.045) 0 1px,transparent 1px 48px)}.admin-chart-col{height:100%;flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:7px;min-width:0}.admin-chart-bar-wrap{height:150px;width:min(34px,70%);display:flex;align-items:end}.admin-chart-bar{width:100%;min-height:3px;border-radius:9px 9px 4px 4px;background:linear-gradient(180deg,#39c7ff,#0d8cff);box-shadow:0 0 22px rgba(32,195,255,.16);transform-origin:bottom;animation:barGrow .65s var(--ease-spring) both}.admin-chart-col small{color:#7188a0;font-size:.52rem}.admin-chart-col b{font-size:.55rem;color:#a8c1d8;white-space:nowrap}.admin-recent-orders{display:grid;gap:8px}.admin-recent-order{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--admin-line);border-radius:12px;background:rgba(255,255,255,.025)}.admin-recent-order b{font-size:.7rem}.admin-recent-order small{display:block;color:var(--admin-muted);font-size:.57rem}.admin-recent-order strong{font-size:.72rem}.admin-recent-order .status-pill{font-size:.55rem}
+.admin-two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}.admin-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.admin-form-grid.compact{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-form-grid.settings-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:15px}.admin-field{display:grid;gap:6px;color:#8fa6be;font-size:.61rem;font-weight:820}.admin-field input,.admin-field select,.admin-inline-tools input,.admin-inline-tools select,.admin-filterbar input,.admin-filterbar select{width:100%;border:1px solid var(--admin-line);background:#0a1727;color:#dff2ff;border-radius:10px;padding:10px 11px;outline:none;font:inherit;font-size:.7rem;transition:.2s}.admin-field input:focus,.admin-field select:focus,.admin-inline-tools input:focus,.admin-filterbar input:focus,.admin-filterbar select:focus{border-color:rgba(56,189,248,.5);box-shadow:0 0 0 3px rgba(56,189,248,.08)}.admin-field select,.admin-filterbar select,.admin-inline-tools select{color-scheme:dark}.admin-field-row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.admin-full-field{grid-column:1/-1}.admin-inline-field{display:grid;grid-template-columns:1fr auto;gap:6px}.admin-inline-field button{border:1px solid var(--admin-line);background:rgba(255,255,255,.05);color:#d8eaf6;border-radius:10px;padding:0 11px;cursor:pointer}.admin-private-box{border:1px solid rgba(56,189,248,.15);background:rgba(56,189,248,.045);border-radius:14px;padding:13px;margin:13px 0}.admin-private-title{display:flex;gap:9px;margin-bottom:12px}.admin-private-title b{display:block;font-size:.72rem}.admin-private-title small{display:block;color:#7f9ab5;font-size:.57rem;margin-top:2px}.admin-help{color:var(--admin-muted);font-size:.65rem;line-height:1.55}.admin-primary-btn,.admin-soft-btn,.admin-danger-btn{border-radius:10px;padding:9px 12px;font-weight:860;font-size:.66rem;cursor:pointer;transition:.2s var(--ease-spring)}.admin-primary-btn{border:0;background:linear-gradient(135deg,#0d8cff,#20c3ff);color:#fff;box-shadow:0 8px 24px rgba(13,140,255,.18)}.admin-primary-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(13,140,255,.28)}.admin-soft-btn{border:1px solid var(--admin-line);background:rgba(255,255,255,.045);color:#cbe4f5}.admin-soft-btn:hover{background:rgba(255,255,255,.08)}.admin-danger-btn{border:1px solid rgba(251,113,133,.2);background:rgba(251,113,133,.08);color:#fecdd3}.admin-danger-btn:hover{background:rgba(251,113,133,.13)}.admin-primary-btn.wide,.admin-soft-btn.wide{width:100%}.admin-batch-result{margin-top:10px;max-height:130px;overflow:auto;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.58rem;color:#8ed9f7;line-height:1.65}.admin-security-pill{display:inline-flex;align-items:center;border:1px solid rgba(52,211,153,.18);background:rgba(52,211,153,.07);color:#91e7bf;border-radius:999px;padding:7px 9px;font-size:.6rem;font-weight:850}
+.admin-filterbar{display:flex;align-items:center;gap:8px;margin-bottom:12px}.admin-search{position:relative;display:flex;align-items:center;gap:7px;min-width:280px;flex:1;border:1px solid var(--admin-line);background:rgba(255,255,255,.025);border-radius:11px;padding-left:10px;color:#6b87a3}.admin-search input{border:0!important;background:transparent!important;box-shadow:none!important;padding-left:2px!important}.admin-filterbar select{width:auto;min-width:160px}.admin-result-count{color:#7890a8;font-size:.61rem;white-space:nowrap}.admin-inline-tools{display:flex;gap:7px}.admin-inline-tools input{width:170px}.admin-inline-tools select{width:130px}
+.admin-table-wrap{overflow:auto}.admin-table{width:100%;border-collapse:collapse;min-width:940px;color:#cfe0ed}.admin-table th{position:sticky;top:0;background:#0b1929;color:#718da8;font-size:.55rem;text-transform:uppercase;letter-spacing:.6px;text-align:left;padding:11px 12px;border-bottom:1px solid var(--admin-line)}.admin-table td{padding:12px;border-bottom:1px solid rgba(255,255,255,.055);font-size:.64rem;vertical-align:top}.admin-table tbody tr{transition:.18s}.admin-table tbody tr:hover{background:rgba(56,189,248,.035)}.admin-table small{color:#7089a2}.admin-table-actions{display:flex;gap:5px;flex-wrap:wrap}.admin-table-actions button{border:1px solid var(--admin-line);background:rgba(255,255,255,.04);color:#b9d4e8;border-radius:8px;padding:6px 7px;font-size:.54rem;font-weight:800;cursor:pointer}.admin-table-actions button:hover{background:rgba(255,255,255,.08)}.admin-table-actions button.primary{border-color:rgba(52,211,153,.18);background:rgba(52,211,153,.08);color:#90e7bc}
+.admin-codes-list{display:grid;gap:7px;max-height:600px;overflow:auto;padding-right:3px}.admin-code-item{border:1px solid var(--admin-line);background:rgba(255,255,255,.025);border-radius:12px;padding:10px 11px;color:#d7e8f4}.admin-code-value{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.69rem}.admin-code-meta{color:#6f8ba5;font-size:.55rem}.admin-code-actions button{background:rgba(255,255,255,.04)!important;border-color:var(--admin-line)!important;color:#b9d4e8!important}.admin-code-status.available{color:#79deb1}.admin-code-status.used{color:#7fbde2}.admin-code-status.off{color:#df95a0}.admin-hidden-metrics{display:none}
+.stock-grid{grid-template-columns:repeat(2,1fr)}.stock-item{background:rgba(255,255,255,.03);border-color:var(--admin-line);color:#e3f1fb}.stock-item small{color:#718ba5}.stock-item.low{background:rgba(251,191,36,.07);border-color:rgba(251,191,36,.15)}.stock-item.zero{background:rgba(251,113,133,.07);border-color:rgba(251,113,133,.15)}.admin-alert{background:rgba(251,191,36,.075);color:#f7cf6c;border:1px solid rgba(251,191,36,.12)}
+.admin-client-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.admin-user-item.pro-client{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--admin-line);border-radius:13px;background:rgba(255,255,255,.025);cursor:pointer;transition:.22s var(--ease-spring)}.admin-user-item.pro-client:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.2);background:rgba(56,189,248,.04)}.pro-client-avatar{width:36px;height:36px;border-radius:11px;object-fit:cover;background:#17304a;display:grid;place-items:center;color:#8ccfee;font-weight:900}.pro-client-copy{min-width:0;flex:1}.pro-client-copy b{font-size:.68rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pro-client-copy span{font-size:.56rem;color:#718ca6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pro-client-arrow{color:#56758f}
+.admin-ticket{border-color:var(--admin-line);background:rgba(255,255,255,.025);color:#dcecf7}.admin-ticket small{color:#718da7}.ticket-message{background:rgba(255,255,255,.045);color:#b9d1e3}.ticket-message.admin{background:rgba(56,189,248,.07);color:#bce8fb}.ticket-actions button{background:rgba(255,255,255,.04);border-color:var(--admin-line);color:#b9d3e6}
+.pro-coupon-form{grid-template-columns:repeat(6,minmax(0,1fr));align-items:end}.pro-coupon-form button{height:38px}.coupon-item{border-color:var(--admin-line);background:rgba(255,255,255,.025);color:#d9eaf6}.coupon-item small{color:#728ca5}
+.admin-switch{display:flex;align-items:center;gap:9px;border:1px solid var(--admin-line);border-radius:12px;padding:9px 10px;color:#cfe2f0}.admin-switch input{display:none}.admin-switch>span{width:34px;height:19px;border-radius:99px;background:#243a50;position:relative;transition:.2s}.admin-switch>span::after{content:"";position:absolute;width:13px;height:13px;border-radius:50%;background:#93a8bb;left:3px;top:3px;transition:.2s}.admin-switch input:checked+span{background:rgba(52,211,153,.3)}.admin-switch input:checked+span::after{left:18px;background:#67e7af}.admin-switch b{display:block;font-size:.63rem}.admin-switch small{display:block;color:#7189a1;font-size:.53rem;margin-top:1px}
+.admin-security-summary{display:grid;gap:8px;margin:12px 0}.admin-security-summary>div{display:flex;justify-content:space-between;gap:15px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.055);font-size:.64rem}.admin-security-summary span{color:#7189a2}.admin-security-summary b{font-weight:800}.admin-audit-list{display:grid;gap:6px;max-height:440px;overflow:auto}.admin-audit-item{display:grid;grid-template-columns:130px 1fr auto;gap:10px;align-items:center;padding:9px 10px;border:1px solid var(--admin-line);border-radius:10px;background:rgba(255,255,255,.02);font-size:.6rem}.admin-audit-item code{color:#7fd8fc;font-size:.57rem}.admin-audit-item span{color:#7690aa}.admin-audit-item small{color:#607990;text-align:right}
+.admin-unlock-gate{min-height:calc(100vh - 110px);display:grid;place-items:center;padding:24px}.admin-unlock-card{width:min(430px,100%);text-align:center;border:1px solid rgba(56,189,248,.14);background:linear-gradient(145deg,rgba(15,35,55,.9),rgba(8,22,38,.94));border-radius:24px;padding:30px;box-shadow:0 35px 90px rgba(0,0,0,.3);animation:unlockIn .5s var(--ease-spring) both}.admin-unlock-icon{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;margin:0 auto 18px;background:linear-gradient(145deg,rgba(56,189,248,.16),rgba(52,211,153,.08));border:1px solid rgba(56,189,248,.15);font-size:1.6rem}.admin-unlock-card h2{margin:7px 0 8px;font-size:1.5rem}.admin-unlock-card p{color:var(--admin-muted);font-size:.72rem;line-height:1.6;margin:0 0 18px}.admin-unlock-field{display:grid;text-align:left;gap:6px;color:#8da6bf;font-size:.61rem;font-weight:850}.admin-unlock-field input{border:1px solid var(--admin-line);background:#071523;color:#fff;border-radius:12px;padding:12px;text-align:center;letter-spacing:4px;font-size:1rem;outline:none}.admin-unlock-field input:focus{border-color:rgba(56,189,248,.5);box-shadow:0 0 0 4px rgba(56,189,248,.08)}.admin-unlock-btn{width:100%;margin-top:10px;border:0;border-radius:12px;padding:12px;background:linear-gradient(135deg,#0d8cff,#20c3ff);color:#fff;font-weight:900;cursor:pointer}.admin-unlock-btn:disabled{opacity:.55;cursor:wait}.admin-unlock-message{min-height:20px;margin-top:10px;color:#7d97b0;font-size:.58rem}.admin-unlock-message.error{color:#fda4af}.admin-unlock-message.ok{color:#86efac}.admin-unlock-store{border:0;background:transparent;color:#7190aa;margin-top:4px;font-size:.61rem;cursor:pointer}
+.admin-drawer-overlay,.admin-action-overlay{position:fixed;inset:0;z-index:350;background:rgba(0,7,15,.72);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:.24s}.admin-drawer-overlay.open,.admin-action-overlay.open{opacity:1;visibility:visible}.admin-client-drawer{position:absolute;right:0;top:0;height:100%;width:min(560px,100%);background:#091827;border-left:1px solid var(--admin-line);padding:26px;overflow:auto;transform:translateX(100%);transition:.35s var(--ease-spring);color:#dcecf7}.admin-drawer-overlay.open .admin-client-drawer{transform:none}.admin-drawer-close{position:absolute;right:15px;top:15px;width:34px;height:34px;border-radius:10px;border:1px solid var(--admin-line);background:rgba(255,255,255,.04);color:#c8dce9;cursor:pointer;font-size:1.1rem}.client-detail-head{display:flex;align-items:center;gap:12px;padding:20px 0;border-bottom:1px solid var(--admin-line)}.client-detail-avatar{width:52px;height:52px;border-radius:16px;object-fit:cover;background:#17324b;display:grid;place-items:center;font-size:1.1rem;font-weight:900}.client-detail-head h2{margin:0;font-size:1.15rem}.client-detail-head p{margin:3px 0 0;color:#7893ac;font-size:.63rem}.client-detail-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}.client-detail-stat{border:1px solid var(--admin-line);border-radius:12px;padding:10px;background:rgba(255,255,255,.025)}.client-detail-stat small{display:block;color:#718ba3;font-size:.53rem}.client-detail-stat b{display:block;margin-top:4px;font-size:.8rem}.client-detail-section{margin-top:16px}.client-detail-section h3{font-size:.72rem;margin:0 0 8px}.client-note-textarea{width:100%;min-height:90px;border:1px solid var(--admin-line);background:#071421;color:#d9e9f4;border-radius:11px;padding:10px;resize:vertical}.client-tags-input{width:100%;border:1px solid var(--admin-line);background:#071421;color:#d9e9f4;border-radius:10px;padding:9px;margin-top:7px}.client-service-row,.client-order-row{display:flex;justify-content:space-between;gap:12px;padding:9px;border:1px solid var(--admin-line);border-radius:10px;margin-bottom:6px;background:rgba(255,255,255,.02);font-size:.6rem}.client-service-row span,.client-order-row span{color:#7790a8}
+.admin-action-overlay{display:grid;place-items:center;padding:20px}.admin-action-modal{position:relative;width:min(470px,100%);background:#0a1929;border:1px solid var(--admin-line);border-radius:20px;padding:24px;color:#dcecf7;transform:translateY(15px) scale(.97);transition:.28s var(--ease-spring)}.admin-action-overlay.open .admin-action-modal{transform:none}.admin-action-modal h2{margin:5px 0 6px}.admin-action-modal p{margin:0 0 12px;color:#7890a8;font-size:.67rem}.admin-action-modal textarea{width:100%;min-height:120px;border:1px solid var(--admin-line);background:#061320;color:#dbeaf5;border-radius:12px;padding:11px;resize:vertical;outline:none}.admin-action-modal-buttons{display:flex;justify-content:flex-end;gap:7px;margin-top:10px}
+.admin-loading,.admin-empty{color:#748da5;background:rgba(255,255,255,.02);border-color:var(--admin-line)}
+@keyframes adminWorkspaceIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes adminPanelIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes unlockIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes barGrow{from{transform:scaleY(0);opacity:.2}to{transform:scaleY(1);opacity:1}}
+
+@media(max-width:1180px){.pro-kpis{grid-template-columns:repeat(3,1fr)}.admin-client-grid{grid-template-columns:repeat(2,1fr)}.pro-coupon-form{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.admin-pro-shell{grid-template-columns:76px minmax(0,1fr)}.admin-pro-sidebar{padding-inline:10px}.admin-pro-brand{justify-content:center}.admin-pro-brand>div:last-child,.admin-pro-profile>div,.admin-pro-live,.admin-pro-nav button:not(.active)::after,.admin-pro-nav button{font-size:0}.admin-pro-profile{grid-template-columns:1fr;justify-items:center;padding:9px}.admin-pro-profile img{width:38px}.admin-pro-nav button{justify-content:center;padding:11px}.admin-pro-nav button span{font-size:1rem}.admin-pro-sidebar-foot button{font-size:0;text-align:center}.admin-pro-sidebar-foot button::first-letter{font-size:.9rem}.admin-pro-main{padding-inline:18px}.admin-overview-grid,.admin-two-col{grid-template-columns:1fr}.admin-client-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.admin-pro-shell{display:block}.admin-pro-sidebar{position:fixed;left:0;right:0;bottom:0;top:auto;width:100%;height:70px;z-index:120;display:block;padding:7px;background:rgba(5,15,27,.96);border-right:0;border-top:1px solid var(--admin-line)}.admin-pro-brand,.admin-pro-profile,.admin-pro-sidebar-foot{display:none}.admin-pro-nav{display:flex;gap:3px;overflow-x:auto}.admin-pro-nav button{flex:0 0 55px;padding:9px 5px;display:grid;place-items:center;box-shadow:none!important}.admin-pro-nav button span{font-size:.95rem}.admin-pro-nav button.active{background:rgba(56,189,248,.1);box-shadow:none}.admin-pro-main{padding:0 12px 90px}.admin-pro-topbar{height:74px}.admin-pro-topbar h1{font-size:1.15rem}.admin-session-chip{display:none}.pro-kpis{grid-template-columns:repeat(2,1fr)}.admin-overview-grid{grid-template-columns:1fr}.admin-client-grid{grid-template-columns:1fr}.admin-section-intro{align-items:flex-start;flex-direction:column}.admin-two-col{grid-template-columns:1fr}.admin-form-grid,.admin-form-grid.compact,.admin-form-grid.settings-grid{grid-template-columns:1fr}.admin-field-row{grid-template-columns:1fr}.pro-coupon-form{grid-template-columns:1fr 1fr}.admin-filterbar{align-items:stretch;flex-direction:column}.admin-filterbar select{width:100%}.admin-search{min-width:0;width:100%}.admin-inline-tools{width:100%;display:grid;grid-template-columns:1fr}.admin-inline-tools input,.admin-inline-tools select{width:100%}.admin-pro-card-head{align-items:flex-start;flex-direction:column}.admin-revenue-chart{height:180px}.admin-unlock-gate{padding:10px}.admin-unlock-card{padding:22px 18px}.client-detail-stats{grid-template-columns:1fr 1fr}.admin-audit-item{grid-template-columns:1fr}.admin-audit-item small{text-align:left}}
+@media(max-width:520px){.pro-kpis{grid-template-columns:1fr 1fr}.admin-stat.pro-stat{min-height:105px;padding:12px}.pro-coupon-form{grid-template-columns:1fr}.mobile-pro-nav{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);left:10px;right:10px;bottom:10px;z-index:145;background:rgba(7,23,45,.93);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:5px;box-shadow:0 15px 40px rgba(0,0,0,.25)}.mobile-pro-nav a,.mobile-pro-nav button{border:0;background:transparent;color:#d5e7f5;text-align:center;padding:7px 3px;font-size:.55rem;font-weight:760}.mobile-pro-nav span{display:block;font-size:.95rem;margin-bottom:2px}body.admin-page .mobile-pro-nav{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.visual{animation:none!important}}
+
+
+.account-pro-nav{position:sticky;top:82px;z-index:30;display:flex;gap:7px;flex-wrap:wrap;margin:-6px 0 18px;padding:7px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.88);backdrop-filter:blur(16px);box-shadow:0 8px 28px rgba(7,23,45,.06)}.account-pro-nav a{display:inline-flex;align-items:center;gap:6px;padding:8px 11px;border-radius:10px;color:#52677e;font-size:.72rem;font-weight:820;transition:.2s}.account-pro-nav a:hover{background:#eef7ff;color:var(--blue)}.account-pro-nav span{color:var(--blue)}#accountServicesPanel,#ordersList,#accountSupportCard,#accountHistoryCard{scroll-margin-top:150px}@media(max-width:680px){.account-pro-nav{top:70px;display:grid;grid-template-columns:repeat(4,1fr);gap:3px;padding:5px}.account-pro-nav a{display:grid;place-items:center;text-align:center;padding:7px 3px;font-size:.55rem}.account-pro-nav span{display:block;font-size:.85rem}}
+
+
+/* ===== HERO CINEMATIC VIDEO ===== */
+.hero{
+  min-height:clamp(620px,76vh,820px);
+  display:flex;
+  align-items:center;
+  padding:96px 0 104px;
+  background:#04101f;
+  isolation:isolate;
+}
+.hero-video-shell{
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  overflow:hidden;
+  pointer-events:none;
+  background:#061426 url("assets/hero-poster.jpg") center center/cover no-repeat;
+}
+.hero-video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  transform:scale(1.025);
+  filter:saturate(.92) contrast(1.06) brightness(.78);
+  will-change:transform;
+}
+.hero-video-shell::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(90deg,rgba(3,12,25,.94) 0%,rgba(4,18,35,.85) 34%,rgba(5,22,42,.48) 62%,rgba(4,15,30,.54) 100%),
+    linear-gradient(180deg,rgba(3,10,22,.24) 0%,rgba(3,12,24,.12) 45%,rgba(3,12,24,.76) 100%);
+}
+.hero-video-shell::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  opacity:.24;
+  background:
+    radial-gradient(circle at 78% 30%,rgba(32,195,255,.24),transparent 30%),
+    radial-gradient(circle at 16% 70%,rgba(13,140,255,.14),transparent 38%);
+  mix-blend-mode:screen;
+}
+.hero:before{
+  z-index:-1;
+  opacity:.2;
+  mask-image:linear-gradient(90deg,transparent 0%,black 48%,black 100%);
+}
+.hero::after{z-index:-1;opacity:.72}
+.hero .container{z-index:3}
+.hero-grid{width:100%}
+.hero .pill{
+  background:rgba(8,27,49,.48);
+  border-color:rgba(255,255,255,.2);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 30px rgba(0,0,0,.12);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.hero h1{
+  text-shadow:0 5px 30px rgba(0,0,0,.34);
+  max-width:790px;
+}
+.hero p{
+  color:#d6e4f3;
+  text-shadow:0 2px 20px rgba(0,0,0,.28);
+}
+.hero .btn.ghost{
+  background:rgba(6,23,42,.42);
+  border-color:rgba(255,255,255,.24);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.hero-points span{
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(6,23,42,.26);
+  border:1px solid rgba(255,255,255,.09);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.hero .visual{
+  animation:visualFloat 7s ease-in-out infinite;
+  filter:drop-shadow(0 28px 50px rgba(0,0,0,.22));
+}
+.hero .main-brand-card,
+.hero .ai-chip-card{
+  background:rgba(255,255,255,.91);
+  border-color:rgba(255,255,255,.56);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+.hero .ai-chip-card.claude{background:rgba(12,12,12,.9)}
+.hero-video-status{
+  position:absolute;
+  right:18px;
+  bottom:16px;
+  z-index:4;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:rgba(255,255,255,.68);
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.35px;
+  text-transform:uppercase;
+  pointer-events:none;
+}
+.hero-video-status::before{
+  content:"";
+  width:6px;height:6px;border-radius:50%;
+  background:#5de6ff;
+  box-shadow:0 0 0 5px rgba(93,230,255,.1),0 0 18px rgba(93,230,255,.6);
+}
+@media(max-width:980px){
+  .hero{min-height:auto;padding:82px 0 90px}
+  .hero-video-shell::before{background:linear-gradient(180deg,rgba(3,12,25,.82) 0%,rgba(4,18,35,.76) 48%,rgba(3,12,24,.88) 100%)}
+  .hero .visual{opacity:.86}
+}
+@media(max-width:760px){
+  .hero{padding:70px 0 78px}
+  .hero-video{object-position:58% center;transform:scale(1.06)}
+  .hero-video-shell::before{background:linear-gradient(180deg,rgba(3,12,25,.78) 0%,rgba(4,18,35,.72) 38%,rgba(3,12,24,.93) 100%)}
+  .hero-points span{border-radius:12px;padding:7px 9px}
+  .hero-video-status{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-video{display:none}
+  .hero .visual{animation:none}
+}
+
 </style>
 </head>
 <body>
@@ -1629,12 +1858,19 @@ html{scroll-behavior:smooth}
     <a href="#ia">Inteligencia Artificial</a><a href="#catalogo">Servicios</a><a href="#proceso">Cómo funciona</a><a href="#faq">Preguntas</a>
   </div>
 </header>
+<div class="scroll-progress" id="scrollProgress"></div>
 
 
 
 
 <main>
 <section class="hero" id="inicio">
+  <div class="hero-video-shell" aria-hidden="true">
+    <video class="hero-video" id="heroBackgroundVideo" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" tabindex="-1">
+      <source src="assets/hero-bg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-video-status" aria-hidden="true">Experiencia digital</div>
   <div class="container hero-grid">
     <div>
       <div class="pill"><i></i> IA Plus Colombia • Fácil • Rápido • Acompañado</div>
@@ -2030,6 +2266,13 @@ html{scroll-behavior:smooth}
       <button class="pd-back-top" type="button" onclick="returnToCatalog()">← Volver a la tienda</button>
     </div>
 
+    <nav class="account-pro-nav" aria-label="Secciones de mi cuenta">
+      <a href="#accountServicesPanel" onclick="event.preventDefault();document.getElementById('accountServicesPanel')?.scrollIntoView({behavior:'smooth',block:'start'})"><span>◉</span>Mis servicios</a>
+      <a href="#ordersList" onclick="event.preventDefault();document.getElementById('ordersList')?.scrollIntoView({behavior:'smooth',block:'start'})"><span>▤</span>Pedidos</a>
+      <a href="#accountSupportCard" onclick="event.preventDefault();document.getElementById('accountSupportCard')?.scrollIntoView({behavior:'smooth',block:'start'})"><span>◌</span>Soporte</a>
+      <a href="#accountHistoryCard" onclick="event.preventDefault();document.getElementById('accountHistoryCard')?.scrollIntoView({behavior:'smooth',block:'start'})"><span>↻</span>Renovaciones</a>
+    </nav>
+
     <div class="account-grid">
       <aside class="profile-card">
         <img class="account-avatar" id="accountAvatar" alt="Foto del usuario">
@@ -2052,7 +2295,7 @@ html{scroll-behavior:smooth}
 
       <section class="orders-card">
 
-<div class="account-services-panel">
+<div class="account-services-panel" id="accountServicesPanel">
   <div class="account-services-head">
     <div>
       <small>Mis servicios</small>
@@ -2118,7 +2361,7 @@ html{scroll-behavior:smooth}
         <div class="referral-metrics"><div class="referral-metric"><small>Compras referidas</small><b id="accountReferralSales">0</b></div><div class="referral-metric"><small>Días pendientes</small><b id="accountReferralDays">0</b></div></div>
       </section>
 
-      <section class="account-extra-card">
+      <section class="account-extra-card" id="accountSupportCard">
         <div class="account-extra-head"><div><small>Soporte</small><h2>Reportar un problema</h2></div></div>
         <div class="support-form">
           <select id="supportCategory"><option>Problema con activación</option><option>Problema con acceso</option><option>Problema con pago</option><option>Renovación</option><option>Otro</option></select>
@@ -2129,7 +2372,7 @@ html{scroll-behavior:smooth}
         <div id="accountTickets" class="ticket-list" style="margin-top:15px"><div class="empty-mini">Cargando solicitudes…</div></div>
       </section>
 
-      <section class="account-extra-card">
+      <section class="account-extra-card" id="accountHistoryCard">
         <div class="account-extra-head"><div><small>Renovaciones</small><h2>Historial de activaciones</h2></div></div>
         <div id="activationHistoryList" class="activation-history-list"><div class="empty-mini">Cargando historial…</div></div>
       </section>
@@ -2138,161 +2381,251 @@ html{scroll-behavior:smooth}
 </section>
 
 
-<section id="adminPage">
-  <div class="container">
-    <div class="admin-page-head">
-      <div>
-        <div class="kicker">Administración</div>
-        <h1>Panel de control IA Plus</h1>
-        <p>Gestiona precios, WhatsApp, códigos de activación y clientes sin editar el HTML.</p>
+<section id="adminPage" class="admin-pro" aria-label="Portal administrativo">
+  <div class="admin-pro-shell">
+    <aside class="admin-pro-sidebar" aria-label="Navegación administrativa">
+      <div class="admin-pro-brand">
+        <div class="admin-pro-brand-mark">IA</div>
+        <div><strong>IA Plus</strong><small>Control Center</small></div>
       </div>
-      <div class="admin-head-actions">
-        <span class="admin-only-badge">🔐 Acceso exclusivo</span>
-        <button class="pd-back-top" type="button" onclick="returnHome()">← Ver tienda</button>
+
+      <div class="admin-pro-profile">
+        <img id="adminAvatar" alt="Administrador">
+        <div><strong id="adminName">Administrador</strong><small id="adminEmail"></small></div>
+        <span class="admin-pro-live" title="Sesión protegida"></span>
       </div>
-    </div>
 
-    <div class="admin-stat-grid extended">
-      <article class="admin-stat"><small>Clientes</small><strong id="adminMetricUsers">—</strong><span>registrados</span></article>
-      <article class="admin-stat"><small>Códigos</small><strong id="adminMetricCodes">—</strong><span>creados</span></article>
-      <article class="admin-stat"><small>Disponibles</small><strong id="adminMetricAvailable">—</strong><span>sin usar</span></article>
-      <article class="admin-stat"><small>Usados</small><strong id="adminMetricUsed">—</strong><span>activados</span></article>
-      <article class="admin-stat"><small>Pedidos</small><strong id="adminMetricOrders">—</strong><span>registrados</span></article>
-      <article class="admin-stat"><small>Pagados</small><strong id="adminMetricPaidOrders">—</strong><span>confirmados</span></article>
-      <article class="admin-stat"><small>Ingresos</small><strong id="adminMetricRevenue">—</strong><span>histórico visible</span></article>
-      <article class="admin-stat"><small>Soporte</small><strong id="adminMetricTickets">—</strong><span>tickets abiertos</span></article>
-    </div>
+      <nav class="admin-pro-nav">
+        <button class="active" type="button" data-admin-tab="overview" onclick="switchAdminTab('overview',this)"><span>⌂</span>Resumen</button>
+        <button type="button" data-admin-tab="orders" onclick="switchAdminTab('orders',this)"><span>▤</span>Pedidos</button>
+        <button type="button" data-admin-tab="inventory" onclick="switchAdminTab('inventory',this)"><span>◇</span>Inventario</button>
+        <button type="button" data-admin-tab="clients" onclick="switchAdminTab('clients',this)"><span>◎</span>Clientes</button>
+        <button type="button" data-admin-tab="support" onclick="switchAdminTab('support',this)"><span>◌</span>Soporte</button>
+        <button type="button" data-admin-tab="promotions" onclick="switchAdminTab('promotions',this)"><span>％</span>Promociones</button>
+        <button type="button" data-admin-tab="settings" onclick="switchAdminTab('settings',this)"><span>⚙</span>Configuración</button>
+        <button type="button" data-admin-tab="security" onclick="switchAdminTab('security',this)"><span>⌾</span>Seguridad</button>
+      </nav>
 
-    <div class="admin-layout">
-      <div class="admin-main-column">
-        <section class="admin-card">
-          <div class="admin-card-head">
-            <div><small>Configuración pública</small><h2>Precios y WhatsApp</h2></div>
-            <span class="admin-save-state" id="adminSettingsState">Firebase conectado</span>
-          </div>
+      <div class="admin-pro-sidebar-foot">
+        <button type="button" onclick="returnHome()">← Ver tienda</button>
+        <button class="danger" type="button" onclick="lockAdminPanel()">🔒 Bloquear panel</button>
+      </div>
+    </aside>
 
-          <div class="admin-service-settings">
-            <div class="admin-service-setting">
-              <div class="admin-service-title"><span class="admin-service-mark">◎</span><div><b>ChatGPT Plus</b><small>Precios mostrados al cliente</small></div></div>
-              <div class="admin-field-row">
-                <label class="admin-field">1 mes<input id="adminChatMonth" type="number" min="1" step="1000"></label>
-                <label class="admin-field">1 año<input id="adminChatYear" type="number" min="1" step="1000"></label>
-              </div>
-            </div>
+    <div class="admin-pro-main">
+      <header class="admin-pro-topbar">
+        <div>
+          <span class="admin-pro-eyebrow" id="adminCurrentSection">Resumen ejecutivo</span>
+          <h1 id="adminSectionTitle">Centro de control</h1>
+        </div>
+        <div class="admin-pro-top-actions">
+          <div class="admin-session-chip"><span>🔐</span><div><small>Sesión privada</small><b id="adminSessionCountdown">—</b></div></div>
+          <button class="admin-icon-btn" type="button" onclick="refreshAdminDashboard()" aria-label="Actualizar panel">↻</button>
+        </div>
+      </header>
 
-            <div class="admin-service-setting">
-              <div class="admin-service-title"><span class="admin-service-mark claude">C</span><div><b>Claude Pro</b><small>Precios mostrados al cliente</small></div></div>
-              <div class="admin-field-row">
-                <label class="admin-field">1 mes<input id="adminClaudeMonth" type="number" min="1" step="1000"></label>
-                <label class="admin-field">1 año<input id="adminClaudeYear" type="number" min="1" step="1000"></label>
-              </div>
-            </div>
-          </div>
-
-          <label class="admin-field admin-full-field">WhatsApp de ventas
-            <input id="adminWhatsapp" type="text" inputmode="numeric" placeholder="573018964476">
+      <div id="adminUnlockGate" class="admin-unlock-gate">
+        <div class="admin-unlock-card">
+          <div class="admin-unlock-icon">🔐</div>
+          <span class="admin-pro-eyebrow">Acceso administrativo reforzado</span>
+          <h2>Desbloquea el panel privado</h2>
+          <p>Tu cuenta de Google ya fue verificada. Introduce el PIN administrativo configurado en Firebase para abrir una sesión temporal.</p>
+          <label class="admin-unlock-field">PIN administrativo
+            <input id="adminPinInput" type="password" inputmode="numeric" autocomplete="one-time-code" maxlength="32" placeholder="••••••" onkeydown="if(event.key==='Enter')unlockAdminPanel()">
           </label>
-          <div class="admin-field-row">
-            <label class="admin-field">Alerta de stock bajo<input id="adminLowStock" type="number" min="0" value="3"></label>
-            <label class="admin-field">Días por referido<input id="adminReferralDays" type="number" min="0" value="0"></label>
-          </div>
-          <button class="admin-primary-btn" type="button" onclick="saveAdminSettings()">Guardar configuración</button>
-        </section>
-
-        <section class="admin-card">
-          <div class="admin-card-head">
-            <div><small>Activaciones</small><h2>Crear código para un cliente</h2></div>
-            <button class="admin-soft-btn" type="button" onclick="generateAdminCode()">Generar código</button>
-          </div>
-
-          <div class="admin-form-grid">
-            <label class="admin-field admin-code-field">Código
-              <div class="admin-inline-field"><input id="adminCode" type="text" placeholder="IAPLUS-XXXX-XXXX"><button type="button" onclick="generateAdminCode()">↻</button></div>
-            </label>
-            <label class="admin-field">Servicio
-              <select id="adminCodeProduct"><option value="11">ChatGPT Plus</option><option value="13">Claude Pro</option></select>
-            </label>
-            <label class="admin-field">Plan
-              <select id="adminCodePlan" onchange="syncAdminPlanDuration()"><option value="month">1 mes</option><option value="year">1 año</option></select>
-            </label>
-            <label class="admin-field">Duración (días)<input id="adminCodeDays" type="number" value="30" min="1" max="1000"></label>
-          </div>
-
-          <div class="admin-private-box">
-            <div class="admin-private-title"><span>🔑</span><div><b>Información que se desbloquea</b><small>Estos campos quedan asociados únicamente al código creado.</small></div></div>
-            <div class="admin-form-grid">
-              <label class="admin-field">Título<input id="adminAccessHeading" type="text" value="INFORMACIÓN DEL SERVICIO"></label>
-              <label class="admin-field">Correo / usuario<input id="adminAccessEmail" type="text" autocomplete="off"></label>
-              <label class="admin-field">Contraseña<input id="adminAccessPassword" type="text" autocomplete="off"></label>
-              <label class="admin-field">Autenticador<input id="adminAccessAuthenticator" type="text" autocomplete="off"></label>
-              <label class="admin-field admin-full-field">Enlace 2FA<input id="adminAccess2fa" type="url" placeholder="https://..."></label>
-            </div>
-          </div>
-
-          <button class="admin-primary-btn" type="button" onclick="createAdminActivationCode()">Crear código de activación</button>
-          <div class="admin-action-message" id="adminCodeMessage"></div>
-        </section>
-
-        <section class="admin-card">
-          <div class="admin-card-head"><div><small>Control</small><h2>Códigos de activación</h2></div><button class="admin-soft-btn" type="button" onclick="refreshAdminDashboard()">↻ Actualizar</button></div>
-          <div id="adminCodesList" class="admin-codes-list"><div class="admin-loading">Cargando códigos…</div></div>
-        </section>
-
-        <section class="admin-card">
-          <div class="admin-card-head"><div><small>Ventas</small><h2>Pedidos y pagos</h2></div><button class="admin-soft-btn" type="button" onclick="refreshAdminDashboard()">↻ Actualizar</button></div>
-          <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Pedido</th><th>Cliente</th><th>Servicio</th><th>Total</th><th>Pago</th><th>Entrega</th><th>Acciones</th></tr></thead><tbody id="adminOrdersBody"><tr><td colspan="7">Cargando pedidos…</td></tr></tbody></table></div>
-        </section>
-
-        <section class="admin-card">
-          <div class="admin-card-head"><div><small>Atención</small><h2>Centro de soporte</h2></div><span id="adminTicketCount" class="admin-save-state">— abiertos</span></div>
-          <div id="adminTicketsList"><div class="admin-loading">Cargando tickets…</div></div>
-        </section>
-
-        <section class="admin-card">
-          <div class="admin-card-head"><div><small>Promociones</small><h2>Cupones</h2></div></div>
-          <div class="coupon-form">
-            <label class="admin-field">Código<input id="adminCouponCode" type="text" placeholder="IAPLUS10"></label>
-            <label class="admin-field">Tipo<select id="adminCouponType"><option value="percent">%</option><option value="fixed">Valor</option></select></label>
-            <label class="admin-field">Valor<input id="adminCouponValue" type="number" min="1"></label>
-            <label class="admin-field">Compra mín.<input id="adminCouponMin" type="number" min="0" value="0"></label>
-            <label class="admin-field">Usos máx.<input id="adminCouponMax" type="number" min="0" value="0"></label>
-            <button class="admin-primary-btn" type="button" onclick="createAdminCoupon()">Crear</button>
-          </div>
-          <div id="adminCouponsList" class="coupon-list"><div class="admin-loading">Cargando cupones…</div></div>
-        </section>
+          <button id="adminUnlockBtn" class="admin-unlock-btn" type="button" onclick="unlockAdminPanel()">Desbloquear panel</button>
+          <div id="adminUnlockMessage" class="admin-unlock-message">La sesión se bloquea automáticamente por inactividad.</div>
+          <button class="admin-unlock-store" type="button" onclick="returnHome()">← Regresar a la tienda</button>
+        </div>
       </div>
 
-      <aside class="admin-side-column">
-        <section class="admin-card admin-sticky-card">
-          <div class="admin-card-head"><div><small>Sesión</small><h2>Administrador</h2></div></div>
-          <div class="admin-profile"><img id="adminAvatar" alt="Administrador"><div><b id="adminName">Administrador</b><span id="adminEmail"></span></div></div>
-          <div class="admin-security-note">🛡️ El panel aparece únicamente al iniciar sesión con la cuenta administradora configurada.</div>
+      <div id="adminWorkspace" class="admin-workspace" hidden>
+        <section class="admin-pro-panel active" data-admin-panel="overview">
+          <div class="admin-stat-grid extended pro-kpis">
+            <article class="admin-stat pro-stat"><div class="pro-stat-icon">👥</div><small>Clientes</small><strong id="adminMetricUsers">—</strong><span>registrados</span></article>
+            <article class="admin-stat pro-stat"><div class="pro-stat-icon">🧾</div><small>Pedidos</small><strong id="adminMetricOrders">—</strong><span>totales</span></article>
+            <article class="admin-stat pro-stat"><div class="pro-stat-icon">✓</div><small>Pagados</small><strong id="adminMetricPaidOrders">—</strong><span>confirmados</span></article>
+            <article class="admin-stat pro-stat pro-stat-accent"><div class="pro-stat-icon">$</div><small>Ingresos</small><strong id="adminMetricRevenue">—</strong><span>histórico</span></article>
+            <article class="admin-stat pro-stat"><div class="pro-stat-icon">◇</div><small>Stock</small><strong id="adminMetricAvailable">—</strong><span>códigos disponibles</span></article>
+            <article class="admin-stat pro-stat"><div class="pro-stat-icon">⚑</div><small>Soporte</small><strong id="adminMetricTickets">—</strong><span>abiertos</span></article>
+          </div>
+
+          <div class="admin-overview-grid">
+            <section class="admin-pro-card admin-chart-card">
+              <div class="admin-pro-card-head"><div><small>Últimos 7 días</small><h2>Ingresos confirmados</h2></div><span class="admin-save-state" id="adminMonthRevenue">Este mes —</span></div>
+              <div id="adminRevenueChart" class="admin-revenue-chart"><div class="admin-loading">Cargando actividad…</div></div>
+            </section>
+            <section class="admin-pro-card">
+              <div class="admin-pro-card-head"><div><small>Inventario</small><h2>Disponibilidad</h2></div><button type="button" class="admin-link-btn" onclick="switchAdminTab('inventory')">Gestionar →</button></div>
+              <div class="stock-grid" id="adminStockGrid"><div class="admin-loading">Cargando stock…</div></div>
+              <div id="adminStockAlert"></div>
+            </section>
+          </div>
+
+          <section class="admin-pro-card">
+            <div class="admin-pro-card-head"><div><small>Actividad reciente</small><h2>Últimos pedidos</h2></div><button type="button" class="admin-link-btn" onclick="switchAdminTab('orders')">Ver todos →</button></div>
+            <div id="adminRecentOrders" class="admin-recent-orders"><div class="admin-loading">Cargando pedidos…</div></div>
+          </section>
         </section>
 
-        <section class="admin-card">
-          <div class="admin-card-head"><div><small>Inventario</small><h2>Stock disponible</h2></div></div>
-          <div class="stock-grid" id="adminStockGrid"><div class="admin-loading">Cargando stock…</div></div>
-          <div id="adminStockAlert"></div>
+        <section class="admin-pro-panel" data-admin-panel="orders">
+          <div class="admin-section-intro"><div><span class="admin-pro-eyebrow">Ventas</span><h2>Pedidos y pagos</h2><p>Busca, filtra, confirma pagos, reintenta entregas y documenta incidencias.</p></div><button class="admin-primary-btn" type="button" onclick="exportAdminOrdersCsv()">↓ Exportar CSV</button></div>
+          <div class="admin-filterbar">
+            <label class="admin-search">⌕<input id="adminOrderSearch" type="search" placeholder="Buscar pedido, correo o servicio…" oninput="applyAdminOrderFilters()"></label>
+            <select id="adminOrderFilter" onchange="applyAdminOrderFilters()"><option value="all">Todos los estados</option><option value="APPROVED">Pagados</option><option value="PENDING">Pendientes</option><option value="WHATSAPP_SENT">WhatsApp</option><option value="AWAITING_STOCK">Esperando stock</option><option value="CANCELLED">Cancelados</option></select>
+            <span id="adminOrderResultCount" class="admin-result-count">—</span>
+          </div>
+          <section class="admin-pro-card flush">
+            <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Pedido</th><th>Cliente</th><th>Servicio</th><th>Total</th><th>Pago</th><th>Entrega</th><th>Acciones</th></tr></thead><tbody id="adminOrdersBody"><tr><td colspan="7">Cargando pedidos…</td></tr></tbody></table></div>
+          </section>
         </section>
 
-        <section class="admin-card">
-          <div class="admin-card-head"><div><small>Mantenimiento</small><h2>Migración segura</h2></div></div>
-          <p style="margin:0 0 12px;color:var(--muted);font-size:.78rem">Si ya usabas una versión anterior, separa credenciales antiguas, reconstruye vigencias y conserva pedidos previos. Es idempotente: puedes ejecutarla de nuevo.</p>
-          <button class="admin-primary-btn" type="button" onclick="runLegacyMigration()">Migrar datos anteriores</button>
-          <div class="admin-action-message" id="adminMigrationMessage"></div>
+        <section class="admin-pro-panel" data-admin-panel="inventory">
+          <div class="admin-section-intro"><div><span class="admin-pro-eyebrow">Inventario seguro</span><h2>Códigos y activaciones</h2><p>Administra códigos individuales o crea lotes controlados para reponer stock.</p></div><span class="admin-security-pill">🔑 Secretos separados</span></div>
+          <div class="admin-two-col">
+            <section class="admin-pro-card">
+              <div class="admin-pro-card-head"><div><small>Alta individual</small><h2>Crear código</h2></div><button class="admin-soft-btn" type="button" onclick="generateAdminCode()">Generar seguro</button></div>
+              <div class="admin-form-grid">
+                <label class="admin-field admin-code-field">Código<div class="admin-inline-field"><input id="adminCode" type="text" placeholder="IAPLUS-XXXX-XXXX"><button type="button" onclick="generateAdminCode()">↻</button></div></label>
+                <label class="admin-field">Servicio<select id="adminCodeProduct"><option value="11">ChatGPT Plus</option><option value="13">Claude Pro</option></select></label>
+                <label class="admin-field">Plan<select id="adminCodePlan" onchange="syncAdminPlanDuration()"><option value="month">1 mes</option><option value="year">1 año</option></select></label>
+                <label class="admin-field">Duración<input id="adminCodeDays" type="number" value="30" min="1" max="1000"></label>
+              </div>
+              <div class="admin-private-box">
+                <div class="admin-private-title"><span>🔑</span><div><b>Información protegida</b><small>Se almacena en una colección inaccesible para el navegador.</small></div></div>
+                <div class="admin-form-grid">
+                  <label class="admin-field">Título<input id="adminAccessHeading" type="text" value="INFORMACIÓN DEL SERVICIO"></label>
+                  <label class="admin-field">Correo / usuario<input id="adminAccessEmail" type="text" autocomplete="off"></label>
+                  <label class="admin-field">Contraseña<input id="adminAccessPassword" type="text" autocomplete="off"></label>
+                  <label class="admin-field">Autenticador<input id="adminAccessAuthenticator" type="text" autocomplete="off"></label>
+                  <label class="admin-field admin-full-field">Enlace 2FA<input id="adminAccess2fa" type="url" placeholder="https://..."></label>
+                </div>
+              </div>
+              <button class="admin-primary-btn wide" type="button" onclick="createAdminActivationCode()">Crear código de activación</button>
+              <div class="admin-action-message" id="adminCodeMessage"></div>
+            </section>
+
+            <section class="admin-pro-card">
+              <div class="admin-pro-card-head"><div><small>Reposición rápida</small><h2>Crear lote</h2></div><span class="admin-save-state">1–50 códigos</span></div>
+              <div class="admin-form-grid compact">
+                <label class="admin-field">Cantidad<input id="adminBatchCount" type="number" value="5" min="1" max="50"></label>
+                <label class="admin-field">Servicio<select id="adminBatchProduct"><option value="11">ChatGPT Plus</option><option value="13">Claude Pro</option></select></label>
+                <label class="admin-field">Plan<select id="adminBatchPlan"><option value="month">1 mes</option><option value="year">1 año</option></select></label>
+                <label class="admin-field">Título<input id="adminBatchHeading" type="text" value="INFORMACIÓN DEL SERVICIO"></label>
+                <label class="admin-field">Usuario común<input id="adminBatchEmail" type="text" autocomplete="off"></label>
+                <label class="admin-field">Contraseña común<input id="adminBatchPassword" type="text" autocomplete="off"></label>
+              </div>
+              <p class="admin-help">Úsalo solo cuando varios códigos compartan la misma información de acceso. Para credenciales únicas, crea los códigos individualmente.</p>
+              <button class="admin-primary-btn wide" type="button" onclick="createAdminActivationBatch()">Generar lote seguro</button>
+              <div id="adminBatchResult" class="admin-batch-result"></div>
+            </section>
+          </div>
+
+          <section class="admin-pro-card">
+            <div class="admin-pro-card-head"><div><small>Control</small><h2>Códigos de activación</h2></div><div class="admin-inline-tools"><input id="adminCodeSearch" type="search" placeholder="Buscar código…" oninput="applyAdminCodeFilters()"><select id="adminCodeFilter" onchange="applyAdminCodeFilters()"><option value="all">Todos</option><option value="available">Disponibles</option><option value="used">Usados</option><option value="disabled">Desactivados</option></select></div></div>
+            <div id="adminCodesList" class="admin-codes-list"><div class="admin-loading">Cargando códigos…</div></div>
+            <div class="admin-hidden-metrics" aria-hidden="true"><span id="adminMetricCodes">—</span><span id="adminMetricUsed">—</span></div>
+          </section>
         </section>
 
-        <section class="admin-card">
-          <div class="admin-card-head"><div><small>Usuarios</small><h2>Clientes recientes</h2></div></div>
-          <div id="adminUsersList" class="admin-users-list"><div class="admin-loading">Cargando clientes…</div></div>
+        <section class="admin-pro-panel" data-admin-panel="clients">
+          <div class="admin-section-intro"><div><span class="admin-pro-eyebrow">CRM básico</span><h2>Clientes</h2><p>Busca usuarios, consulta compras, vigencias, soporte y notas administrativas.</p></div></div>
+          <div class="admin-filterbar"><label class="admin-search wide">⌕<input id="adminClientSearch" type="search" placeholder="Buscar por nombre o correo…" oninput="filterAdminUsers()"></label><span id="adminClientCount" class="admin-result-count">—</span></div>
+          <section class="admin-pro-card"><div id="adminUsersList" class="admin-client-grid"><div class="admin-loading">Cargando clientes…</div></div></section>
         </section>
-      </aside>
+
+        <section class="admin-pro-panel" data-admin-panel="support">
+          <div class="admin-section-intro"><div><span class="admin-pro-eyebrow">Atención</span><h2>Centro de soporte</h2><p>Prioriza y responde solicitudes sin salir del panel.</p></div><span id="adminTicketCount" class="admin-save-state">— abiertos</span></div>
+          <div class="admin-filterbar"><label class="admin-search wide">⌕<input id="adminTicketSearch" type="search" placeholder="Buscar ticket o cliente…" oninput="filterAdminTickets()"></label><select id="adminTicketFilter" onchange="filterAdminTickets()"><option value="all">Todos</option><option value="OPEN">Abiertos</option><option value="IN_PROGRESS">En proceso</option><option value="RESOLVED">Resueltos</option><option value="CLOSED">Cerrados</option></select></div>
+          <section class="admin-pro-card"><div id="adminTicketsList"><div class="admin-loading">Cargando tickets…</div></div></section>
+        </section>
+
+        <section class="admin-pro-panel" data-admin-panel="promotions">
+          <div class="admin-section-intro"><div><span class="admin-pro-eyebrow">Crecimiento</span><h2>Cupones y referidos</h2><p>Crea promociones con límites de uso, compra mínima y fecha de vencimiento.</p></div></div>
+          <section class="admin-pro-card">
+            <div class="coupon-form pro-coupon-form">
+              <label class="admin-field">Código<input id="adminCouponCode" type="text" placeholder="IAPLUS10"></label>
+              <label class="admin-field">Tipo<select id="adminCouponType"><option value="percent">Porcentaje</option><option value="fixed">Valor fijo</option></select></label>
+              <label class="admin-field">Valor<input id="adminCouponValue" type="number" min="1"></label>
+              <label class="admin-field">Compra mínima<input id="adminCouponMin" type="number" min="0" value="0"></label>
+              <label class="admin-field">Usos máximos<input id="adminCouponMax" type="number" min="0" value="0"></label>
+              <label class="admin-field">Vence<input id="adminCouponExpiry" type="date"></label>
+              <button class="admin-primary-btn" type="button" onclick="createAdminCoupon()">Crear cupón</button>
+            </div>
+            <div id="adminCouponsList" class="coupon-list"><div class="admin-loading">Cargando cupones…</div></div>
+          </section>
+        </section>
+
+        <section class="admin-pro-panel" data-admin-panel="settings">
+          <div class="admin-section-intro"><div><span class="admin-pro-eyebrow">Tienda</span><h2>Configuración comercial</h2><p>Ajusta precios, WhatsApp, inventario y beneficios sin tocar el código.</p></div><span class="admin-save-state" id="adminSettingsState">Firebase conectado</span></div>
+          <section class="admin-pro-card">
+            <div class="admin-service-settings">
+              <div class="admin-service-setting"><div class="admin-service-title"><span class="admin-service-mark">◎</span><div><b>ChatGPT Plus</b><small>Precios públicos</small></div></div><div class="admin-field-row"><label class="admin-field">1 mes<input id="adminChatMonth" type="number" min="1" step="1000"></label><label class="admin-field">1 año<input id="adminChatYear" type="number" min="1" step="1000"></label></div></div>
+              <div class="admin-service-setting"><div class="admin-service-title"><span class="admin-service-mark claude">C</span><div><b>Claude Pro</b><small>Precios públicos</small></div></div><div class="admin-field-row"><label class="admin-field">1 mes<input id="adminClaudeMonth" type="number" min="1" step="1000"></label><label class="admin-field">1 año<input id="adminClaudeYear" type="number" min="1" step="1000"></label></div></div>
+            </div>
+            <div class="admin-form-grid settings-grid">
+              <label class="admin-field">WhatsApp de ventas<input id="adminWhatsapp" type="text" inputmode="numeric" placeholder="573018964476"></label>
+              <label class="admin-field">Alerta de stock bajo<input id="adminLowStock" type="number" min="0" value="3"></label>
+              <label class="admin-field">Días por referido<input id="adminReferralDays" type="number" min="0" value="0"></label>
+              <label class="admin-switch"><input id="adminAllowWhatsApp" type="checkbox" checked><span></span><div><b>Permitir WhatsApp</b><small>Mostrar alternativa de compra manual</small></div></label>
+            </div>
+            <button class="admin-primary-btn" type="button" onclick="saveAdminSettings()">Guardar configuración</button>
+          </section>
+        </section>
+
+        <section class="admin-pro-panel" data-admin-panel="security">
+          <div class="admin-section-intro"><div><span class="admin-pro-eyebrow">Privacidad y auditoría</span><h2>Seguridad del portal</h2><p>Controla la sesión administrativa, revisa acciones sensibles y ejecuta mantenimiento.</p></div><span class="admin-security-pill">Backend protegido</span></div>
+          <div class="admin-two-col">
+            <section class="admin-pro-card">
+              <div class="admin-pro-card-head"><div><small>Sesión</small><h2>Acceso privado</h2></div><span class="admin-pro-live static"></span></div>
+              <div class="admin-security-summary"><div><span>Identidad</span><b id="adminSecurityEmail">—</b></div><div><span>Segundo factor</span><b>PIN backend</b></div><div><span>Caducidad</span><b id="adminSecurityExpiry">—</b></div></div>
+              <button class="admin-danger-btn" type="button" onclick="lockAdminPanel()">Bloquear sesión ahora</button>
+            </section>
+            <section class="admin-pro-card">
+              <div class="admin-pro-card-head"><div><small>Mantenimiento</small><h2>Migración segura</h2></div></div>
+              <p class="admin-help">Separa credenciales antiguas, reconstruye vigencias y conserva pedidos previos. La operación es idempotente.</p>
+              <button class="admin-soft-btn wide" type="button" onclick="runLegacyMigration()">Migrar datos anteriores</button>
+              <div class="admin-action-message" id="adminMigrationMessage"></div>
+            </section>
+          </div>
+          <section class="admin-pro-card">
+            <div class="admin-pro-card-head"><div><small>Registro</small><h2>Auditoría administrativa</h2></div><span class="admin-save-state">Últimas 80 acciones</span></div>
+            <div id="adminAuditList" class="admin-audit-list"><div class="admin-loading">Cargando auditoría…</div></div>
+          </section>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div id="adminClientDrawer" class="admin-drawer-overlay" onclick="if(event.target===this)closeAdminClient()">
+    <aside class="admin-client-drawer" role="dialog" aria-modal="true" aria-labelledby="adminClientTitle">
+      <button class="admin-drawer-close" type="button" onclick="closeAdminClient()">×</button>
+      <div id="adminClientDetail"><div class="admin-loading">Cargando cliente…</div></div>
+    </aside>
+  </div>
+
+  <div id="adminActionModal" class="admin-action-overlay" onclick="if(event.target===this)closeAdminActionModal()">
+    <div class="admin-action-modal" role="dialog" aria-modal="true">
+      <button class="admin-drawer-close" type="button" onclick="closeAdminActionModal()">×</button>
+      <span class="admin-pro-eyebrow" id="adminActionEyebrow">Acción</span>
+      <h2 id="adminActionTitle">Añadir información</h2>
+      <p id="adminActionHelp">Escribe el detalle.</p>
+      <textarea id="adminActionText" maxlength="2000" placeholder="Escribe aquí…"></textarea>
+      <div class="admin-action-modal-buttons"><button type="button" class="admin-soft-btn" onclick="closeAdminActionModal()">Cancelar</button><button type="button" class="admin-primary-btn" id="adminActionConfirm">Guardar</button></div>
     </div>
   </div>
 </section>
 
+
 </main>
 
+
+<nav class="mobile-pro-nav" aria-label="Accesos rápidos móviles">
+  <a href="#inicio"><span>⌂</span>Inicio</a>
+  <a href="#catalogo"><span>◇</span>Servicios</a>
+  <button type="button" onclick="openCart()"><span>🛒</span>Carrito</button>
+  <button type="button" onclick="isSignedIn()?openAccountPage():openAuthModal()"><span>◎</span>Cuenta</button>
+</nav>
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -2376,7 +2709,8 @@ const CONFIG = {
   paymentLink: ""
 };
 
-const ADMIN_LOGIN_ID = "wannaia333gmail.com";
+let adminIdentityVerified = false;
+window.__adminIdentityVerified = false;
 
 const DEFAULT_STORE_SETTINGS = {
   whatsapp: "573018964476",
@@ -2385,16 +2719,20 @@ const DEFAULT_STORE_SETTINGS = {
     "13": {month: 20000, year: 50000}
   },
   lowStockThreshold: 3,
-  referralRewardDays: 0
+  referralRewardDays: 0,
+  allowWhatsAppFallback: true
 };
 
 let STORE_SETTINGS = JSON.parse(JSON.stringify(DEFAULT_STORE_SETTINGS));
 
-function normalizeAdminIdentity(email) {
-  return String(email || "").trim().toLowerCase().replace(/@/g, "");
-}
 function isAdminUser(user = currentSignedUser) {
-  return !!user && normalizeAdminIdentity(user.email) === ADMIN_LOGIN_ID;
+  return !!user && adminIdentityVerified === true;
+}
+function setAdminIdentityStatus(value){
+  adminIdentityVerified=Boolean(value);
+  window.__adminIdentityVerified=adminIdentityVerified;
+  updateAdminAccess(currentSignedUser);
+  if(adminIdentityVerified&&location.hash==="#admin"&&currentSignedUser)showAdminPage();
 }
 function getPlanData(productId, months = 1) {
   const id = String(productId);
@@ -2412,6 +2750,7 @@ function applyRemoteStoreSettings(data = {}) {
   });
   next.lowStockThreshold=Number(data.lowStockThreshold??3);
   next.referralRewardDays=Number(data.referralRewardDays??0);
+  next.allowWhatsAppFallback=data.allowWhatsAppFallback!==false;
   STORE_SETTINGS = next;
   CONFIG.whatsapp = next.whatsapp;
   refreshPublicPricing();
@@ -3427,23 +3766,156 @@ function updateAdminAccess(user = currentSignedUser) {
   if (admin) {
     if ($("adminName")) $("adminName").textContent = user.displayName || "Administrador";
     if ($("adminEmail")) $("adminEmail").textContent = user.email || "";
-    if ($("adminAvatar")) { if (user.photoURL) $("adminAvatar").src = user.photoURL; else $("adminAvatar").removeAttribute("src"); }
+    if ($("adminSecurityEmail")) $("adminSecurityEmail").textContent = user.email || "";
+    if ($("adminAvatar")) {
+      if (user.photoURL) $("adminAvatar").src = user.photoURL;
+      else $("adminAvatar").removeAttribute("src");
+    }
   }
 }
+
+let adminUnlocked = false;
+let adminSessionExpiresAt = 0;
+let adminSessionTimer = null;
+let adminDashboardData = null;
+let adminOrderRows = [];
+let adminCodeRows = [];
+let adminUserRows = [];
+let adminTicketRows = [];
+let adminActionCallback = null;
+let currentAdminClient = null;
+
+const ADMIN_TAB_LABELS = {
+  overview:["Resumen ejecutivo","Centro de control"],
+  orders:["Ventas","Pedidos y pagos"],
+  inventory:["Operación","Inventario y activaciones"],
+  clients:["Relaciones","Clientes"],
+  support:["Atención","Centro de soporte"],
+  promotions:["Crecimiento","Promociones"],
+  settings:["Tienda","Configuración"],
+  security:["Privacidad","Seguridad y auditoría"]
+};
+
 function openAdminPage() {
   $("userMenu")?.classList.remove("open");
   if (!isSignedIn()) { openAuthModal(); return; }
   if (!isAdminUser()) { showToast("Esta cuenta no tiene permisos de administrador"); return; }
   if (location.hash === "#admin") showAdminPage(); else location.hash = "admin";
 }
+
 function showAdminPage() {
   if (!isAdminUser()) { location.hash = "inicio"; return; }
   document.body.classList.remove("product-page","account-page");
   document.body.classList.add("admin-page");
-  document.title = "Panel administrativo — IA Plus Colombia";
-  fillAdminSettingsForm(); generateAdminCode(); refreshAdminDashboard();
+  document.title = "Control Center — IA Plus Colombia";
+  fillAdminSettingsForm();
+  updateAdminAccess(currentSignedUser);
+  switchAdminTab(sessionStorage.getItem("iaplus_admin_tab") || "overview");
+  prepareAdminGate();
   window.scrollTo({top:0,behavior:"smooth"});
 }
+
+async function prepareAdminGate(){
+  if(!isAdminUser())return;
+  if(!window.adminSessionStatus){setTimeout(prepareAdminGate,120);return;}
+  const gate=$("adminUnlockGate"),workspace=$("adminWorkspace");
+  try{
+    const status=await window.adminSessionStatus();
+    if(status?.unlocked){
+      setAdminUnlocked(true,status.expiresAtMs);
+      refreshAdminDashboard();
+    }else{
+      setAdminUnlocked(false,0);
+      setTimeout(()=>$("adminPinInput")?.focus(),120);
+    }
+  }catch(error){
+    console.warn("Estado admin:",error);
+    if(gate)gate.style.display="grid";
+    if(workspace)workspace.hidden=true;
+  }
+}
+
+function setAdminUnlocked(unlocked,expiresAtMs=0){
+  adminUnlocked=!!unlocked;
+  adminSessionExpiresAt=Number(expiresAtMs||0);
+  const gate=$("adminUnlockGate"),workspace=$("adminWorkspace");
+  if(gate)gate.style.display=adminUnlocked?"none":"grid";
+  if(workspace)workspace.hidden=!adminUnlocked;
+  if(adminUnlocked){
+    startAdminSessionClock();
+    if($("adminSecurityExpiry"))$("adminSecurityExpiry").textContent=formatAdminSessionExpiry();
+  }else{
+    clearInterval(adminSessionTimer);adminSessionTimer=null;
+    if($("adminSessionCountdown"))$("adminSessionCountdown").textContent="Bloqueado";
+  }
+}
+
+function formatAdminSessionExpiry(){
+  if(!adminSessionExpiresAt)return "—";
+  return new Date(adminSessionExpiresAt).toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"});
+}
+function startAdminSessionClock(){
+  clearInterval(adminSessionTimer);
+  const tick=()=>{
+    const left=adminSessionExpiresAt-Date.now();
+    if(left<=0){setAdminUnlocked(false,0);return;}
+    const min=Math.floor(left/60000),sec=Math.floor((left%60000)/1000);
+    if($("adminSessionCountdown"))$("adminSessionCountdown").textContent=`${min}:${String(sec).padStart(2,"0")}`;
+    if($("adminSecurityExpiry"))$("adminSecurityExpiry").textContent=formatAdminSessionExpiry();
+  };
+  tick();adminSessionTimer=setInterval(tick,1000);
+}
+function touchAdminSession(minutes=30){
+  if(!adminUnlocked)return;
+  adminSessionExpiresAt=Date.now()+Math.max(5,Number(minutes||30))*60000;
+  startAdminSessionClock();
+}
+
+async function unlockAdminPanel(){
+  if(!isAdminUser())return;
+  const pin=String($("adminPinInput")?.value||"").trim();
+  const btn=$("adminUnlockBtn"),msg=$("adminUnlockMessage");
+  if(!pin){if(msg){msg.className="admin-unlock-message error";msg.textContent="Ingresa el PIN administrativo.";}return;}
+  try{
+    if(btn){btn.disabled=true;btn.textContent="Verificando…";}
+    if(msg){msg.className="admin-unlock-message";msg.textContent="Validando con el backend…";}
+    const result=await window.adminUnlock(pin);
+    if($("adminPinInput"))$("adminPinInput").value="";
+    if(msg){msg.className="admin-unlock-message ok";msg.textContent="Acceso concedido.";}
+    setAdminUnlocked(true,result?.expiresAtMs);
+    await refreshAdminDashboard();
+    showToast("Panel administrativo desbloqueado ✓");
+  }catch(error){
+    if(msg){msg.className="admin-unlock-message error";msg.textContent=adminErrorMessage(error,"No fue posible desbloquear el panel.");}
+  }finally{if(btn){btn.disabled=false;btn.textContent="Desbloquear panel";}}
+}
+
+async function lockAdminPanel(){
+  try{if(window.adminLock)await window.adminLock();}catch(error){console.warn("Bloquear admin:",error);}
+  setAdminUnlocked(false,0);
+  adminDashboardData=null;
+  if($("adminPinInput"))$("adminPinInput").value="";
+  showToast("Panel bloqueado");
+  setTimeout(()=>$("adminPinInput")?.focus(),120);
+}
+
+function adminErrorMessage(error,fallback="Error administrativo"){
+  const msg=String(error?.message||error?.details||"");
+  if(msg.includes("ADMIN_LOCKED")){setAdminUnlocked(false,0);return "La sesión administrativa venció. Desbloquea el panel nuevamente.";}
+  return msg.replace(/^FirebaseError:\s*/i,"")||fallback;
+}
+
+function switchAdminTab(tab="overview",button=null){
+  if(!ADMIN_TAB_LABELS[tab])tab="overview";
+  document.querySelectorAll("[data-admin-panel]").forEach(panel=>panel.classList.toggle("active",panel.dataset.adminPanel===tab));
+  document.querySelectorAll("[data-admin-tab]").forEach(btn=>btn.classList.toggle("active",btn.dataset.adminTab===tab));
+  const labels=ADMIN_TAB_LABELS[tab];
+  if($("adminCurrentSection"))$("adminCurrentSection").textContent=labels[0];
+  if($("adminSectionTitle"))$("adminSectionTitle").textContent=labels[1];
+  sessionStorage.setItem("iaplus_admin_tab",tab);
+  if(window.innerWidth<700)window.scrollTo({top:0,behavior:"smooth"});
+}
+
 function fillAdminSettingsForm() {
   if (!isAdminUser()) return;
   const cm=getPlanData(11,1), cy=getPlanData(11,12), lm=getPlanData(13,1), ly=getPlanData(13,12);
@@ -3454,59 +3926,143 @@ function fillAdminSettingsForm() {
   if ($("adminWhatsapp")) $("adminWhatsapp").value=STORE_SETTINGS.whatsapp;
   if ($("adminLowStock")) $("adminLowStock").value=STORE_SETTINGS.lowStockThreshold ?? 3;
   if ($("adminReferralDays")) $("adminReferralDays").value=STORE_SETTINGS.referralRewardDays ?? 0;
+  if ($("adminAllowWhatsApp")) $("adminAllowWhatsApp").checked=STORE_SETTINGS.allowWhatsAppFallback!==false;
 }
+
 async function saveAdminSettings() {
-  if (!isAdminUser()) return;
-  const settings={whatsapp:String($("adminWhatsapp")?.value||"").replace(/\D/g,""),prices:{"11":{month:Number($("adminChatMonth")?.value||0),year:Number($("adminChatYear")?.value||0)},"13":{month:Number($("adminClaudeMonth")?.value||0),year:Number($("adminClaudeYear")?.value||0)}},lowStockThreshold:Number($("adminLowStock")?.value||0),referralRewardDays:Number($("adminReferralDays")?.value||0),allowWhatsAppFallback:true};
+  if (!adminUnlocked) return setAdminUnlocked(false,0);
+  const settings={whatsapp:String($("adminWhatsapp")?.value||"").replace(/\D/g,""),prices:{"11":{month:Number($("adminChatMonth")?.value||0),year:Number($("adminChatYear")?.value||0)},"13":{month:Number($("adminClaudeMonth")?.value||0),year:Number($("adminClaudeYear")?.value||0)}},lowStockThreshold:Number($("adminLowStock")?.value||0),referralRewardDays:Number($("adminReferralDays")?.value||0),allowWhatsAppFallback:$("adminAllowWhatsApp")?.checked!==false};
   if (!settings.whatsapp || !settings.prices["11"].month || !settings.prices["11"].year || !settings.prices["13"].month || !settings.prices["13"].year) { showToast("Revisa los precios y el WhatsApp"); return; }
   try {
     if ($("adminSettingsState")) $("adminSettingsState").textContent="Guardando…";
-    await window.adminSaveSettings(settings); applyRemoteStoreSettings(settings);
+    await window.adminSaveSettings(settings);applyRemoteStoreSettings(settings);touchAdminSession();
     if ($("adminSettingsState")) $("adminSettingsState").textContent="✓ Guardado en Firebase";
     showToast("Configuración actualizada ✓");
-  } catch (error) { console.error(error); if ($("adminSettingsState")) $("adminSettingsState").textContent="No se pudo guardar"; showToast(error?.message||"Error guardando configuración"); }
+  } catch (error) {if ($("adminSettingsState")) $("adminSettingsState").textContent="No se pudo guardar";showToast(adminErrorMessage(error,"Error guardando configuración"));}
 }
+
 function generateAdminCode() {
   const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  const part=()=>Array.from({length:4},()=>chars[Math.floor(Math.random()*chars.length)]).join("");
-  if ($("adminCode")) $("adminCode").value=`IAPLUS-${part()}-${part()}`;
+  const bytes=new Uint32Array(8);crypto.getRandomValues(bytes);
+  const part=offset=>Array.from({length:4},(_,i)=>chars[bytes[offset+i]%chars.length]).join("");
+  if ($("adminCode")) $("adminCode").value=`IAPLUS-${part(0)}-${part(4)}`;
 }
 function syncAdminPlanDuration() { if ($("adminCodeDays")) $("adminCodeDays").value = $("adminCodePlan")?.value === "year" ? 365 : 30; }
 function adminCodeMessage(text,type) { const el=$("adminCodeMessage"); if (!el) return; el.textContent=text; el.className="admin-action-message show "+(type||""); }
+
 async function createAdminActivationCode() {
-  if (!isAdminUser()) return;
+  if (!adminUnlocked) return;
   const productId=Number($("adminCodeProduct")?.value||11), plan=$("adminCodePlan")?.value === "year" ? "year" : "month";
   const payload={code:normalizeActivationCode($("adminCode")?.value),productId,service:productId===13?"Claude Pro":"ChatGPT Plus",plan,planLabel:plan==="year"?"1 año":"1 mes",durationDays:Number($("adminCodeDays")?.value||(plan==="year"?365:30)),credentials:{heading:String($("adminAccessHeading")?.value||"INFORMACIÓN DEL SERVICIO").trim(),email:String($("adminAccessEmail")?.value||"").trim(),password:String($("adminAccessPassword")?.value||"").trim(),authenticator:String($("adminAccessAuthenticator")?.value||"").trim(),twoFaUrl:String($("adminAccess2fa")?.value||"").trim()}};
   if (!payload.code || payload.durationDays<1) { adminCodeMessage("Revisa el código y la duración.","error"); return; }
   try {
-    adminCodeMessage("Creando código…"); await window.adminCreateActivationCode(payload);
-    adminCodeMessage(`Código ${payload.code} creado correctamente ✓`,"ok"); showToast("Código creado ✓"); generateAdminCode();
-    ["adminAccessEmail","adminAccessPassword","adminAccessAuthenticator","adminAccess2fa"].forEach(id=>{if($(id)) $(id).value="";});
+    adminCodeMessage("Creando código…");await window.adminCreateActivationCode(payload);touchAdminSession();
+    adminCodeMessage(`Código ${payload.code} creado correctamente ✓`,"ok");showToast("Código creado ✓");generateAdminCode();
+    ["adminAccessEmail","adminAccessPassword","adminAccessAuthenticator","adminAccess2fa"].forEach(id=>{if($(id))$(id).value="";});
     refreshAdminDashboard();
-  } catch (error) { console.error(error); adminCodeMessage(error?.message||"No fue posible crear el código.","error"); }
-}
-function renderAdminCodes(codes=[]) {
-  const box=$("adminCodesList");if(!box)return;
-  if($("adminMetricCodes"))$("adminMetricCodes").textContent=codes.length;
-  if($("adminMetricAvailable"))$("adminMetricAvailable").textContent=codes.filter(c=>c.status==="available"&&c.active!==false).length;
-  if($("adminMetricUsed"))$("adminMetricUsed").textContent=codes.filter(c=>c.status==="used").length;
-  if(!codes.length){box.innerHTML='<div class="admin-empty">Aún no has creado códigos.</div>';return;}
-  box.innerHTML=codes.slice(0,120).map(item=>{const status=item.status||(!item.active?"disabled":"available"),active=status==="available"&&item.active!==false,cls=status==="used"?"used":active?"available":"off",txt=status==="used"?"Usado":active?"Disponible":"Desactivado";const safeCode=escapeHtml(item.code||item.id),jsCode=String(item.code||item.id||"").replace(/[^A-Za-z0-9._-]/g,"");return `<article class="admin-code-item"><div><div class="admin-code-value">${safeCode}</div><div class="admin-code-meta"><span>${escapeHtml(item.service||"Servicio")}</span><span>• ${escapeHtml(item.planLabel||item.durationDays+" días")}</span>${item.redeemedByEmail?`<span>• ${escapeHtml(item.redeemedByEmail)}</span>`:""}<span class="admin-code-status ${cls}">${txt}</span></div></div><div class="admin-code-actions"><button type="button" onclick="copyStaticText('${jsCode}')">Copiar</button>${status!=="used"?`<button type="button" onclick="toggleAdminCode('${jsCode}',${active?"false":"true"})">${active?"Desactivar":"Activar"}</button>`:""}</div></article>`;}).join("");
+  } catch (error) {adminCodeMessage(adminErrorMessage(error,"No fue posible crear el código."),"error");}
 }
 
-function renderAdminUsers(users=[]) {
-  const box=$("adminUsersList"); if (!box) return;
-  if ($("adminMetricUsers")) $("adminMetricUsers").textContent=users.length;
-  if (!users.length) { box.innerHTML='<div class="admin-empty">Aún no hay clientes registrados.</div>'; return; }
-  box.innerHTML=users.slice(0,12).map(u=>`<div class="admin-user-item"><b>${escapeHtml(u.displayName||"Usuario")}</b><span>${escapeHtml(u.email||"Sin correo")}</span></div>`).join("");
+async function createAdminActivationBatch(){
+  if(!adminUnlocked)return;
+  const count=Math.max(1,Math.min(50,Number($("adminBatchCount")?.value||1)));
+  const productId=Number($("adminBatchProduct")?.value||11),plan=$("adminBatchPlan")?.value==="year"?"year":"month";
+  const payload={count,productId,plan,durationDays:plan==="year"?365:30,credentials:{heading:$("adminBatchHeading")?.value||"INFORMACIÓN DEL SERVICIO",email:$("adminBatchEmail")?.value||"",password:$("adminBatchPassword")?.value||""}};
+  const out=$("adminBatchResult");
+  try{
+    if(out)out.textContent="Generando lote…";
+    const result=await window.adminCreateActivationBatch(payload);touchAdminSession();
+    if(out)out.innerHTML=`<b>${(result.codes||[]).length} códigos creados:</b><br>${(result.codes||[]).map(escapeHtml).join("<br>")}`;
+    showToast("Lote creado ✓");refreshAdminDashboard();
+  }catch(error){if(out)out.textContent=adminErrorMessage(error,"No se pudo crear el lote");}
 }
+
+function renderAdminCodes(codes=[]) {
+  adminCodeRows=Array.isArray(codes)?codes:[];
+  if($("adminMetricCodes"))$("adminMetricCodes").textContent=adminCodeRows.length;
+  if($("adminMetricAvailable"))$("adminMetricAvailable").textContent=adminCodeRows.filter(c=>c.status==="available"&&c.active!==false).length;
+  if($("adminMetricUsed"))$("adminMetricUsed").textContent=adminCodeRows.filter(c=>c.status==="used").length;
+  applyAdminCodeFilters();
+}
+function applyAdminCodeFilters(){
+  const box=$("adminCodesList");if(!box)return;
+  const q=String($("adminCodeSearch")?.value||"").trim().toLowerCase(),filter=$("adminCodeFilter")?.value||"all";
+  const rows=adminCodeRows.filter(item=>{const status=item.status||(!item.active?"disabled":"available");const hay=`${item.code||item.id} ${item.service||""} ${item.planLabel||""} ${item.redeemedByEmail||""}`.toLowerCase();return(!q||hay.includes(q))&&(filter==="all"||status===filter);});
+  if(!rows.length){box.innerHTML='<div class="admin-empty">No hay códigos que coincidan con el filtro.</div>';return;}
+  box.innerHTML=rows.slice(0,160).map(item=>{const status=item.status||(!item.active?"disabled":"available"),active=status==="available"&&item.active!==false,cls=status==="used"?"used":active?"available":"off",txt=status==="used"?"Usado":active?"Disponible":"Desactivado";const safeCode=escapeHtml(item.code||item.id),jsCode=String(item.code||item.id||"").replace(/[^A-Za-z0-9._-]/g,"");return `<article class="admin-code-item"><div><div class="admin-code-value">${safeCode}</div><div class="admin-code-meta"><span>${escapeHtml(item.service||"Servicio")}</span><span> · ${escapeHtml(item.planLabel||item.durationDays+" días")}</span>${item.redeemedByEmail?`<span> · ${escapeHtml(item.redeemedByEmail)}</span>`:""}<span class="admin-code-status ${cls}">${txt}</span></div></div><div class="admin-code-actions"><button type="button" onclick="copyStaticText('${jsCode}')">Copiar</button>${status!=="used"?`<button type="button" onclick="toggleAdminCode('${jsCode}',${active?"false":"true"})">${active?"Desactivar":"Activar"}</button>`:""}</div></article>`;}).join("");
+}
+async function toggleAdminCode(code,active){try{await window.adminToggleActivationCode(code,active);touchAdminSession();showToast(active?"Código activado":"Código desactivado");refreshAdminDashboard();}catch(error){showToast(adminErrorMessage(error,"No se pudo actualizar el código"));}}
+
+function renderAdminUsers(users=[]) {
+  adminUserRows=Array.isArray(users)?users:[];
+  if($("adminMetricUsers"))$("adminMetricUsers").textContent=adminUserRows.length;
+  filterAdminUsers();
+}
+function filterAdminUsers(){
+  const box=$("adminUsersList");if(!box)return;
+  const q=String($("adminClientSearch")?.value||"").trim().toLowerCase();
+  const rows=adminUserRows.filter(u=>`${u.displayName||""} ${u.email||""}`.toLowerCase().includes(q));
+  if($("adminClientCount"))$("adminClientCount").textContent=`${rows.length} cliente${rows.length===1?"":"s"}`;
+  if(!rows.length){box.innerHTML='<div class="admin-empty">No hay clientes que coincidan con la búsqueda.</div>';return;}
+  box.innerHTML=rows.slice(0,250).map(u=>{const uid=encodeURIComponent(u.uid||"");const initial=escapeHtml((u.displayName||u.email||"U").trim().charAt(0).toUpperCase());const avatar=u.photoURL?`<img class="pro-client-avatar" src="${escapeHtml(u.photoURL)}" alt="">`:`<div class="pro-client-avatar">${initial}</div>`;return `<button class="admin-user-item pro-client" type="button" onclick="openAdminClient(decodeURIComponent('${uid}'))">${avatar}<span class="pro-client-copy"><b>${escapeHtml(u.displayName||"Usuario")}</b><span>${escapeHtml(u.email||"Sin correo")}</span></span><span class="pro-client-arrow">›</span></button>`;}).join("");
+}
+
+async function openAdminClient(uid){
+  if(!adminUnlocked)return;
+  const overlay=$("adminClientDrawer"),box=$("adminClientDetail");if(overlay)overlay.classList.add("open");if(box)box.innerHTML='<div class="admin-loading">Cargando cliente…</div>';
+  try{
+    const data=await window.adminGetClientDetail(uid);touchAdminSession();currentAdminClient=data;
+    const u=data.user||{},orders=data.orders||[],states=data.states||[],acts=data.activations||[],tickets=data.tickets||[],meta=data.meta||{};
+    const paid=orders.filter(o=>o.paymentStatus==="APPROVED");const spent=paid.reduce((sum,o)=>sum+Number(o.total||0),0);const initial=escapeHtml((u.displayName||u.email||"U").charAt(0).toUpperCase());
+    const avatar=u.photoURL?`<img class="client-detail-avatar" src="${escapeHtml(u.photoURL)}" alt="">`:`<div class="client-detail-avatar">${initial}</div>`;
+    box.innerHTML=`<div class="client-detail-head">${avatar}<div><span class="admin-pro-eyebrow">Cliente</span><h2 id="adminClientTitle">${escapeHtml(u.displayName||"Usuario")}</h2><p>${escapeHtml(u.email||"")}</p></div></div>
+      <div class="client-detail-stats"><div class="client-detail-stat"><small>Pedidos</small><b>${orders.length}</b></div><div class="client-detail-stat"><small>Pagados</small><b>${paid.length}</b></div><div class="client-detail-stat"><small>Total</small><b>${fmt(spent).replace(" COP","")}</b></div></div>
+      <div class="client-detail-section"><h3>Servicios</h3>${states.length?states.map(v=>`<div class="client-service-row"><b>${escapeHtml(v.service||"Servicio")}</b><span>${Number(v.activeUntilMs||0)>Date.now()?"Activo hasta "+new Date(Number(v.activeUntilMs)).toLocaleDateString("es-CO"):"Sin cobertura activa"}</span></div>`).join(""):'<div class="admin-empty">Sin servicios activos.</div>'}</div>
+      <div class="client-detail-section"><h3>Notas privadas</h3><textarea id="adminClientNote" class="client-note-textarea" placeholder="Notas visibles solo para administración…">${escapeHtml(meta.note||"")}</textarea><input id="adminClientTags" class="client-tags-input" value="${escapeHtml((meta.tags||[]).join(", "))}" placeholder="Etiquetas separadas por coma"><div style="display:flex;gap:7px;margin-top:8px"><button class="admin-primary-btn" onclick="saveAdminClientNote('${encodeURIComponent(uid)}')">Guardar notas</button><button class="${u.disabled?"admin-primary-btn":"admin-danger-btn"}" onclick="toggleAdminClientDisabled('${encodeURIComponent(uid)}',${u.disabled?"false":"true"})">${u.disabled?"Habilitar cuenta":"Deshabilitar cuenta"}</button></div></div>
+      <div class="client-detail-section"><h3>Pedidos recientes</h3>${orders.slice(0,8).map(o=>`<div class="client-order-row"><b>${escapeHtml(o.reference||o.id)}</b><span>${fmt(o.total||0)} · ${escapeHtml(o.paymentStatus||o.status||"")}</span></div>`).join("")||'<div class="admin-empty">Sin pedidos.</div>'}</div>
+      <div class="client-detail-section"><h3>Soporte</h3><div class="admin-help">${tickets.length} ticket(s) · ${acts.length} activación(es) históricas.</div></div>`;
+  }catch(error){if(box)box.innerHTML=`<div class="admin-empty">${escapeHtml(adminErrorMessage(error,"No se pudo cargar el cliente"))}</div>`;}
+}
+function closeAdminClient(){$("adminClientDrawer")?.classList.remove("open");currentAdminClient=null;}
+async function saveAdminClientNote(encodedUid){const uid=decodeURIComponent(encodedUid),note=$("adminClientNote")?.value||"",tags=String($("adminClientTags")?.value||"").split(",").map(v=>v.trim()).filter(Boolean);try{await window.adminSaveClientNote(uid,note,tags);touchAdminSession();showToast("Notas guardadas ✓");}catch(error){showToast(adminErrorMessage(error,"No se guardaron las notas"));}}
+async function toggleAdminClientDisabled(encodedUid,disabled){const uid=decodeURIComponent(encodedUid);if(!confirm(disabled?"¿Deshabilitar el inicio de sesión de este cliente?":"¿Habilitar nuevamente este cliente?"))return;try{await window.adminSetUserDisabled(uid,disabled);touchAdminSession();showToast(disabled?"Cuenta deshabilitada":"Cuenta habilitada");openAdminClient(uid);}catch(error){showToast(adminErrorMessage(error,"No se pudo cambiar el estado"));}}
+
+function renderAdminOrders(orders=[]){adminOrderRows=Array.isArray(orders)?orders:[];applyAdminOrderFilters();renderAdminRecentOrders(adminOrderRows);}
+function applyAdminOrderFilters(){
+  const body=$("adminOrdersBody");if(!body)return;
+  const q=String($("adminOrderSearch")?.value||"").trim().toLowerCase(),filter=$("adminOrderFilter")?.value||"all";
+  const rows=adminOrderRows.filter(o=>{const payment=o.paymentStatus||o.status||"PENDING",fulfillment=o.fulfillmentStatus||"PENDING",hay=`${o.reference||o.id} ${o.customerName||""} ${o.customerEmail||""} ${(o.items||[]).map(i=>i.name).join(" ")}`.toLowerCase();return(!q||hay.includes(q))&&(filter==="all"||payment===filter||fulfillment===filter||(filter==="PENDING"&&["PENDING","PENDING_PAYMENT"].includes(payment)));});
+  if($("adminOrderResultCount"))$("adminOrderResultCount").textContent=`${rows.length} resultado${rows.length===1?"":"s"}`;
+  if(!rows.length){body.innerHTML='<tr><td colspan="7">No hay pedidos que coincidan con el filtro.</td></tr>';return;}
+  body.innerHTML=rows.slice(0,180).map(o=>{const items=(o.items||[]).map(i=>`${escapeHtml(i.name)} · ${escapeHtml(i.planLabel)}`).join("<br>"),payment=o.paymentStatus||o.status||"PENDING",fulfillment=o.fulfillmentStatus||"PENDING",ref=String(o.reference||o.id||"").replace(/[^A-Za-z0-9._-]/g,"");return `<tr><td><strong>${escapeHtml(o.reference||o.id)}</strong><br><small>${new Date(Number(o.createdAtMs||Date.now())).toLocaleString("es-CO")}</small></td><td>${escapeHtml(o.customerName||"Usuario")}<br><small>${escapeHtml(o.customerEmail||"")}</small></td><td>${items}</td><td><strong>${fmt(o.total||0)}</strong>${Number(o.discount)>0?`<br><small>Desc. ${fmt(o.discount)}</small>`:""}</td><td><span class="status-pill">${escapeHtml(payment)}</span></td><td>${escapeHtml(fulfillment)}</td><td><div class="admin-table-actions">${payment!=="APPROVED"?`<button class="primary" onclick="adminOrderAction('${ref}','APPROVED')">Confirmar</button>`:""}${fulfillment==="AWAITING_STOCK"?`<button onclick="adminFulfill('${ref}')">Entregar</button>`:""}<button onclick="openAdminOrderNote('${ref}')">Nota</button>${!["CANCELLED","VOIDED"].includes(payment)?`<button onclick="adminOrderAction('${ref}','CANCELLED')">Cancelar</button>`:""}</div></td></tr>`;}).join("");
+}
+function renderAdminRecentOrders(rows=[]){const box=$("adminRecentOrders");if(!box)return;if(!rows.length){box.innerHTML='<div class="admin-empty">Aún no hay pedidos.</div>';return;}box.innerHTML=rows.slice(0,6).map(o=>`<div class="admin-recent-order"><div><b>${escapeHtml(o.reference||o.id)}</b><small>${escapeHtml(o.customerName||o.customerEmail||"Cliente")}</small></div><strong>${fmt(o.total||0).replace(" COP","")}</strong><span class="status-pill">${escapeHtml(o.paymentStatus||o.status||"PENDING")}</span></div>`).join("");}
+async function adminOrderAction(reference,status){try{await window.adminUpdateOrderStatus(reference,status);touchAdminSession();showToast("Pedido actualizado ✓");refreshAdminDashboard();}catch(error){showToast(adminErrorMessage(error,"No se pudo actualizar"));}}
+async function adminFulfill(reference){try{await window.adminFulfillOrder(reference);touchAdminSession();showToast("Entrega procesada ✓");refreshAdminDashboard();}catch(error){showToast(adminErrorMessage(error,"No fue posible entregar"));}}
+function openAdminOrderNote(reference){openAdminActionModal("Nota de pedido","Añade una observación privada al historial administrativo.",async text=>{await window.adminAddOrderNote(reference,text);touchAdminSession();showToast("Nota guardada ✓");refreshAdminDashboard();});}
+function exportAdminOrdersCsv(){if(!adminOrderRows.length)return showToast("No hay pedidos para exportar");const rows=[["Referencia","Fecha","Cliente","Correo","Servicios","Subtotal","Descuento","Total","Pago","Entrega"]];adminOrderRows.forEach(o=>rows.push([o.reference||o.id,new Date(Number(o.createdAtMs||0)).toISOString(),o.customerName||"",o.customerEmail||"",(o.items||[]).map(i=>`${i.name} ${i.planLabel}`).join(" | "),o.subtotal||0,o.discount||0,o.total||0,o.paymentStatus||o.status||"",o.fulfillmentStatus||""]));const csv=rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\n");const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`ia-plus-pedidos-${new Date().toISOString().slice(0,10)}.csv`;a.click();URL.revokeObjectURL(a.href);showToast("CSV generado ✓");}
+
+function renderAdminStock(stock={},settings={}){const box=$("adminStockGrid"),alertBox=$("adminStockAlert");if(!box)return;const threshold=Number(settings.lowStockThreshold??3);const rows=[{key:"11-month",label:"ChatGPT mensual"},{key:"11-year",label:"ChatGPT anual"},{key:"13-month",label:"Claude mensual"},{key:"13-year",label:"Claude anual"}];box.innerHTML=rows.map(r=>{const qty=Number(stock[r.key]||0),cls=qty===0?"zero":qty<=threshold?"low":"";return `<div class="stock-item ${cls}"><small>${r.label}</small><b>${qty}</b></div>`;}).join("");const low=rows.filter(r=>Number(stock[r.key]||0)<=threshold);if(alertBox)alertBox.innerHTML=low.length?`<div class="admin-alert">⚠️ Revisa inventario: ${low.map(r=>r.label).join(", ")}.</div>`:"";}
+
+function renderAdminTickets(tickets=[]){adminTicketRows=Array.isArray(tickets)?tickets:[];filterAdminTickets();}
+function filterAdminTickets(){const box=$("adminTicketsList");if(!box)return;const q=String($("adminTicketSearch")?.value||"").trim().toLowerCase(),filter=$("adminTicketFilter")?.value||"all";const rows=adminTicketRows.filter(t=>{const hay=`${t.id} ${t.subject||""} ${t.category||""} ${t.customerName||""} ${t.customerEmail||""}`.toLowerCase();return(!q||hay.includes(q))&&(filter==="all"||t.status===filter);});if(!rows.length){box.innerHTML='<div class="admin-empty">No hay tickets que coincidan.</div>';return;}box.innerHTML=rows.slice(0,100).map(t=>`<article class="admin-ticket"><div class="admin-ticket-top"><div><b>#${escapeHtml(t.id)} · ${escapeHtml(t.subject||t.category||"Soporte")}</b><small>${escapeHtml(t.customerName||"")} · ${escapeHtml(t.customerEmail||"")}</small></div><span class="status-pill">${escapeHtml(t.status||"OPEN")}</span></div><div class="messages">${(t.messages||[]).slice(-5).map(m=>`<div class="ticket-message ${m.by==="admin"?"admin":""}"><b>${m.by==="admin"?"IA Plus":"Cliente"}</b> ${escapeHtml(m.text||"")}</div>`).join("")}</div><div class="ticket-actions"><button onclick="replyAdminTicket('${escapeHtml(t.id)}')">Responder</button>${t.status!=="RESOLVED"?`<button onclick="setAdminTicket('${escapeHtml(t.id)}','RESOLVED')">Resolver</button>`:""}<button onclick="setAdminTicket('${escapeHtml(t.id)}','CLOSED')">Cerrar</button></div></article>`).join("");}
+function replyAdminTicket(id){openAdminActionModal("Responder ticket","La respuesta quedará registrada dentro del ticket del cliente.",async message=>{await window.adminReplyTicket(id,message);touchAdminSession();showToast("Respuesta registrada ✓");refreshAdminDashboard();});}
+async function setAdminTicket(id,status){try{await window.adminSetTicketStatus(id,status);touchAdminSession();showToast("Ticket actualizado ✓");refreshAdminDashboard();}catch(error){showToast(adminErrorMessage(error,"No se pudo actualizar"));}}
+
+function renderAdminCoupons(coupons=[]){const box=$("adminCouponsList");if(!box)return;if(!coupons.length){box.innerHTML='<div class="admin-empty">No hay cupones creados.</div>';return;}box.innerHTML=coupons.map(c=>{const expires=Number(c.expiresAtMs||0)?` · vence ${new Date(Number(c.expiresAtMs)).toLocaleDateString("es-CO")}`:"";return `<div class="coupon-item"><div><b>${escapeHtml(c.code||c.id)}</b><small>${c.type==="fixed"?fmt(c.value||0):(Number(c.value||0)+"%")} · usos ${Number(c.usedCount||0)}${Number(c.maxUses||0)>0?"/"+Number(c.maxUses):""}${expires}</small></div><button class="admin-soft-btn" onclick="toggleAdminCoupon('${escapeHtml(c.code||c.id)}',${c.active===false?"true":"false"})">${c.active===false?"Activar":"Desactivar"}</button></div>`;}).join("");}
+async function createAdminCoupon(){const code=normalizeActivationCode($("adminCouponCode")?.value),type=$("adminCouponType")?.value||"percent",value=Number($("adminCouponValue")?.value||0),minSubtotal=Number($("adminCouponMin")?.value||0),maxUses=Number($("adminCouponMax")?.value||0),expiry=$("adminCouponExpiry")?.value||"",expiresAtMs=expiry?new Date(expiry+"T23:59:59").getTime():0;if(!code||value<=0)return showToast("Completa el código y el valor");try{await window.adminCreateCoupon({code,type,value,minSubtotal,maxUses,expiresAtMs});touchAdminSession();showToast("Cupón creado ✓");$("adminCouponCode").value="";$("adminCouponValue").value="";refreshAdminDashboard();}catch(error){showToast(adminErrorMessage(error,"No se pudo crear el cupón"));}}
+async function toggleAdminCoupon(code,active){try{await window.adminToggleCoupon(code,active);touchAdminSession();refreshAdminDashboard();}catch(error){showToast(adminErrorMessage(error,"No se pudo actualizar"));}}
+
+function renderAdminRevenueChart(daily=[]){const box=$("adminRevenueChart");if(!box)return;if(!daily.length){box.innerHTML='<div class="admin-empty">Sin datos suficientes.</div>';return;}const max=Math.max(1,...daily.map(d=>Number(d.revenue||0)));box.innerHTML=daily.map(d=>{const pct=Math.max(2,Math.round(Number(d.revenue||0)/max*100));const date=new Date(d.date+"T12:00:00");const label=date.toLocaleDateString("es-CO",{weekday:"short"}).replace(".","");return `<div class="admin-chart-col"><b>${Number(d.revenue||0)?fmt(d.revenue).replace(" COP",""):"$0"}</b><div class="admin-chart-bar-wrap"><div class="admin-chart-bar" style="height:${pct}%" title="${escapeHtml(String(d.orders||0))} pedido(s)"></div></div><small>${escapeHtml(label)}</small></div>`;}).join("");}
+function renderAdminAudit(rows=[]){const box=$("adminAuditList");if(!box)return;if(!rows.length){box.innerHTML='<div class="admin-empty">Aún no hay eventos de auditoría.</div>';return;}box.innerHTML=rows.map(a=>`<div class="admin-audit-item"><code>${escapeHtml(a.action||"ACTION")}</code><span>${escapeHtml(a.target||"—")}</span><small>${new Date(Number(a.createdAtMs||Date.now())).toLocaleString("es-CO")}</small></div>`).join("");}
+
 async function refreshAdminDashboard() {
-  if(!isAdminUser())return;
+  if(!isAdminUser()||!adminUnlocked)return;
   try{
     if(!window.adminGetDashboard)throw new Error("Backend administrativo no disponible");
-    const data=await window.adminGetDashboard();
-    if(data.settings)applyRemoteStoreSettings(data.settings);
-    renderAdminCodes(data.codes||[]);renderAdminUsers(data.users||[]);renderAdminOrders(data.orders||[]);renderAdminTickets(data.tickets||[]);renderAdminCoupons(data.coupons||[]);renderAdminStock(data.stock||{},data.settings||{});
+    const data=await window.adminGetDashboard();adminDashboardData=data;touchAdminSession();
+    if(data.settings){applyRemoteStoreSettings(data.settings);fillAdminSettingsForm();}
+    renderAdminCodes(data.codes||[]);renderAdminUsers(data.users||[]);renderAdminOrders(data.orders||[]);renderAdminTickets(data.tickets||[]);renderAdminCoupons(data.coupons||[]);renderAdminStock(data.stock||{},data.settings||{});renderAdminRevenueChart(data.daily||[]);renderAdminAudit(data.audits||[]);
     const m=data.metrics||{};
     if($("adminMetricUsers"))$("adminMetricUsers").textContent=m.users??0;
     if($("adminMetricOrders"))$("adminMetricOrders").textContent=m.orders??0;
@@ -3514,46 +4070,16 @@ async function refreshAdminDashboard() {
     if($("adminMetricRevenue"))$("adminMetricRevenue").textContent=fmt(m.revenue||0).replace(" COP","");
     if($("adminMetricTickets"))$("adminMetricTickets").textContent=m.openTickets??0;
     if($("adminTicketCount"))$("adminTicketCount").textContent=`${m.openTickets??0} abiertos`;
-  }catch(error){console.error("Panel admin:",error);if($("adminCodesList"))$("adminCodesList").innerHTML=`<div class="admin-empty">No se pudo cargar el panel. ${escapeHtml(error?.message||"")}</div>`;}
+    if($("adminMonthRevenue"))$("adminMonthRevenue").textContent=`Este mes ${fmt(m.monthRevenue||0).replace(" COP","")}`;
+  }catch(error){const msg=adminErrorMessage(error,"No se pudo cargar el panel");console.error("Panel admin:",error);if(!adminUnlocked)return;if($("adminRecentOrders"))$("adminRecentOrders").innerHTML=`<div class="admin-empty">${escapeHtml(msg)}</div>`;}
 }
 
-async function toggleAdminCode(code,active) { if(!isAdminUser()) return; try{await window.adminToggleActivationCode(code,active); showToast(active?"Código activado":"Código desactivado"); refreshAdminDashboard();}catch(error){showToast(error?.message||"No se pudo actualizar el código");} }
+async function runLegacyMigration(){const box=$("adminMigrationMessage");if(box){box.className="admin-action-message show";box.textContent="Migrando datos anteriores…";}try{const result=await window.adminMigrateLegacyData();touchAdminSession();const c=result?.counts||{};if(box){box.className="admin-action-message show ok";box.textContent=`Migración completada: ${c.orders||0} pedidos, ${c.codeSecrets||0} códigos, ${c.activationSecrets||0} activaciones y ${c.serviceStates||0} vigencias.`;}showToast("Migración completada ✓");refreshAdminDashboard();}catch(error){if(box){box.className="admin-action-message show error";box.textContent=adminErrorMessage(error,"No se pudo completar la migración.");}showToast(adminErrorMessage(error,"Error de migración"));}}
 
+function openAdminActionModal(title,help,callback,initial=""){adminActionCallback=callback;if($("adminActionTitle"))$("adminActionTitle").textContent=title;if($("adminActionHelp"))$("adminActionHelp").textContent=help;if($("adminActionText"))$("adminActionText").value=initial;const modal=$("adminActionModal");if(modal)modal.classList.add("open");if($("adminActionConfirm"))$("adminActionConfirm").onclick=confirmAdminAction;setTimeout(()=>$("adminActionText")?.focus(),120);}
+async function confirmAdminAction(){const text=String($("adminActionText")?.value||"").trim();if(!text)return showToast("Escribe la información");const btn=$("adminActionConfirm");try{if(btn){btn.disabled=true;btn.textContent="Guardando…";}await adminActionCallback?.(text);closeAdminActionModal();}catch(error){showToast(adminErrorMessage(error,"No se pudo completar la acción"));}finally{if(btn){btn.disabled=false;btn.textContent="Guardar";}}}
+function closeAdminActionModal(){$("adminActionModal")?.classList.remove("open");adminActionCallback=null;}
 
-function renderAdminOrders(orders=[]){
-  const body=$("adminOrdersBody");if(!body)return;
-  if(!orders.length){body.innerHTML='<tr><td colspan="7">Aún no hay pedidos.</td></tr>';return;}
-  body.innerHTML=orders.slice(0,100).map(o=>{const items=(o.items||[]).map(i=>`${escapeHtml(i.name)} · ${escapeHtml(i.planLabel)}`).join("<br>");const payment=o.paymentStatus||o.status||"PENDING";const fulfillment=o.fulfillmentStatus||"PENDING";return `<tr><td><strong>${escapeHtml(o.reference||o.id)}</strong><br><small>${new Date(Number(o.createdAtMs||Date.now())).toLocaleString("es-CO")}</small></td><td>${escapeHtml(o.customerName||"Usuario")}<br><small>${escapeHtml(o.customerEmail||"")}</small></td><td>${items}</td><td><strong>${fmt(o.total||0)}</strong>${Number(o.discount)>0?`<br><small>Desc. ${fmt(o.discount)}</small>`:""}</td><td>${escapeHtml(payment)}</td><td>${escapeHtml(fulfillment)}</td><td><div class="admin-table-actions">${payment!=="APPROVED"?`<button class="primary" onclick="adminOrderAction('${escapeHtml(o.reference)}','APPROVED')">Confirmar</button>`:""}${fulfillment==="AWAITING_STOCK"?`<button onclick="adminFulfill('${escapeHtml(o.reference)}')">Reintentar entrega</button>`:""}${!["CANCELLED","VOIDED"].includes(payment)?`<button onclick="adminOrderAction('${escapeHtml(o.reference)}','CANCELLED')">Cancelar</button>`:""}</div></td></tr>`;}).join("");
-}
-async function adminOrderAction(reference,status){try{await window.adminUpdateOrderStatus(reference,status);showToast("Pedido actualizado ✓");refreshAdminDashboard();}catch(error){showToast(error?.message||"No se pudo actualizar");}}
-async function adminFulfill(reference){try{await window.adminFulfillOrder(reference);showToast("Entrega procesada ✓");refreshAdminDashboard();}catch(error){showToast(error?.message||"No fue posible entregar");}}
-
-function renderAdminStock(stock={},settings={}){
-  const box=$("adminStockGrid"),alertBox=$("adminStockAlert");if(!box)return;
-  const threshold=Number(settings.lowStockThreshold??3);
-  const rows=[{key:"11-month",label:"ChatGPT mensual"},{key:"11-year",label:"ChatGPT anual"},{key:"13-month",label:"Claude mensual"},{key:"13-year",label:"Claude anual"}];
-  box.innerHTML=rows.map(r=>{const qty=Number(stock[r.key]||0),cls=qty===0?"zero":qty<=threshold?"low":"";return `<div class="stock-item ${cls}"><small>${r.label}</small><b>${qty}</b></div>`;}).join("");
-  const low=rows.filter(r=>Number(stock[r.key]||0)<=threshold);
-  if(alertBox)alertBox.innerHTML=low.length?`<div class="admin-alert">⚠️ Revisa inventario: ${low.map(r=>r.label).join(", ")}.</div>`:"";
-}
-
-function renderAdminTickets(tickets=[]){
-  const box=$("adminTicketsList");if(!box)return;
-  if(!tickets.length){box.innerHTML='<div class="admin-empty">No hay solicitudes de soporte.</div>';return;}
-  box.innerHTML=tickets.slice(0,60).map(t=>`<article class="admin-ticket"><div class="admin-ticket-top"><div><b>#${escapeHtml(t.id)} · ${escapeHtml(t.subject||t.category||"Soporte")}</b><small>${escapeHtml(t.customerName||"")} · ${escapeHtml(t.customerEmail||"")}</small></div><span class="status-pill">${escapeHtml(t.status||"OPEN")}</span></div><div class="messages">${(t.messages||[]).slice(-4).map(m=>`<div class="ticket-message ${m.by==="admin"?"admin":""}"><b>${m.by==="admin"?"IA Plus":"Cliente"}</b> ${escapeHtml(m.text||"")}</div>`).join("")}</div><div class="ticket-actions"><button onclick="replyAdminTicket('${escapeHtml(t.id)}')">Responder</button><button onclick="setAdminTicket('${escapeHtml(t.id)}','RESOLVED')">Resolver</button><button onclick="setAdminTicket('${escapeHtml(t.id)}','CLOSED')">Cerrar</button></div></article>`).join("");
-}
-async function replyAdminTicket(id){const message=prompt("Respuesta para el cliente:");if(!message)return;try{await window.adminReplyTicket(id,message);showToast("Respuesta registrada ✓");refreshAdminDashboard();}catch(error){showToast(error?.message||"No se pudo responder");}}
-async function setAdminTicket(id,status){try{await window.adminSetTicketStatus(id,status);showToast("Ticket actualizado ✓");refreshAdminDashboard();}catch(error){showToast(error?.message||"No se pudo actualizar");}}
-
-function renderAdminCoupons(coupons=[]){
-  const box=$("adminCouponsList");if(!box)return;
-  if(!coupons.length){box.innerHTML='<div class="admin-empty">No hay cupones creados.</div>';return;}
-  box.innerHTML=coupons.map(c=>`<div class="coupon-item"><div><b>${escapeHtml(c.code||c.id)}</b><small> ${c.type==="fixed"?fmt(c.value||0):(Number(c.value||0)+"%")} · usos ${Number(c.usedCount||0)}${Number(c.maxUses||0)>0?"/"+Number(c.maxUses):""}</small></div><button class="admin-soft-btn" onclick="toggleAdminCoupon('${escapeHtml(c.code||c.id)}',${c.active===false?"true":"false"})">${c.active===false?"Activar":"Desactivar"}</button></div>`).join("");
-}
-async function runLegacyMigration(){const box=$("adminMigrationMessage");if(box){box.className="admin-action-message show";box.textContent="Migrando datos anteriores…";}try{const result=await window.adminMigrateLegacyData();const c=result?.counts||{};if(box){box.className="admin-action-message show ok";box.textContent=`Migración completada: ${c.orders||0} pedidos, ${c.codeSecrets||0} códigos, ${c.activationSecrets||0} activaciones y ${c.serviceStates||0} vigencias.`;}showToast("Migración completada ✓");refreshAdminDashboard();}catch(error){if(box){box.className="admin-action-message show error";box.textContent=error?.message||"No se pudo completar la migración.";}showToast(error?.message||"Error de migración");}}
-
-async function createAdminCoupon(){const code=normalizeActivationCode($("adminCouponCode")?.value),type=$("adminCouponType")?.value||"percent",value=Number($("adminCouponValue")?.value||0),minSubtotal=Number($("adminCouponMin")?.value||0),maxUses=Number($("adminCouponMax")?.value||0);if(!code||value<=0)return showToast("Completa el código y el valor");try{await window.adminCreateCoupon({code,type,value,minSubtotal,maxUses});showToast("Cupón creado ✓");$("adminCouponCode").value="";$("adminCouponValue").value="";refreshAdminDashboard();}catch(error){showToast(error?.message||"No se pudo crear el cupón");}}
-async function toggleAdminCoupon(code,active){try{await window.adminToggleCoupon(code,active);refreshAdminDashboard();}catch(error){showToast(error?.message||"No se pudo actualizar");}}
 
 function renderAccountNotifications(rows=[]){const box=$("accountNotifications");if(!box)return;if(!rows.length){box.innerHTML='<div class="empty-mini">No tienes avisos pendientes.</div>';return;}box.innerHTML=rows.slice(0,12).map(n=>`<div class="notification-item ${n.read?"":"unread"}"><b>${escapeHtml(n.title||"Aviso")}</b><small>${escapeHtml(n.message||"")}</small>${!n.read?`<button onclick="readNotification('${escapeHtml(n.id)}')">Marcar como leído</button>`:""}</div>`).join("");}
 async function readNotification(id){try{await window.markNotificationRead(id);refreshAccountExtras();}catch(error){showToast("No se pudo actualizar el aviso");}}
@@ -3681,15 +4207,43 @@ window.addEventListener("click", event => {
   if (area && !area.contains(event.target)) $("userMenu")?.classList.remove("open");
 });
 
+function initPremiumMotion(){
+  const reduce=window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  const progress=$("scrollProgress");
+  const header=document.querySelector("header");
+  const onScroll=()=>{
+    const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+    if(progress)progress.style.width=`${Math.min(100,Math.max(0,scrollY/max*100))}%`;
+    header?.classList.toggle("scrolled",scrollY>14);
+  };
+  onScroll();window.addEventListener("scroll",onScroll,{passive:true});
+  if(reduce)return;
+  document.querySelectorAll(".plan,.product").forEach(card=>{
+    card.addEventListener("pointermove",e=>{const r=card.getBoundingClientRect();card.style.setProperty("--mx",`${e.clientX-r.left}px`);card.style.setProperty("--my",`${e.clientY-r.top}px`);});
+  });
+  const hero=document.querySelector(".hero .visual");
+  if(hero&&matchMedia("(pointer:fine)").matches){
+    document.querySelector(".hero")?.addEventListener("pointermove",e=>{const r=e.currentTarget.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;hero.style.transform=`translate3d(${x*9}px,${y*7}px,0)`;});
+    document.querySelector(".hero")?.addEventListener("pointerleave",()=>hero.style.transform="");
+  }
+}
+
+function initAdminPrivacyActivity(){
+  let last=Date.now();
+  ["pointerdown","keydown","touchstart"].forEach(type=>document.addEventListener(type,()=>{if(document.body.classList.contains("admin-page")&&adminUnlocked)last=Date.now();},{passive:true}));
+  setInterval(()=>{if(document.body.classList.contains("admin-page")&&adminUnlocked&&Date.now()-last>30*60000)lockAdminPanel();},60000);
+}
+
 function init() {
   applyEmbeddedImages();
   renderFilters(); applyCatalogFilters(); renderCart(); refreshPublicPricing(); refreshWhatsAppLinks(); handleSingleFileRoute();
+  initPremiumMotion(); initAdminPrivacyActivity();
   $("searchInput")?.addEventListener("input",e=>{searchTerm=e.target.value||"";applyCatalogFilters();});
   if($("payBtn")) $("payBtn").disabled=false;
   $("menuBtn")?.addEventListener("click",()=>$("mobileMenu")?.classList.toggle("open"));
   $("mobileMenu")?.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>$("mobileMenu")?.classList.remove("open")));
   window.addEventListener("hashchange",handleSingleFileRoute);
-  document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeCart();closeAuthModal();closeLegal();}});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeCart();closeAuthModal();closeLegal();closeAdminClient?.();closeAdminActionModal?.();}});
   window.addEventListener("scroll",()=>$("topBtn")?.classList.toggle("show",window.scrollY>500));
   if("IntersectionObserver" in window){const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("in");io.unobserve(entry.target);}});},{threshold:.12});document.querySelectorAll(".reveal").forEach(el=>io.observe(el));}else{document.querySelectorAll(".reveal").forEach(el=>el.classList.add("in"));}
 }
@@ -3709,6 +4263,8 @@ window.restoreActivationForCurrentProduct = restoreActivationForCurrentProduct;
 window.activateServiceCode = activateServiceCode;
 window.showUnlockedService = showUnlockedService;
 window.updateProductActivationAuthState = updateProductActivationAuthState;
+window.setAdminUnlocked = setAdminUnlocked;
+window.setAdminIdentityStatus = setAdminIdentityStatus;
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", init);
@@ -3734,7 +4290,6 @@ const FIREBASE_CONFIG = {
   measurementId: "G-3L66QE3DQV"
 };
 
-const ADMIN_EMAIL = "wannaia333@gmail.com";
 const app = initializeApp(FIREBASE_CONFIG);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -3747,7 +4302,7 @@ await setPersistence(auth, browserLocalPersistence);
 
 const callable = name => httpsCallable(functions, name);
 const callData = async (name, data={}) => (await callable(name)(data)).data;
-const isAdminAuthUser = (user=auth.currentUser) => !!user && String(user.email||"").trim().toLowerCase() === ADMIN_EMAIL;
+const isAdminAuthUser = () => Boolean(window.__adminIdentityVerified);
 
 async function saveUserProfile(user){
   if(!user)return;
@@ -3813,7 +4368,11 @@ window.getMyNotifications = () => callData("getMyNotifications");
 window.markNotificationRead = id => callData("markNotificationRead", {id});
 window.getMyReferral = () => callData("getMyReferral");
 
-// Administración
+// Administración: la identidad se resuelve en backend; el correo administrador no se publica en el HTML.
+window.adminIdentityStatus = () => callData("adminIdentityStatus");
+window.adminUnlock = pin => callData("adminUnlock", {pin});
+window.adminSessionStatus = () => callData("adminSessionStatus");
+window.adminLock = () => callData("adminLock");
 window.adminGetDashboard = () => callData("adminGetDashboard");
 window.adminSaveSettings = settings => callData("adminSaveSettings", settings);
 window.adminCreateActivationCode = payload => callData("adminCreateActivationCode", payload);
@@ -3825,17 +4384,26 @@ window.adminSetTicketStatus = (id,status) => callData("adminSetTicketStatus", {i
 window.adminUpdateOrderStatus = (reference,status) => callData("adminUpdateOrderStatus", {reference,status});
 window.adminFulfillOrder = reference => callData("adminFulfillOrder", {reference});
 window.adminMigrateLegacyData = () => callData("adminMigrateLegacyData");
+window.adminCreateActivationBatch = payload => callData("adminCreateActivationBatch", payload);
+window.adminGetClientDetail = uid => callData("adminGetClientDetail", {uid});
+window.adminSetUserDisabled = (uid,disabled) => callData("adminSetUserDisabled", {uid,disabled});
+window.adminSaveClientNote = (uid,note,tags) => callData("adminSaveClientNote", {uid,note,tags});
+window.adminAddOrderNote = (reference,text) => callData("adminAddOrderNote", {reference,text});
 
 startStoreSettingsListener();
 let resolveInitialAuth;
 const initialAuthReady = new Promise(resolve => { resolveInitialAuth = resolve; });
 let initialAuthResolved = false;
 onAuthStateChanged(auth,async user=>{
+  window.setAdminIdentityStatus?.(false);
   window.setAuthUiUser?.(user||null);
   if(user){
     await saveUserProfile(user);
+    let adminStatus={isAdmin:false};
+    try{adminStatus=await window.adminIdentityStatus();}catch(error){console.warn("Identidad administrativa:",error);}
+    window.setAdminIdentityStatus?.(adminStatus?.isAdmin===true);
     startOrdersListener(user);
-    window.setAuthMessage?.(isAdminAuthUser(user)?"Sesión de administrador iniciada correctamente.":"Sesión iniciada correctamente con Google.","ok");
+    window.setAuthMessage?.(adminStatus?.isAdmin?"Identidad administrativa verificada. Desbloquea el panel con tu PIN.":"Sesión iniciada correctamente con Google.","ok");
     if(location.hash==="#mi-cuenta") window.refreshAccountExtras?.();
   }else{
     stopOrdersListener();
@@ -3880,7 +4448,7 @@ window.firebaseGoogleLogin=async()=>{
     window.setAuthMessage?.(msg,"error");
   }finally{window.setAuthLoading?.(false);}
 };
-window.firebaseGoogleLogout=async()=>{try{await signOut(auth);window.showToast?.("Sesión cerrada");}catch(error){console.error("Sign out:",error);}};
+window.firebaseGoogleLogout=async()=>{try{if(isAdminAuthUser())await window.adminLock?.().catch(()=>null);await signOut(auth);window.setAdminUnlocked?.(false,0);window.showToast?.("Sesión cerrada");}catch(error){console.error("Sign out:",error);}};
 
 // Wompi redirige con ?id=<transacción>. La redirección NO se usa como prueba de pago:
 // el backend vuelve a consultar Wompi y el webhook sigue siendo la fuente principal.
@@ -3902,6 +4470,38 @@ if(paymentTransactionId){
     history.replaceState(null,"",clean.pathname+clean.search+clean.hash);
   }
 }
+</script>
+
+
+<script>
+/* Video de portada: ahorro de recursos y reanudación segura */
+(() => {
+  const video = document.getElementById('heroBackgroundVideo');
+  if (!video) return;
+  video.muted = true;
+  video.defaultMuted = true;
+  const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+  let heroVisible = true;
+  const syncPlayback = () => {
+    if (reduceMotion?.matches || document.hidden || !heroVisible) {
+      video.pause();
+      return;
+    }
+    const promise = video.play();
+    if (promise?.catch) promise.catch(() => {});
+  };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      heroVisible = !!entries[0]?.isIntersecting;
+      syncPlayback();
+    }, {threshold:.08});
+    io.observe(document.getElementById('inicio'));
+  }
+  document.addEventListener('visibilitychange', syncPlayback);
+  reduceMotion?.addEventListener?.('change', syncPlayback);
+  video.addEventListener('canplay', syncPlayback, {once:true});
+  syncPlayback();
+})();
 </script>
 
 </body>
