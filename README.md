@@ -194,3 +194,8 @@ Sin las llaves reales de tu comercio, **el pago online queda intencionalmente de
 ## Importante
 
 Revisa `SECURITY.md` antes de producción. No reutilices credenciales que hayan quedado expuestas en versiones antiguas del sitio.
+
+
+## Video de portada
+
+La portada usa `assets/hero-bg.mp4` como video de fondo profesional y `assets/hero-poster.jpg` como imagen de respaldo mientras el video carga o cuando el usuario tiene activada la reducción de movimiento. El video está optimizado para web, se reproduce en silencio, en bucle y se pausa cuando la portada o la pestaña dejan de estar visibles.

@@ -1,0 +1,23 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "activationCodes",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {"fieldPath":"productId","order":"ASCENDING"},
+        {"fieldPath":"plan","order":"ASCENDING"},
+        {"fieldPath":"status","order":"ASCENDING"},
+        {"fieldPath":"active","order":"ASCENDING"}
+      ]
+    },
+    {
+      "collectionGroup": "orders",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {"fieldPath":"userId","order":"ASCENDING"},
+        {"fieldPath":"createdAtMs","order":"DESCENDING"}
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
