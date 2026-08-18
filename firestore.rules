@@ -1,0 +1,96 @@
+rules_version = '2';
+
+// =====================================================================
+//  Reglas de seguridad Firestore — IA Plus Colombia
+//  Publica estas reglas en:  Firebase Console > Firestore Database > Reglas
+//  o con la CLI:  firebase deploy --only firestore:rules
+//
+//  IMPORTANTE: cambia ADMIN_EMAIL abajo si cambias la cuenta administradora.
+//  Debe coincidir con ADMIN_EMAIL del index.html (hoy: wannaia333@gmail.com).
+// =====================================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---- Helpers ----
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn()
+        && request.auth.token.email_verified == true
+        && request.auth.token.email == 'wannaia333@gmail.com';
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    // ---- Configuración pública (precios y WhatsApp) ----
+    // Cualquiera puede LEERLA (se muestra a visitantes sin sesión).
+    // Solo el administrador puede escribirla.
+    match /settings/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // ---- Perfiles de usuario ----
+    // Cada quien gestiona su propio perfil; el admin puede listarlos/leerlos.
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow create, update: if isOwner(uid);
+      allow delete: if false;
+
+      // Pedidos: privados de cada usuario (el admin puede leerlos).
+      match /orders/{orderId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow create, update: if isOwner(uid);
+        allow delete: if false;
+      }
+
+      // Activaciones del usuario (vigencia y credenciales ya canjeadas).
+      match /activations/{productId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow create, update: if isOwner(uid);
+        allow delete: if false;
+      }
+    }
+
+    // ---- Códigos de activación (colección sensible: contienen credenciales) ----
+    // - NADIE puede LISTAR la colección (no se pueden enumerar los códigos).
+    // - Un usuario autenticado solo puede LEER (get) un código concreto si
+    //   está disponible (sin canjear) o si ya lo canjeó él mismo.
+    // - Crear/eliminar: solo el administrador.
+    // - Actualizar: el administrador, o un usuario que canjea un código libre
+    //   marcándolo a su nombre sin alterar el plan ni las credenciales.
+    match /activationCodes/{code} {
+
+      allow list: if isAdmin();
+
+      allow get: if isAdmin()
+        || (isSignedIn() && (
+              resource.data.redeemedBy == null
+              || resource.data.redeemedBy == request.auth.uid
+           ));
+
+      allow create, delete: if isAdmin();
+
+      allow update: if isAdmin()
+        || (
+             isSignedIn()
+             && resource.data.redeemedBy == null
+             && request.resource.data.redeemedBy == request.auth.uid
+             // No se puede alterar el servicio, plan, duración ni credenciales:
+             && request.resource.data.productId == resource.data.productId
+             && request.resource.data.durationDays == resource.data.durationDays
+             && request.resource.data.credentials == resource.data.credentials
+           );
+    }
+
+    // ---- Todo lo demás: denegado por defecto ----
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
