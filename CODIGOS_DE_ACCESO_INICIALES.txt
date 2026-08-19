@@ -1,0 +1,19 @@
+CÓDIGOS DE ACCESO INICIALES – IA PLUS COLOMBIA
+
+Estos son los códigos iniciales cargados para el panel administrativo:
+
+1) ChatGPT Plus – 1 mes
+IAPLUS-CGPT-1MES-A1X9
+
+2) Claude Pro – 1 mes
+IAPLUS-CLAU-1MES-B4K2
+
+3) ChatGPT Plus – 1 año
+IAPLUS-CGPT-1ANO-C7M5
+
+4) Claude Pro – 1 año
+IAPLUS-CLAU-1ANO-D8P3
+
+Nota:
+- El botón “Cargar códigos iniciales” del panel administrativo intenta registrarlos en Firestore.
+- Si un código ya existe, no se duplica.

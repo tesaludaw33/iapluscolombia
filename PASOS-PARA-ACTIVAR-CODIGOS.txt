@@ -1,0 +1,149 @@
+====================================================================
+ IA PLUS COLOMBIA — PUESTA EN MARCHA (TIENDA COMPLETA SIN SERVIDOR)
+====================================================================
+
+QUÉ FUNCIONA AHORA, TODO DIRECTO DESDE EL NAVEGADOR (sin Cloud Functions
+ni plan de pago "Blaze"), protegido por las reglas de Firestore:
+- Activación de productos por código. IMPORTANTE: un código NO se agota
+  al usarse — el MISMO código puede activarlo cualquier cantidad de
+  clientes distintos (pensado para cuentas compartidas). Cada cliente
+  igual obtiene su propio contador de vigencia individual. El panel
+  admin muestra cuántas veces se ha canjeado cada código, y tú decides
+  cuándo desactivarlo manualmente (botón "Desactivar").
+- Pedido y pago coordinado por WhatsApp.
+- Cupones de descuento.
+- Códigos de referido y su recompensa.
+- Centro de soporte (tickets).
+- Panel de administración completo: precios, códigos, pedidos (aprobar
+  y entregar), cupones, soporte, clientes, suspender/reactivar servicio,
+  notas internas y auditoría de acciones.
+- Inicio de sesión con Google, incluyendo un aviso claro cuando alguien
+  abre el enlace desde el navegador interno de Instagram/Facebook/TikTok/
+  WhatsApp (Google bloquea el login ahí; ahora se le explica al usuario
+  qué hacer en vez de fallar en silencio).
+
+QUÉ NO SE PUEDE HACER SIN UN SERVIDOR REAL (limitación honesta, no un
+error nuestro):
+- Pago en línea con tarjeta (Wompi): requiere una llave secreta que
+  jamás debe estar en el navegador. El botón de pago en línea se
+  desactiva solo y dirige al cliente a WhatsApp — así ya funciona hoy
+  tu flujo real de cobro y confirmación manual.
+- "Deshabilitar cuenta" de un cliente en el panel admin: solo queda
+  como una marca interna (nota), no bloquea de verdad su inicio de
+  sesión con Google. Bloquear el login real requiere Cloud Functions.
+
+--------------------------------------------------------------------
+ PASO 1 — PUBLICAR LAS REGLAS DE SEGURIDAD  (gratis, ~2 minutos)
+--------------------------------------------------------------------
+1. Entra a  https://console.firebase.google.com
+2. Abre el proyecto:  iapluscolombia-f9d76
+3. Menú izquierdo:  "Firestore Database".
+     - Si te pide crear la base de datos: clic en "Crear base de datos"
+       -> modo Producción -> elige ubicación (por ejemplo "nam5" o "us")
+       -> Crear.
+4. Abre la pestaña "Reglas" (Rules).
+5. Borra TODO lo que haya y pega EXACTAMENTE el contenido del archivo
+   "firestore.rules" que viene en esta carpeta.
+6. Clic en "Publicar" (Publish).
+
+--------------------------------------------------------------------
+ PASO 2 — PUBLICAR LOS ÍNDICES  (gratis, ~1 minuto)
+--------------------------------------------------------------------
+1. En el mismo proyecto: Firestore Database -> pestaña "Índices"
+   (Indexes).
+2. Si no aparecen automáticamente, créalos manualmente con los mismos
+   campos del archivo "firestore.indexes.json" de esta carpeta (dos
+   índices: uno para "orders" y otro para "activationCodes"). Firestore
+   normalmente los sugiere solo al usar la página por primera vez —
+   basta con aceptar el enlace "Crear índice" que aparece en la consola
+   del navegador si algo tarda en cargar.
+
+--------------------------------------------------------------------
+ PASO 3 — PUBLICAR LA PÁGINA
+--------------------------------------------------------------------
+Opción A — Hostinger: sigue "HOSTINGER-COMO-SUBIR.txt".
+Opción B — GitHub Pages (gratis):
+   1. Sube TODO el contenido de esta carpeta a tu repositorio, dejando
+      "index.html" en la raíz.
+   2. En GitHub:  Settings -> Pages -> Branch: main -> Save.
+   3. Copia la URL pública (algo como https://tuusuario.github.io/turepo/).
+Opción C — Firebase Hosting (gratis, requiere la consola/CLI de Firebase).
+
+--------------------------------------------------------------------
+ PASO 4 — AUTORIZAR EL DOMINIO PARA INICIAR SESIÓN CON GOOGLE
+--------------------------------------------------------------------
+1. En Firebase Console:  Authentication -> Settings ->
+   "Dominios autorizados" (Authorized domains).
+2. Agrega el dominio donde publicaste (tuusuario.github.io, tudominio.com…).
+   ("localhost" ya viene autorizado para pruebas.)
+   Si olvidas este paso, NADIE puede iniciar sesión en el dominio nuevo
+   (no solo en celular).
+
+--------------------------------------------------------------------
+ PASO 5 — CONFIGURAR TU TIENDA Y CARGAR LOS CÓDIGOS
+--------------------------------------------------------------------
+1. Abre tu página publicada e inicia sesión con Google usando la cuenta
+   ADMINISTRADORA:   wannaia333@gmail.com
+2. El panel de administración se abre automáticamente con esa cuenta.
+3. En "Configuración": revisa tu número de WhatsApp y tus precios, y
+   guarda.
+4. Busca el botón "Cargar códigos iniciales" y haz clic para tener 4
+   códigos de prueba listos (ver más abajo).
+5. Crea tus propios códigos reales desde "Crear código" o "Generar
+   lote", con el correo/clave/2FA reales de cada cuenta que entregarás.
+
+--------------------------------------------------------------------
+ PASO 6 — PROBAR EL RECORRIDO COMPLETO
+--------------------------------------------------------------------
+Como CLIENTE (cierra sesión, o usa otra cuenta/navegador):
+1. Agrega un servicio al carrito y finaliza el pedido por WhatsApp.
+   -> Se abre WhatsApp con el mensaje del pedido, y el pedido queda
+      guardado en "Mi cuenta -> Pedidos".
+2. Prueba activar con un código: entra al producto, pega el código y
+   activa. -> Debe mostrar "Servicio activado ✓" con las credenciales.
+3. Crea una solicitud de soporte desde "Mi cuenta" y revisa que llegue.
+4. Copia tu código de referido desde "Mi cuenta" y compártelo.
+
+Como ADMINISTRADOR:
+1. En "Pedidos": cuando un cliente te confirme el pago por WhatsApp,
+   busca su pedido y pulsa "Confirmar" -> el sistema activa el
+   servicio automáticamente usando un código disponible del inventario
+   (o queda "Sin stock" si no hay códigos libres de ese plan; agrega
+   más y pulsa "Entregar").
+2. En "Cupones": crea un cupón y pruébalo en el carrito del cliente.
+3. En "Soporte": responde y cambia el estado de los tickets.
+4. En un cliente específico: puedes suspender/reactivar su servicio y
+   dejar notas internas.
+
+CÓDIGOS INICIALES (también en CODIGOS_DE_ACCESO_INICIALES.txt):
+   ChatGPT Plus · 1 mes  ->  IAPLUS-CGPT-1MES-A1X9
+   Claude Pro   · 1 mes  ->  IAPLUS-CLAU-1MES-B4K2
+   ChatGPT Plus · 1 año  ->  IAPLUS-CGPT-1ANO-C7M5
+   Claude Pro   · 1 año  ->  IAPLUS-CLAU-1ANO-D8P3
+
+NOTA: si ya habías probado estos códigos ANTES de esta actualización,
+puede que hayan quedado marcados como "Desactivado" (con el sistema
+anterior, de un solo uso). Solo entra a "Códigos" en el panel admin y
+pulsa "Activar" en cada uno — quedan reutilizables de inmediato.
+
+--------------------------------------------------------------------
+ SEGURIDAD (cómo queda protegido)
+--------------------------------------------------------------------
+- Los códigos de activación y los cupones son aleatorios y NO se pueden
+  listar desde el navegador: solo se puede leer/canjear uno si se
+  conoce su texto exacto.
+- Un código de activación es de uso múltiple A PROPÓSITO (cuenta
+  compartida): cualquier cliente que lo conozca puede activarlo. Por
+  eso es importante no publicar tus códigos reales en público — solo
+  entregarlos a quien realmente pagó. Si un código se filtra, entra al
+  panel admin y pulsa "Desactivar" en ese código.
+- Un mismo cliente no puede reclamar el mismo código dos veces para
+  duplicar su propia vigencia.
+- Solo la cuenta wannaia333@gmail.com puede administrar la tienda
+  (precios, códigos, pedidos, cupones, soporte, clientes).
+- El total de un pedido lo calcula el navegador del cliente al
+  crearlo (es solo un registro de referencia para la conversación de
+  WhatsApp); el cobro real siempre lo confirmas tú manualmente antes
+  de pulsar "Confirmar" en el panel — por eso no hace falta un backend
+  para que esto sea seguro en la práctica.
+====================================================================

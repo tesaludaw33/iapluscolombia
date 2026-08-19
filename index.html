@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- IA Plus Colombia · build multimedia autónomo.
+     Los recursos visuales críticos están incrustados y también conservan respaldo en /assets. -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#07172d">
+<!-- Mantiene las rutas de assets funcionando aunque Hostinger sirva el sitio
+     desde una carpeta o después de una ruta con hash. -->
+<base href="./">
 
 <!-- Tipografía Inter (el diseño está pensado para esta fuente) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,6 +130,7 @@ linear-gradient(130deg,#061326 0%,#0a2241 50%,#0b3c72 100%)}
 /* Value strip */
 .value-strip{padding:34px 0 10px}
 .value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.promo-tray{padding:12px 0 6px}.promo-tray-card{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:22px;align-items:center;padding:22px;border:1px solid rgba(13,140,255,.12);border-radius:28px;background:linear-gradient(135deg,#ffffff 0%,#f4f8ff 100%);box-shadow:0 20px 60px rgba(13,60,120,.08)}.promo-tray-copy small{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;background:#edf4ff;color:#0d4b83;font-size:.74rem;font-weight:900;letter-spacing:.2px}.promo-tray-copy h2{margin:14px 0 10px;font-size:clamp(1.8rem,4vw,3rem);line-height:1.02;letter-spacing:-1.6px;color:#07172d}.promo-tray-copy p{margin:0 0 18px;color:#5b6c80;max-width:580px}.promo-tray-actions{display:flex;gap:10px;flex-wrap:wrap}.promo-tray-preview{position:relative}.promo-tray-preview img{width:100%;display:block;border-radius:24px;border:1px solid rgba(13,140,255,.12);box-shadow:0 20px 50px rgba(7,23,45,.12)}
 .value{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px;display:flex;gap:12px;align-items:flex-start;box-shadow:0 7px 22px rgba(7,23,45,.05)}
 .value .icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#edf6ff;color:var(--blue);font-size:1.25rem;flex:0 0 auto}
 .value b{display:block;margin-bottom:2px} .value small{color:var(--muted)}
@@ -215,7 +221,7 @@ footer p{font-size:.88rem;max-width:390px} .copy{margin-top:34px;padding-top:19p
 
 @media(max-width:1020px){
   nav{display:none} .menu{display:grid;place-items:center} .nav{grid-template-columns:1fr auto}
-  .hero-grid{grid-template-columns:1fr} .visual{min-height:390px} .ai-grid{grid-template-columns:1fr 1fr} .plan:last-child{grid-column:1/-1}
+  .hero-grid{grid-template-columns:1fr} .visual{min-height:390px} .ai-grid{grid-template-columns:1fr 1fr} .plan:last-child{grid-column:1/-1} .promo-tray-card{grid-template-columns:1fr}
   .products{grid-template-columns:repeat(3,1fr)} .steps,.value-grid{grid-template-columns:1fr 1fr} .footer-grid{grid-template-columns:1.4fr 1fr 1fr}
   .footer-grid>div:last-child{grid-column:2/4}
 }
@@ -229,7 +235,7 @@ footer p{font-size:.88rem;max-width:390px} .copy{margin-top:34px;padding-top:19p
   .container{width:min(var(--container),calc(100% - 26px))} .brand img{width:138px} .cart .label{display:none} .hero h1{font-size:2.45rem}
   .visual{min-height:300px} .main-brand-card img{height:135px} .ai-chip-card{min-height:82px} .ai-chip-card img{max-height:52px}
   .hero-buttons .btn{width:100%} .hero-points{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .products,.steps,.value-grid{grid-template-columns:1fr} .footer-grid{grid-template-columns:1fr} .footer-grid>div:first-child,.footer-grid>div:last-child{grid-column:auto}
+  .products,.steps,.value-grid{grid-template-columns:1fr} .footer-grid{grid-template-columns:1fr} .footer-grid>div:first-child,.footer-grid>div:last-child{grid-column:auto} .promo-tray-card{padding:16px}.promo-tray-actions .btn{width:100%}
   .copy{display:block} .copy span{display:block;margin-top:6px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important} .reveal{opacity:1;transform:none}}
@@ -403,6 +409,7 @@ body.account-page footer{display:none}
 .profile-meta-row{display:flex;justify-content:space-between;gap:12px;font-size:.83rem}
 .profile-meta-row span{color:var(--muted)}.profile-meta-row strong{text-align:right}
 .secure-note{margin-top:17px;padding:12px;border-radius:13px;background:#edf9f3;color:#196945;border:1px solid #d5f0e1;font-size:.78rem}
+.account-admin-shortcut{display:none;margin-top:14px;padding:14px;border-radius:16px;background:linear-gradient(135deg,#0e1830,#133768);color:#eef7ff;border:1px solid rgba(255,255,255,.12)}.account-admin-shortcut small{display:block;color:#9fd4ff;font-size:.72rem;font-weight:800;letter-spacing:.2px}.account-admin-shortcut b{display:block;margin-top:4px;font-size:1rem}.account-admin-shortcut span{display:block;margin-top:6px;color:#d5e9ff;font-size:.82rem;line-height:1.45}.account-admin-shortcut button{margin-top:12px;width:100%;border:0;border-radius:12px;padding:10px 12px;font-weight:900;cursor:pointer;background:#fff;color:#0a2f61}.starter-code-preview{margin-top:10px;padding:10px;border:1px dashed var(--admin-line);border-radius:12px;background:rgba(255,255,255,.03);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.6rem;line-height:1.7;color:#cce9ff;white-space:pre-line}
 .account-actions{display:grid;gap:8px;margin-top:16px}
 .account-action-btn{border:1px solid var(--line);background:#fff;color:#3d5067;border-radius:11px;padding:10px 12px;font-weight:820;cursor:pointer;text-align:left}
 .account-action-btn:hover{background:#f5f8fb}
@@ -1704,7 +1711,7 @@ body.admin-page #adminPage.admin-pro{display:block!important}
 .admin-switch{display:flex;align-items:center;gap:9px;border:1px solid var(--admin-line);border-radius:12px;padding:9px 10px;color:#cfe2f0}.admin-switch input{display:none}.admin-switch>span{width:34px;height:19px;border-radius:99px;background:#243a50;position:relative;transition:.2s}.admin-switch>span::after{content:"";position:absolute;width:13px;height:13px;border-radius:50%;background:#93a8bb;left:3px;top:3px;transition:.2s}.admin-switch input:checked+span{background:rgba(52,211,153,.3)}.admin-switch input:checked+span::after{left:18px;background:#67e7af}.admin-switch b{display:block;font-size:.63rem}.admin-switch small{display:block;color:#7189a1;font-size:.53rem;margin-top:1px}
 .admin-security-summary{display:grid;gap:8px;margin:12px 0}.admin-security-summary>div{display:flex;justify-content:space-between;gap:15px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.055);font-size:.64rem}.admin-security-summary span{color:#7189a2}.admin-security-summary b{font-weight:800}.admin-audit-list{display:grid;gap:6px;max-height:440px;overflow:auto}.admin-audit-item{display:grid;grid-template-columns:130px 1fr auto;gap:10px;align-items:center;padding:9px 10px;border:1px solid var(--admin-line);border-radius:10px;background:rgba(255,255,255,.02);font-size:.6rem}.admin-audit-item code{color:#7fd8fc;font-size:.57rem}.admin-audit-item span{color:#7690aa}.admin-audit-item small{color:#607990;text-align:right}
 .admin-unlock-gate{min-height:calc(100vh - 110px);display:grid;place-items:center;padding:24px}.admin-unlock-card{width:min(430px,100%);text-align:center;border:1px solid rgba(56,189,248,.14);background:linear-gradient(145deg,rgba(15,35,55,.9),rgba(8,22,38,.94));border-radius:24px;padding:30px;box-shadow:0 35px 90px rgba(0,0,0,.3);animation:unlockIn .5s var(--ease-spring) both}.admin-unlock-icon{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;margin:0 auto 18px;background:linear-gradient(145deg,rgba(56,189,248,.16),rgba(52,211,153,.08));border:1px solid rgba(56,189,248,.15);font-size:1.6rem}.admin-unlock-card h2{margin:7px 0 8px;font-size:1.5rem}.admin-unlock-card p{color:var(--admin-muted);font-size:.72rem;line-height:1.6;margin:0 0 18px}.admin-unlock-field{display:grid;text-align:left;gap:6px;color:#8da6bf;font-size:.61rem;font-weight:850}.admin-unlock-field input{border:1px solid var(--admin-line);background:#071523;color:#fff;border-radius:12px;padding:12px;text-align:center;letter-spacing:4px;font-size:1rem;outline:none}.admin-unlock-field input:focus{border-color:rgba(56,189,248,.5);box-shadow:0 0 0 4px rgba(56,189,248,.08)}.admin-unlock-btn{width:100%;margin-top:10px;border:0;border-radius:12px;padding:12px;background:linear-gradient(135deg,#0d8cff,#20c3ff);color:#fff;font-weight:900;cursor:pointer}.admin-unlock-btn:disabled{opacity:.55;cursor:wait}.admin-unlock-message{min-height:20px;margin-top:10px;color:#7d97b0;font-size:.58rem}.admin-unlock-message.error{color:#fda4af}.admin-unlock-message.ok{color:#86efac}.admin-unlock-store{border:0;background:transparent;color:#7190aa;margin-top:4px;font-size:.61rem;cursor:pointer}
-.admin-drawer-overlay,.admin-action-overlay{position:fixed;inset:0;z-index:350;background:rgba(0,7,15,.72);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:.24s}.admin-drawer-overlay.open,.admin-action-overlay.open{opacity:1;visibility:visible}.admin-client-drawer{position:absolute;right:0;top:0;height:100%;width:min(560px,100%);background:#091827;border-left:1px solid var(--admin-line);padding:26px;overflow:auto;transform:translateX(100%);transition:.35s var(--ease-spring);color:#dcecf7}.admin-drawer-overlay.open .admin-client-drawer{transform:none}.admin-drawer-close{position:absolute;right:15px;top:15px;width:34px;height:34px;border-radius:10px;border:1px solid var(--admin-line);background:rgba(255,255,255,.04);color:#c8dce9;cursor:pointer;font-size:1.1rem}.client-detail-head{display:flex;align-items:center;gap:12px;padding:20px 0;border-bottom:1px solid var(--admin-line)}.client-detail-avatar{width:52px;height:52px;border-radius:16px;object-fit:cover;background:#17324b;display:grid;place-items:center;font-size:1.1rem;font-weight:900}.client-detail-head h2{margin:0;font-size:1.15rem}.client-detail-head p{margin:3px 0 0;color:#7893ac;font-size:.63rem}.client-detail-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}.client-detail-stat{border:1px solid var(--admin-line);border-radius:12px;padding:10px;background:rgba(255,255,255,.025)}.client-detail-stat small{display:block;color:#718ba3;font-size:.53rem}.client-detail-stat b{display:block;margin-top:4px;font-size:.8rem}.client-detail-section{margin-top:16px}.client-detail-section h3{font-size:.72rem;margin:0 0 8px}.client-note-textarea{width:100%;min-height:90px;border:1px solid var(--admin-line);background:#071421;color:#d9e9f4;border-radius:11px;padding:10px;resize:vertical}.client-tags-input{width:100%;border:1px solid var(--admin-line);background:#071421;color:#d9e9f4;border-radius:10px;padding:9px;margin-top:7px}.client-service-row,.client-order-row{display:flex;justify-content:space-between;gap:12px;padding:9px;border:1px solid var(--admin-line);border-radius:10px;margin-bottom:6px;background:rgba(255,255,255,.02);font-size:.6rem}.client-service-row span,.client-order-row span{color:#7790a8}
+.admin-drawer-overlay,.admin-action-overlay{position:fixed;inset:0;z-index:350;background:rgba(0,7,15,.72);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:.24s}.admin-drawer-overlay.open,.admin-action-overlay.open{opacity:1;visibility:visible}.admin-client-drawer{position:absolute;right:0;top:0;height:100%;width:min(560px,100%);background:#091827;border-left:1px solid var(--admin-line);padding:26px;overflow:auto;transform:translateX(100%);transition:.35s var(--ease-spring);color:#dcecf7}.admin-drawer-overlay.open .admin-client-drawer{transform:none}.admin-drawer-close{position:absolute;right:15px;top:15px;width:34px;height:34px;border-radius:10px;border:1px solid var(--admin-line);background:rgba(255,255,255,.04);color:#c8dce9;cursor:pointer;font-size:1.1rem}.client-detail-head{display:flex;align-items:center;gap:12px;padding:20px 0;border-bottom:1px solid var(--admin-line)}.client-detail-avatar{width:52px;height:52px;border-radius:16px;object-fit:cover;background:#17324b;display:grid;place-items:center;font-size:1.1rem;font-weight:900}.client-detail-head h2{margin:0;font-size:1.15rem}.client-detail-head p{margin:3px 0 0;color:#7893ac;font-size:.63rem}.client-detail-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}.client-detail-stat{border:1px solid var(--admin-line);border-radius:12px;padding:10px;background:rgba(255,255,255,.025)}.client-detail-stat small{display:block;color:#718ba3;font-size:.53rem}.client-detail-stat b{display:block;margin-top:4px;font-size:.8rem}.client-detail-section{margin-top:16px}.client-detail-section h3{font-size:.72rem;margin:0 0 8px}.client-note-textarea{width:100%;min-height:90px;border:1px solid var(--admin-line);background:#071421;color:#d9e9f4;border-radius:11px;padding:10px;resize:vertical}.client-tags-input{width:100%;border:1px solid var(--admin-line);background:#071421;color:#d9e9f4;border-radius:10px;padding:9px;margin-top:7px}.client-service-row,.client-order-row{display:flex;justify-content:space-between;gap:12px;padding:9px;border:1px solid var(--admin-line);border-radius:10px;margin-bottom:6px;background:rgba(255,255,255,.02);font-size:.6rem}.client-service-row span,.client-order-row span{color:#7790a8}.client-service-row{align-items:center}.client-service-copy{display:grid;gap:4px}.client-service-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}.client-service-badge{display:inline-flex;align-items:center;padding:5px 8px;border-radius:999px;font-size:.58rem;font-weight:900;border:1px solid transparent}.client-service-badge.active{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.18);color:#92efbf}.client-service-badge.suspended{background:rgba(251,113,133,.12);border-color:rgba(251,113,133,.2);color:#fecdd3}.client-service-badge.inactive{background:rgba(148,163,184,.14);border-color:rgba(148,163,184,.18);color:#cbd5e1}
 .admin-action-overlay{display:grid;place-items:center;padding:20px}.admin-action-modal{position:relative;width:min(470px,100%);background:#0a1929;border:1px solid var(--admin-line);border-radius:20px;padding:24px;color:#dcecf7;transform:translateY(15px) scale(.97);transition:.28s var(--ease-spring)}.admin-action-overlay.open .admin-action-modal{transform:none}.admin-action-modal h2{margin:5px 0 6px}.admin-action-modal p{margin:0 0 12px;color:#7890a8;font-size:.67rem}.admin-action-modal textarea{width:100%;min-height:120px;border:1px solid var(--admin-line);background:#061320;color:#dbeaf5;border-radius:12px;padding:11px;resize:vertical;outline:none}.admin-action-modal-buttons{display:flex;justify-content:flex-end;gap:7px;margin-top:10px}
 .admin-loading,.admin-empty{color:#748da5;background:rgba(255,255,255,.02);border-color:var(--admin-line)}
 @keyframes adminWorkspaceIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -1851,9 +1858,14 @@ body.admin-page #adminPage.admin-pro{display:block!important}
   .hero-video-status{display:none}
 }
 @media(prefers-reduced-motion:reduce){
-  .hero-video{display:none}
+  /* Conserva una portada estática accesible en lugar de dejar el hero vacío. */
+  .hero-video{opacity:0}
   .hero .visual{animation:none}
 }
+.hero-video{opacity:0;transition:opacity .7s ease}
+.hero-video.is-ready{opacity:1}
+.hero-video-shell.media-fallback .hero-video{opacity:0}
+.hero-video-shell.media-fallback::after{opacity:.34}
 
 </style>
 </head>
@@ -1862,7 +1874,7 @@ body.admin-page #adminPage.admin-pro{display:block!important}
 <header>
   <div class="container nav">
     <a href="#inicio" class="brand" aria-label="IA Plus Colombia">
-      <img data-img="icdaf7aff" alt="IA Plus Colombia">
+      <img src="assets/logo-iaplus.png" data-img="icdaf7aff" alt="IA Plus Colombia">
     </a>
     <nav>
       <a href="#ia">Inteligencia Artificial</a>
@@ -1918,7 +1930,7 @@ body.admin-page #adminPage.admin-pro{display:block!important}
       <source src="assets/hero-bg.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="hero-video-status" aria-hidden="true">Experiencia digital</div>
+  <div class="hero-video-status" id="heroVideoStatus" aria-hidden="true">Cargando experiencia visual</div>
   <div class="container hero-grid">
     <div>
       <div class="pill"><i></i> IA Plus Colombia • Fácil • Rápido • Acompañado</div>
@@ -1933,11 +1945,11 @@ body.admin-page #adminPage.admin-pro{display:block!important}
     <div class="visual" aria-hidden="true">
       <div class="visual-ring"></div>
       <div class="brand-stack">
-        <div class="main-brand-card"><img data-img="icdaf7aff" alt=""></div>
+        <div class="main-brand-card"><img src="assets/logo-iaplus.png" data-img="icdaf7aff" alt=""></div>
         <div class="ai-row">
-          <div class="ai-chip-card"><img data-img="icf89d91e" alt=""></div>
-          <div class="ai-chip-card"><img data-img="if6ef85a7" alt=""></div>
-          <div class="ai-chip-card claude"><img data-img="i2a5810c1" alt=""></div>
+          <div class="ai-chip-card"><img src="assets/logo-chatgpt.png" data-img="icf89d91e" alt=""></div>
+          <div class="ai-chip-card"><img src="assets/logo-openai.png" data-img="if6ef85a7" alt=""></div>
+          <div class="ai-chip-card claude"><img src="assets/logo-claude.png" data-img="i2a5810c1" alt=""></div>
         </div>
       </div>
     </div>
@@ -1950,6 +1962,25 @@ body.admin-page #adminPage.admin-pro{display:block!important}
     <div class="search-note">Encuentra rápido lo que necesitas</div>
   </div>
 </div>
+
+<section class="promo-tray" aria-label="Bandeja de promociones">
+  <div class="container">
+    <div class="promo-tray-card reveal">
+      <div class="promo-tray-copy">
+        <small>🔥 Oferta destacada en bandeja</small>
+        <h2>Promoción visual lista para compartir.</h2>
+        <p>Agregué esta pieza promocional a la portada para que tengas una bandeja destacada con la oferta de ChatGPT Plus, Claude y Canva Pro. Puedes usarla como apoyo comercial o referencia visual dentro del sitio.</p>
+        <div class="promo-tray-actions">
+          <a class="btn primary" href="#catalogo">Ver servicios</a>
+          <a class="btn ghost" href="assets/promo-explosiva.png" target="_blank" rel="noopener">Abrir imagen</a>
+        </div>
+      </div>
+      <div class="promo-tray-preview">
+        <img src="assets/promo-explosiva.png" alt="Oferta explosiva IA Plus con ChatGPT, Claude y Canva Pro">
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="container value-strip">
   <div class="value-grid">
@@ -1973,14 +2004,14 @@ body.admin-page #adminPage.admin-pro{display:block!important}
     </div>
     <div class="ai-grid only-two-ai">
       <article class="plan reveal" style="--grad:linear-gradient(90deg,#111,#555)">
-        <div class="plan-brand"><img data-img="icf89d91e" alt="ChatGPT"></div>
+        <div class="plan-brand"><img src="assets/logo-chatgpt.png" data-img="icf89d91e" alt="ChatGPT"></div>
         <h3>ChatGPT Plus</h3><div class="maker">OpenAI</div>
         <p>Una solución versátil para productividad, redacción, análisis y tareas creativas.</p>
         <ul class="features"><li><b>✓</b> Asistencia general avanzada</li><li><b>✓</b> Herramientas multimodales</li><li><b>✓</b> Acompañamiento de activación</li></ul>
         <div class="plan-foot"><div class="price"><strong id="featuredPrice11">$20.000</strong><small id="featuredPriceLabel11">1 mes · año $50.000</small></div><button class="buy" onclick="goToProduct(11)">Elegir plan</button></div>
       </article>
       <article class="plan reveal" style="--grad:linear-gradient(90deg,#d97757,#f0a081)">
-        <div class="plan-brand claude"><img data-img="i2a5810c1" alt="Claude"></div>
+        <div class="plan-brand claude"><img src="assets/logo-claude.png" data-img="i2a5810c1" alt="Claude"></div>
         <h3>Claude Pro</h3><div class="maker">Anthropic</div>
         <p>Especialmente útil para escritura, lectura extensa, análisis y programación.</p>
         <ul class="features"><li><b>✓</b> Escritura y documentación</li><li><b>✓</b> Análisis de contexto amplio</li><li><b>✓</b> Acompañamiento de activación</li></ul>
@@ -2006,7 +2037,7 @@ body.admin-page #adminPage.admin-pro{display:block!important}
       data-id="11" onclick="goToProduct(11)" tabindex="0"
       data-category="suscripcion"
       data-search="chatgpt plus / mes herramientas avanzadas de openai con asesoría de uso. suscripciones" onkeydown="if(event.key==='Enter') goToProduct(11)">
-      <div class="media"><img data-img="icf89d91e" alt="ChatGPT Plus"></div>
+      <div class="media"><img src="assets/logo-chatgpt.png" data-img="icf89d91e" alt="ChatGPT Plus"></div>
       <div class="product-body">
         <div class="cat">Suscripciones</div>
         <div class="name">ChatGPT Plus</div>
@@ -2022,7 +2053,7 @@ body.admin-page #adminPage.admin-pro{display:block!important}
       data-id="13" onclick="goToProduct(13)" tabindex="0"
       data-category="suscripcion"
       data-search="claude pro / mes ia de anthropic para escritura, análisis y programación. suscripciones" onkeydown="if(event.key==='Enter') goToProduct(13)">
-      <div class="media claude-media"><img data-img="i2a5810c1" alt="Claude Pro"></div>
+      <div class="media claude-media"><img src="assets/logo-claude.png" data-img="i2a5810c1" alt="Claude Pro"></div>
       <div class="product-body">
         <div class="cat">Suscripciones</div>
         <div class="name">Claude Pro</div>
@@ -2335,6 +2366,13 @@ body.admin-page #adminPage.admin-pro{display:block!important}
 
         <div class="secure-note">🔐 Tus pedidos y activaciones están vinculados a tu cuenta de Google.</div>
 
+        <div id="accountAdminShortcut" class="account-admin-shortcut">
+          <small>Administrador principal</small>
+          <b>Acceso directo al panel administrativo</b>
+          <span>Desde aquí puedes gestionar clientes, códigos de activación, servicios activos e inventario.</span>
+          <button type="button" onclick="openAdminPage()">Abrir panel administrativo</button>
+        </div>
+
         <div class="account-actions">
           <button class="account-action-btn" type="button" onclick="returnToCatalog()">🛍️ Seguir comprando</button>
           <button class="account-action-btn" type="button" onclick="window.firebaseGoogleLogout()">↪ Cerrar sesión</button>
@@ -2570,7 +2608,16 @@ body.admin-page #adminPage.admin-pro{display:block!important}
           </div>
 
           <section class="admin-pro-card">
-            <div class="admin-pro-card-head"><div><small>Control</small><h2>Códigos de activación</h2></div><div class="admin-inline-tools"><input id="adminCodeSearch" type="search" placeholder="Buscar código…" oninput="applyAdminCodeFilters()"><select id="adminCodeFilter" onchange="applyAdminCodeFilters()"><option value="all">Todos</option><option value="available">Disponibles</option><option value="used">Usados</option><option value="disabled">Desactivados</option></select></div></div>
+            <div class="admin-pro-card-head"><div><small>Inicial</small><h2>Códigos rápidos</h2></div><button class="admin-soft-btn" type="button" onclick="seedStarterCodes()">Cargar códigos iniciales</button></div>
+            <p class="admin-help">Crea rápidamente los códigos base de 1 mes y 1 año para ChatGPT Plus y Claude Pro.</p>
+            <div id="starterCodesPreview" class="starter-code-preview">ChatGPT · 1 mes → IAPLUS-CGPT-1MES-A1X9
+Claude · 1 mes → IAPLUS-CLAU-1MES-B4K2
+ChatGPT · 1 año → IAPLUS-CGPT-1ANO-C7M5
+Claude · 1 año → IAPLUS-CLAU-1ANO-D8P3</div>
+          </section>
+
+          <section class="admin-pro-card">
+            <div class="admin-pro-card-head"><div><small>Control</small><h2>Códigos de activación</h2></div><div class="admin-inline-tools"><input id="adminCodeSearch" type="search" placeholder="Buscar código…" oninput="applyAdminCodeFilters()"><select id="adminCodeFilter" onchange="applyAdminCodeFilters()"><option value="all">Todos</option><option value="available">Activos</option><option value="disabled">Desactivados</option></select></div></div>
             <div id="adminCodesList" class="admin-codes-list"><div class="admin-loading">Cargando códigos…</div></div>
             <div class="admin-hidden-metrics" aria-hidden="true"><span id="adminMetricCodes">—</span><span id="adminMetricUsed">—</span></div>
           </section>
@@ -2630,10 +2677,8 @@ body.admin-page #adminPage.admin-pro{display:block!important}
               <button class="admin-danger-btn" type="button" onclick="lockAdminPanel()">Bloquear sesión ahora</button>
             </section>
             <section class="admin-pro-card">
-              <div class="admin-pro-card-head"><div><small>Mantenimiento</small><h2>Migración segura</h2></div></div>
-              <p class="admin-help">Separa credenciales antiguas, reconstruye vigencias y conserva pedidos previos. La operación es idempotente.</p>
-              <button class="admin-soft-btn wide" type="button" onclick="runLegacyMigration()">Migrar datos anteriores</button>
-              <div class="admin-action-message" id="adminMigrationMessage"></div>
+              <div class="admin-pro-card-head"><div><small>Infraestructura</small><h2>Modo del sistema</h2></div></div>
+              <p class="admin-help">Este panel opera directamente contra Firestore, protegido por las reglas de seguridad (firestore.rules) — no depende de Cloud Functions ni de un plan de pago. Todas las acciones de esta página (códigos, pedidos, cupones, soporte) funcionan así.</p>
             </section>
           </div>
           <section class="admin-pro-card">
@@ -2677,7 +2722,7 @@ body.admin-page #adminPage.admin-pro{display:block!important}
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div><img class="footer-logo" data-img="icdaf7aff" alt="IA Plus Colombia"><p>ChatGPT Plus y Claude Pro con gestión sencilla, activación vinculada a tu cuenta y soporte directo.</p></div>
+      <div><img src="assets/logo-iaplus.png" class="footer-logo" data-img="icdaf7aff" alt="IA Plus Colombia"><p>ChatGPT Plus y Claude Pro con gestión sencilla, activación vinculada a tu cuenta y soporte directo.</p></div>
       <div><h4>Explorar</h4><a href="#ia">Inteligencia Artificial</a><a href="#catalogo">Servicios</a><a href="#proceso">Cómo funciona</a></div>
       <div><h4>Ayuda</h4><a href="#faq">Preguntas frecuentes</a><a id="footerWa" target="_blank">WhatsApp</a><a href="mailto:anulfoarellano24@gmail.com">Correo</a></div>
       <div><h4>Legal</h4><a href="#" role="button" onclick="event.preventDefault();openLegal('terminos')">Términos y condiciones</a><a href="#" role="button" onclick="event.preventDefault();openLegal('privacidad')">Política de privacidad</a><a href="#" role="button" onclick="event.preventDefault();openLegal('garantias')">Garantías y devoluciones</a></div>
@@ -2743,12 +2788,21 @@ body.admin-page #adminPage.admin-pro{display:block!important}
 <script>
 "use strict";
 const IMG = {
-"icdaf7aff":"assets/logo-iaplus.png",
-"icf89d91e":"assets/logo-chatgpt.png",
-"if6ef85a7":"assets/logo-openai.png",
-"i2a5810c1":"assets/logo-claude.png"
+"icdaf7aff":new URL("assets/logo-iaplus.png", document.baseURI).href,
+"icf89d91e":new URL("assets/logo-chatgpt.png", document.baseURI).href,
+"if6ef85a7":new URL("assets/logo-openai.png", document.baseURI).href,
+"i2a5810c1":new URL("assets/logo-claude.png", document.baseURI).href
 };
-function applyEmbeddedImages(){document.querySelectorAll("img[data-img]").forEach(function(el){var k=el.getAttribute("data-img");if(IMG[k])el.src=IMG[k];});}
+function applyEmbeddedImages(){
+  document.querySelectorAll("img[data-img]").forEach(function(el){
+    var k=el.getAttribute("data-img");
+    if(IMG[k]) el.src=IMG[k];
+    el.addEventListener("error",function(){
+      el.style.display="none";
+      el.parentElement?.classList.add("image-missing");
+    },{once:true});
+  });
+}
 
 const CONFIG = {
   whatsapp: "573018964476",
@@ -2971,7 +3025,15 @@ function showAccountPage() {
 
   renderMyServices();
   refreshAccountExtras();
+  updateAccountAdminShortcut();
   window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function updateAccountAdminShortcut(){
+  const box=$("accountAdminShortcut");
+  if(!box)return;
+  const isAdmin = isAdminUser();
+  box.style.display = isAdmin ? "block" : "none";
 }
 
 function statusLabel(status) {
@@ -3222,9 +3284,17 @@ function returnHome() {
   else location.hash = "inicio";
 }
 
-function handleSingleFileRoute() {
+async function handleSingleFileRoute() {
   const match=location.hash.match(/^#producto-(\d+)$/);
   if(match){showProductDetail(Number(match[1]));return;}
+  // #admin y #mi-cuenta dependen de la sesión de Firebase, que se restaura de forma
+  // asíncrona. Si esta ruta se abre directamente (recarga o marcador) antes de que
+  // esa restauración termine, esperamos un instante en vez de expulsar de inmediato
+  // a un administrador que en realidad sí tiene sesión iniciada.
+  const protectedRoute = location.hash==="#mi-cuenta" || location.hash==="#admin";
+  if(protectedRoute && !isSignedIn() && window.initialAuthReady){
+    await Promise.race([window.initialAuthReady, new Promise(resolve=>setTimeout(resolve,3000))]);
+  }
   if(location.hash==="#mi-cuenta"){
     if(!isSignedIn()){openAuthModal();location.hash="inicio";return;}
     showAccountPage();return;
@@ -3796,6 +3866,8 @@ async function renderMyServices() {
     const remainingEnd=Number(info.activeUntilMs||info.expiresAt||0);
     if(active){
       card.classList.add("active");if(state)state.textContent="Activo";if(time)time.innerHTML=`${compactRemaining(remainingEnd)} de cobertura${Number(info.queuedRenewals||0)>0?` <span class="service-queued">· ${info.queuedRenewals} renovación(es) en cola</span>`:""}`;
+    }else if(info.status==="SUSPENDED"){
+      card.classList.add("expired");if(state)state.textContent="Suspendido";if(time)time.textContent="Tu acceso fue pausado por administración. Escríbenos para reactivarlo.";
     }else{
       card.classList.add("expired");if(state)state.textContent=info.status==="QUEUED"?"Programado":"Vencido";if(time)time.textContent=info.status==="QUEUED"?`Inicia ${formatActivationDate(info.startAt)}`:"Renueva para recuperar el acceso";
     }
@@ -3807,12 +3879,13 @@ async function renderMyServices() {
 function updateAdminAccess(user = currentSignedUser) {
   const admin = isAdminUser(user);
   if ($("adminMenuBtn")) $("adminMenuBtn").style.display = admin ? "" : "none";
+  updateAccountAdminShortcut();
   if (!admin && document.body.classList.contains("admin-page")) {
     document.body.classList.remove("admin-page");
     location.hash = "inicio";
   }
   if (admin) {
-    if ($("adminName")) $("adminName").textContent = user.displayName || "Administrador";
+    if ($("adminName")) $("adminName").textContent = (user.email||"").toLowerCase()==="wannaia333@gmail.com" ? "Administrador principal" : (user.displayName || "Administrador");
     if ($("adminEmail")) $("adminEmail").textContent = user.email || "";
     if ($("adminSecurityEmail")) $("adminSecurityEmail").textContent = user.email || "";
     if ($("adminAvatar")) {
@@ -3950,6 +4023,12 @@ async function lockAdminPanel(){
 function adminErrorMessage(error,fallback="Error administrativo"){
   const msg=String(error?.message||error?.details||"");
   if(msg.includes("ADMIN_LOCKED")){setAdminUnlocked(false,0);return "La sesión administrativa venció. Desbloquea el panel nuevamente.";}
+  if(error?.code==="permission-denied"||/insufficient permissions|PERMISSION_DENIED/i.test(msg)){
+    return "Firestore rechazó la operación por permisos. Lo más probable es que aún no hayas publicado las reglas de seguridad (firestore.rules) en la consola de Firebase — sigue el PASO 1 de PASOS-PARA-ACTIVAR-CODIGOS.txt.";
+  }
+  if(error?.code==="unavailable"||/client is offline/i.test(msg)){
+    return "No hay conexión con la base de datos en este momento. Revisa tu internet e intenta de nuevo.";
+  }
   return msg.replace(/^FirebaseError:\s*/i,"")||fallback;
 }
 
@@ -4025,19 +4104,36 @@ async function createAdminActivationBatch(){
   }catch(error){if(out)out.textContent=adminErrorMessage(error,"No se pudo crear el lote");}
 }
 
+async function seedStarterCodes(){
+  if(!adminUnlocked)return;
+  const box=$("starterCodesPreview");
+  try{
+    if(box) box.textContent='Cargando códigos iniciales…';
+    const result=await window.adminSeedStarterCodes();
+    touchAdminSession();
+    const rows=result?.starterCodes||[];
+    if(box) box.textContent = rows.length ? rows.map(v=>`${v.service} · ${v.planLabel} → ${v.code}`).join("\n") : 'No se recibieron códigos';
+    showToast((result?.created||[]).length ? 'Códigos iniciales cargados ✓' : 'Los códigos iniciales ya estaban creados');
+    refreshAdminDashboard();
+  }catch(error){
+    if(box) box.textContent='ChatGPT · 1 mes → IAPLUS-CGPT-1MES-A1X9\nClaude · 1 mes → IAPLUS-CLAU-1MES-B4K2\nChatGPT · 1 año → IAPLUS-CGPT-1ANO-C7M5\nClaude · 1 año → IAPLUS-CLAU-1ANO-D8P3';
+    showToast(adminErrorMessage(error,'No se pudieron cargar los códigos iniciales'));
+  }
+}
+
 function renderAdminCodes(codes=[]) {
   adminCodeRows=Array.isArray(codes)?codes:[];
   if($("adminMetricCodes"))$("adminMetricCodes").textContent=adminCodeRows.length;
-  if($("adminMetricAvailable"))$("adminMetricAvailable").textContent=adminCodeRows.filter(c=>c.status==="available"&&c.active!==false).length;
-  if($("adminMetricUsed"))$("adminMetricUsed").textContent=adminCodeRows.filter(c=>c.status==="used").length;
+  if($("adminMetricAvailable"))$("adminMetricAvailable").textContent=adminCodeRows.filter(c=>c.active!==false).length;
+  if($("adminMetricUsed"))$("adminMetricUsed").textContent=adminCodeRows.reduce((sum,c)=>sum+Number(c.redeemedCount||0),0);
   applyAdminCodeFilters();
 }
 function applyAdminCodeFilters(){
   const box=$("adminCodesList");if(!box)return;
   const q=String($("adminCodeSearch")?.value||"").trim().toLowerCase(),filter=$("adminCodeFilter")?.value||"all";
-  const rows=adminCodeRows.filter(item=>{const status=item.status||(!item.active?"disabled":"available");const hay=`${item.code||item.id} ${item.service||""} ${item.planLabel||""} ${item.redeemedByEmail||""}`.toLowerCase();return(!q||hay.includes(q))&&(filter==="all"||status===filter);});
+  const rows=adminCodeRows.filter(item=>{const status=item.active!==false?"available":"disabled";const hay=`${item.code||item.id} ${item.service||""} ${item.planLabel||""} ${item.lastRedeemedByEmail||""}`.toLowerCase();return(!q||hay.includes(q))&&(filter==="all"||status===filter);});
   if(!rows.length){box.innerHTML='<div class="admin-empty">No hay códigos que coincidan con el filtro.</div>';return;}
-  box.innerHTML=rows.slice(0,160).map(item=>{const status=item.status||(!item.active?"disabled":"available"),active=status==="available"&&item.active!==false,cls=status==="used"?"used":active?"available":"off",txt=status==="used"?"Usado":active?"Disponible":"Desactivado";const safeCode=escapeHtml(item.code||item.id),jsCode=String(item.code||item.id||"").replace(/[^A-Za-z0-9._-]/g,"");return `<article class="admin-code-item"><div><div class="admin-code-value">${safeCode}</div><div class="admin-code-meta"><span>${escapeHtml(item.service||"Servicio")}</span><span> · ${escapeHtml(item.planLabel||item.durationDays+" días")}</span>${item.redeemedByEmail?`<span> · ${escapeHtml(item.redeemedByEmail)}</span>`:""}<span class="admin-code-status ${cls}">${txt}</span></div></div><div class="admin-code-actions"><button type="button" onclick="copyStaticText('${jsCode}')">Copiar</button>${status!=="used"?`<button type="button" onclick="toggleAdminCode('${jsCode}',${active?"false":"true"})">${active?"Desactivar":"Activar"}</button>`:""}</div></article>`;}).join("");
+  box.innerHTML=rows.slice(0,160).map(item=>{const active=item.active!==false,cls=active?"available":"off",txt=active?"Activo":"Desactivado",uses=Number(item.redeemedCount||0);const safeCode=escapeHtml(item.code||item.id),jsCode=String(item.code||item.id||"").replace(/[^A-Za-z0-9._-]/g,"");return `<article class="admin-code-item"><div><div class="admin-code-value">${safeCode}</div><div class="admin-code-meta"><span>${escapeHtml(item.service||"Servicio")}</span><span> · ${escapeHtml(item.planLabel||item.durationDays+" días")}</span><span> · ${uses} canje${uses===1?"":"s"}</span>${item.lastRedeemedByEmail?`<span> · último: ${escapeHtml(item.lastRedeemedByEmail)}</span>`:""}<span class="admin-code-status ${cls}">${txt}</span></div></div><div class="admin-code-actions"><button type="button" onclick="copyStaticText('${jsCode}')">Copiar</button><button type="button" onclick="toggleAdminCode('${jsCode}',${active?"false":"true"})">${active?"Desactivar":"Activar"}</button></div></article>`;}).join("");
 }
 async function toggleAdminCode(code,active){try{await window.adminToggleActivationCode(code,active);touchAdminSession();showToast(active?"Código activado":"Código desactivado");refreshAdminDashboard();}catch(error){showToast(adminErrorMessage(error,"No se pudo actualizar el código"));}}
 
@@ -4049,6 +4145,23 @@ function renderAdminUsers(users=[]) {
 function formatUserAccessDate(ms){
   const n=Number(ms||0);if(!n)return 'Sin registro';
   try{return new Date(n).toLocaleString('es-CO',{dateStyle:'short',timeStyle:'short'});}catch{return new Date(n).toLocaleString('es-CO');}
+}
+function adminServiceStatusInfo(state={}){
+  const suspended=state?.suspended===true;
+  const activeUntil=Number(state?.activeUntilMs||0);
+  if(suspended)return {badge:'Suspendido',badgeClass:'suspended',detail:'Pausado por administración',button:'Reactivar',activate:true,buttonClass:'admin-primary-btn'};
+  if(activeUntil>Date.now())return {badge:'Activo',badgeClass:'active',detail:`Activo hasta ${new Date(activeUntil).toLocaleDateString('es-CO')}`,button:'Suspender',activate:false,buttonClass:'admin-danger-btn'};
+  return {badge:'Sin cobertura',badgeClass:'inactive',detail:'No tiene cobertura activa',button:'Desactivar',activate:false,buttonClass:'admin-soft-btn'};
+}
+function buildAdminServiceRows(uid,states=[]){
+  const all=[11,13].map(productId=>{
+    const found=states.find(v=>Number(v.productId||v.id||0)===productId)||{};
+    return {productId,service:found.service||(productId===11?'ChatGPT Plus':'Claude Pro'),...found};
+  });
+  return all.map(v=>{
+    const info=adminServiceStatusInfo(v);
+    return `<div class="client-service-row"><div class="client-service-copy"><b>${escapeHtml(v.service||'Servicio')}</b><span>${escapeHtml(info.detail)}</span></div><div class="client-service-actions"><span class="client-service-badge ${info.badgeClass}">${info.badge}</span><button class="${info.buttonClass}" onclick="toggleAdminServiceStatus('${encodeURIComponent(uid)}',${Number(v.productId||0)},${info.activate?'true':'false'})">${info.button}</button></div></div>`;
+  }).join('');
 }
 function filterAdminUsers(){
   const box=$('adminUsersList');if(!box)return;
@@ -4080,15 +4193,16 @@ async function openAdminClient(uid){
     const avatar=u.photoURL?`<img class="client-detail-avatar" src="${escapeHtml(u.photoURL)}" alt="">`:`<div class="client-detail-avatar">${initial}</div>`;
     box.innerHTML=`<div class="client-detail-head">${avatar}<div><span class="admin-pro-eyebrow">Cliente</span><h2 id="adminClientTitle">${escapeHtml(u.displayName||"Usuario")}</h2><p>${escapeHtml(u.email||"")}</p></div></div><div class="client-access-summary"><span>🗓️ Registro: <b>${escapeHtml(firstAccess)}</b></span><span>🕒 Último acceso: <b>${escapeHtml(lastAccess)}</b></span><span>↻ Ingresos: <b>${loginCount}</b></span></div>
       <div class="client-detail-stats"><div class="client-detail-stat"><small>Pedidos</small><b>${orders.length}</b></div><div class="client-detail-stat"><small>Pagados</small><b>${paid.length}</b></div><div class="client-detail-stat"><small>Total</small><b>${fmt(spent).replace(" COP","")}</b></div></div>
-      <div class="client-detail-section"><h3>Servicios</h3>${states.length?states.map(v=>`<div class="client-service-row"><b>${escapeHtml(v.service||"Servicio")}</b><span>${Number(v.activeUntilMs||0)>Date.now()?"Activo hasta "+new Date(Number(v.activeUntilMs)).toLocaleDateString("es-CO"):"Sin cobertura activa"}</span></div>`).join(""):'<div class="admin-empty">Sin servicios activos.</div>'}</div>
-      <div class="client-detail-section"><h3>Notas privadas</h3><textarea id="adminClientNote" class="client-note-textarea" placeholder="Notas visibles solo para administración…">${escapeHtml(meta.note||"")}</textarea><input id="adminClientTags" class="client-tags-input" value="${escapeHtml((meta.tags||[]).join(", "))}" placeholder="Etiquetas separadas por coma"><div style="display:flex;gap:7px;margin-top:8px"><button class="admin-primary-btn" onclick="saveAdminClientNote('${encodeURIComponent(uid)}')">Guardar notas</button><button class="${u.disabled?"admin-primary-btn":"admin-danger-btn"}" onclick="toggleAdminClientDisabled('${encodeURIComponent(uid)}',${u.disabled?"false":"true"})">${u.disabled?"Habilitar cuenta":"Deshabilitar cuenta"}</button></div></div>
+      <div class="client-detail-section"><h3>Servicios</h3>${buildAdminServiceRows(uid,states)}</div>
+      <div class="client-detail-section"><h3>Notas privadas</h3><textarea id="adminClientNote" class="client-note-textarea" placeholder="Notas visibles solo para administración…">${escapeHtml(meta.note||"")}</textarea><input id="adminClientTags" class="client-tags-input" value="${escapeHtml((meta.tags||[]).join(", "))}" placeholder="Etiquetas separadas por coma"><div style="display:flex;gap:7px;margin-top:8px"><button class="admin-primary-btn" onclick="saveAdminClientNote('${encodeURIComponent(uid)}')">Guardar notas</button><button class="${u.disabled?"admin-primary-btn":"admin-danger-btn"}" onclick="toggleAdminClientDisabled('${encodeURIComponent(uid)}',${u.disabled?"false":"true"})">${u.disabled?"Quitar marca de bloqueado":"Marcar como bloqueado"}</button></div><p class="admin-help" style="margin-top:6px">Esta marca es solo interna (para tu control); no impide que el cliente inicie sesión con Google.</p></div>
       <div class="client-detail-section"><h3>Pedidos recientes</h3>${orders.slice(0,8).map(o=>`<div class="client-order-row"><b>${escapeHtml(o.reference||o.id)}</b><span>${fmt(o.total||0)} · ${escapeHtml(o.paymentStatus||o.status||"")}</span></div>`).join("")||'<div class="admin-empty">Sin pedidos.</div>'}</div>
       <div class="client-detail-section"><h3>Soporte</h3><div class="admin-help">${tickets.length} ticket(s) · ${acts.length} activación(es) históricas.</div></div>`;
   }catch(error){if(box)box.innerHTML=`<div class="admin-empty">${escapeHtml(adminErrorMessage(error,"No se pudo cargar el cliente"))}</div>`;}
 }
 function closeAdminClient(){$("adminClientDrawer")?.classList.remove("open");currentAdminClient=null;}
 async function saveAdminClientNote(encodedUid){const uid=decodeURIComponent(encodedUid),note=$("adminClientNote")?.value||"",tags=String($("adminClientTags")?.value||"").split(",").map(v=>v.trim()).filter(Boolean);try{await window.adminSaveClientNote(uid,note,tags);touchAdminSession();showToast("Notas guardadas ✓");}catch(error){showToast(adminErrorMessage(error,"No se guardaron las notas"));}}
-async function toggleAdminClientDisabled(encodedUid,disabled){const uid=decodeURIComponent(encodedUid);if(!confirm(disabled?"¿Deshabilitar el inicio de sesión de este cliente?":"¿Habilitar nuevamente este cliente?"))return;try{await window.adminSetUserDisabled(uid,disabled);touchAdminSession();showToast(disabled?"Cuenta deshabilitada":"Cuenta habilitada");openAdminClient(uid);}catch(error){showToast(adminErrorMessage(error,"No se pudo cambiar el estado"));}}
+async function toggleAdminClientDisabled(encodedUid,disabled){const uid=decodeURIComponent(encodedUid);if(!confirm(disabled?"¿Marcar este cliente como bloqueado? (Es solo una nota interna; su cuenta de Google seguirá pudiendo iniciar sesión.)":"¿Quitar la marca de bloqueado?"))return;try{await window.adminSetUserDisabled(uid,disabled);touchAdminSession();showToast(disabled?"Cliente marcado como bloqueado":"Marca de bloqueado retirada");openAdminClient(uid);}catch(error){showToast(adminErrorMessage(error,"No se pudo cambiar el estado"));}}
+async function toggleAdminServiceStatus(encodedUid,productId,active){const uid=decodeURIComponent(encodedUid);const action=active?"reactivar":"suspender";if(!confirm(`¿Deseas ${action} este servicio?`))return;try{await window.adminSetServiceStatus(uid,productId,active);touchAdminSession();showToast(active?"Servicio reactivado":"Servicio suspendido");openAdminClient(uid);}catch(error){showToast(adminErrorMessage(error,"No se pudo cambiar la vigencia"));}}
 
 function renderAdminOrders(orders=[]){adminOrderRows=Array.isArray(orders)?orders:[];applyAdminOrderFilters();renderAdminRecentOrders(adminOrderRows);}
 function applyAdminOrderFilters(){
@@ -4105,7 +4219,10 @@ async function adminFulfill(reference){try{await window.adminFulfillOrder(refere
 function openAdminOrderNote(reference){openAdminActionModal("Nota de pedido","Añade una observación privada al historial administrativo.",async text=>{await window.adminAddOrderNote(reference,text);touchAdminSession();showToast("Nota guardada ✓");refreshAdminDashboard();});}
 function exportAdminOrdersCsv(){if(!adminOrderRows.length)return showToast("No hay pedidos para exportar");const rows=[["Referencia","Fecha","Cliente","Correo","Servicios","Subtotal","Descuento","Total","Pago","Entrega"]];adminOrderRows.forEach(o=>rows.push([o.reference||o.id,new Date(Number(o.createdAtMs||0)).toISOString(),o.customerName||"",o.customerEmail||"",(o.items||[]).map(i=>`${i.name} ${i.planLabel}`).join(" | "),o.subtotal||0,o.discount||0,o.total||0,o.paymentStatus||o.status||"",o.fulfillmentStatus||""]));const csv=rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\n");const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`ia-plus-pedidos-${new Date().toISOString().slice(0,10)}.csv`;a.click();URL.revokeObjectURL(a.href);showToast("CSV generado ✓");}
 
-function renderAdminStock(stock={},settings={}){const box=$("adminStockGrid"),alertBox=$("adminStockAlert");if(!box)return;const threshold=Number(settings.lowStockThreshold??3);const rows=[{key:"11-month",label:"ChatGPT mensual"},{key:"11-year",label:"ChatGPT anual"},{key:"13-month",label:"Claude mensual"},{key:"13-year",label:"Claude anual"}];box.innerHTML=rows.map(r=>{const qty=Number(stock[r.key]||0),cls=qty===0?"zero":qty<=threshold?"low":"";return `<div class="stock-item ${cls}"><small>${r.label}</small><b>${qty}</b></div>`;}).join("");const low=rows.filter(r=>Number(stock[r.key]||0)<=threshold);if(alertBox)alertBox.innerHTML=low.length?`<div class="admin-alert">⚠️ Revisa inventario: ${low.map(r=>r.label).join(", ")}.</div>`:"";}
+function renderAdminStock(stock={},settings={}){const box=$("adminStockGrid"),alertBox=$("adminStockAlert");if(!box)return;const rows=[{key:"11-month",label:"ChatGPT mensual"},{key:"11-year",label:"ChatGPT anual"},{key:"13-month",label:"Claude mensual"},{key:"13-year",label:"Claude anual"}];box.innerHTML=rows.map(r=>{const qty=Number(stock[r.key]||0),cls=qty===0?"zero":"";return `<div class="stock-item ${cls}"><small>${r.label}</small><b>${qty}</b></div>`;}).join("");
+// Los códigos son de uso ilimitado (cuenta compartida): un solo código activo
+// alcanza para cualquier cantidad de clientes. Solo avisamos si falta por completo.
+const missing=rows.filter(r=>Number(stock[r.key]||0)===0);if(alertBox)alertBox.innerHTML=missing.length?`<div class="admin-alert">⚠️ Sin código activo: ${missing.map(r=>r.label).join(", ")}.</div>`:"";}
 
 function renderAdminTickets(tickets=[]){adminTicketRows=Array.isArray(tickets)?tickets:[];filterAdminTickets();}
 function filterAdminTickets(){const box=$("adminTicketsList");if(!box)return;const q=String($("adminTicketSearch")?.value||"").trim().toLowerCase(),filter=$("adminTicketFilter")?.value||"all";const rows=adminTicketRows.filter(t=>{const hay=`${t.id} ${t.subject||""} ${t.category||""} ${t.customerName||""} ${t.customerEmail||""}`.toLowerCase();return(!q||hay.includes(q))&&(filter==="all"||t.status===filter);});if(!rows.length){box.innerHTML='<div class="admin-empty">No hay tickets que coincidan.</div>';return;}box.innerHTML=rows.slice(0,100).map(t=>`<article class="admin-ticket"><div class="admin-ticket-top"><div><b>#${escapeHtml(t.id)} · ${escapeHtml(t.subject||t.category||"Soporte")}</b><small>${escapeHtml(t.customerName||"")} · ${escapeHtml(t.customerEmail||"")}</small></div><span class="status-pill">${escapeHtml(t.status||"OPEN")}</span></div><div class="messages">${(t.messages||[]).slice(-5).map(m=>`<div class="ticket-message ${m.by==="admin"?"admin":""}"><b>${m.by==="admin"?"IA Plus":"Cliente"}</b> ${escapeHtml(m.text||"")}</div>`).join("")}</div><div class="ticket-actions"><button onclick="replyAdminTicket('${escapeHtml(t.id)}')">Responder</button>${t.status!=="RESOLVED"?`<button onclick="setAdminTicket('${escapeHtml(t.id)}','RESOLVED')">Resolver</button>`:""}<button onclick="setAdminTicket('${escapeHtml(t.id)}','CLOSED')">Cerrar</button></div></article>`).join("");}
@@ -4136,8 +4253,6 @@ async function refreshAdminDashboard() {
     if($("adminMonthRevenue"))$("adminMonthRevenue").textContent=`Este mes ${fmt(m.monthRevenue||0).replace(" COP","")}`;
   }catch(error){const msg=adminErrorMessage(error,"No se pudo cargar el panel");console.error("Panel admin:",error);if(!adminUnlocked)return;if($("adminRecentOrders"))$("adminRecentOrders").innerHTML=`<div class="admin-empty">${escapeHtml(msg)}</div>`;}
 }
-
-async function runLegacyMigration(){const box=$("adminMigrationMessage");if(box){box.className="admin-action-message show";box.textContent="Migrando datos anteriores…";}try{const result=await window.adminMigrateLegacyData();touchAdminSession();const c=result?.counts||{};if(box){box.className="admin-action-message show ok";box.textContent=`Migración completada: ${c.orders||0} pedidos, ${c.codeSecrets||0} códigos, ${c.activationSecrets||0} activaciones y ${c.serviceStates||0} vigencias.`;}showToast("Migración completada ✓");refreshAdminDashboard();}catch(error){if(box){box.className="admin-action-message show error";box.textContent=adminErrorMessage(error,"No se pudo completar la migración.");}showToast(adminErrorMessage(error,"Error de migración"));}}
 
 function openAdminActionModal(title,help,callback,initial=""){adminActionCallback=callback;if($("adminActionTitle"))$("adminActionTitle").textContent=title;if($("adminActionHelp"))$("adminActionHelp").textContent=help;if($("adminActionText"))$("adminActionText").value=initial;const modal=$("adminActionModal");if(modal)modal.classList.add("open");if($("adminActionConfirm"))$("adminActionConfirm").onclick=confirmAdminAction;setTimeout(()=>$("adminActionText")?.focus(),120);}
 async function confirmAdminAction(){const text=String($("adminActionText")?.value||"").trim();if(!text)return showToast("Escribe la información");const btn=$("adminActionConfirm");try{if(btn){btn.disabled=true;btn.textContent="Guardando…";}await adminActionCallback?.(text);closeAdminActionModal();}catch(error){showToast(adminErrorMessage(error,"No se pudo completar la acción"));}finally{if(btn){btn.disabled=false;btn.textContent="Guardar";}}}
@@ -4339,8 +4454,8 @@ if (document.readyState === "loading") {
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, getDocs, collection, query, where, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence, inMemoryPersistence } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, getDocs, collection, query, where, orderBy, onSnapshot, serverTimestamp, runTransaction, addDoc, updateDoc, writeBatch, limit } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-functions.js";
 
 const FIREBASE_CONFIG = {
@@ -4367,7 +4482,15 @@ const provider = new GoogleAuthProvider();
 provider.setCustomParameters({prompt:"select_account"});
 let ordersUnsubscribe = null;
 let storeUnsubscribe = null;
-await setPersistence(auth, browserLocalPersistence);
+// Algunos móviles, navegadores privados y WebViews bloquean localStorage.
+// Si la persistencia local falla, la sesión sigue funcionando en memoria en
+// vez de detener todo el módulo de Firebase.
+try {
+  await setPersistence(auth, browserLocalPersistence);
+} catch (persistenceError) {
+  console.warn("Persistencia local no disponible; se usará memoria.", persistenceError);
+  try { await setPersistence(auth, inMemoryPersistence); } catch (_) {}
+}
 
 const callable = name => httpsCallable(functions, name);
 const callData = async (name, data={}) => (await callable(name)(data)).data;
@@ -4432,7 +4555,7 @@ function stopOrdersListener(){
 
 async function fallbackOrders(){
   try{
-    const result = await callData("getMyOrders");
+    const result = await window.getMyOrders();
     window.renderAccountOrders?.(result.orders||[]);
   }catch(error){
     console.warn("Historial alterno:",error);
@@ -4458,24 +4581,6 @@ function startStoreSettingsListener(){
 }
 
 window.restartOrdersListener=()=>{if(auth.currentUser)startOrdersListener(auth.currentUser);};
-
-// Pedidos y pagos
-window.createWhatsAppOrder = payload => callData("createWhatsAppOrder", payload);
-window.prepareWompiPayment = payload => callData("prepareWompiPayment", payload);
-window.verifyWompiTransaction = transactionId => callData("verifyWompiTransaction", {transactionId});
-
-// Servicios y renovaciones
-window.redeemActivationCode = async(rawCode,productId)=> callData("redeemActivationCode",{code:rawCode,productId});
-window.loadActivationRecord = async productId => (await callData("getMyService",{productId})).current || null;
-window.getMyServices = () => callData("getMyServices");
-window.getMyActivationHistory = () => callData("getMyActivationHistory");
-
-// Cuenta, soporte, notificaciones y referidos
-window.createSupportTicket = payload => callData("createSupportTicket", payload);
-window.getMyTickets = () => callData("getMyTickets");
-window.getMyNotifications = () => callData("getMyNotifications");
-window.markNotificationRead = id => callData("markNotificationRead", {id});
-window.getMyReferral = () => callData("getMyReferral");
 
 // Administración: la identidad se resuelve en backend; el correo administrador no se publica en el HTML.
 window.adminIdentityStatus = async () => {
@@ -4504,52 +4609,709 @@ window.adminSessionStatus = async () => {
 };
 window.adminLock = async () => {try{return await callData("adminLock");}catch(error){return {ok:true};}};
 
-async function listRegisteredUsersDirect(){
-  if(!isAdminAuthUser())throw new Error("Sin permisos de administrador.");
-  const snap=await getDocs(collection(db,"users"));
-  return snap.docs.map(d=>({uid:d.id,...d.data()})).sort((a,b)=>Number(b.lastLoginAtMs||b.createdAtMs||0)-Number(a.lastLoginAtMs||a.createdAtMs||0));
+// El resto de la administración (pedidos, cupones, soporte, clientes) se
+// implementa directamente contra Firestore más abajo, junto con la tienda
+// sin backend.
+
+/* =====================================================================
+   ACTIVACIÓN SIN BACKEND (navegador + Firestore + Auth)
+   Permite CARGAR y CANJEAR códigos de activación directamente desde el
+   navegador cuando las Cloud Functions no están desplegadas. La seguridad
+   real la imponen las reglas de Firestore (firestore.rules). Estas
+   funciones sustituyen a las llamadas al backend para que la activación
+   funcione en hosting estático (GitHub Pages / Firebase Hosting gratis).
+   ===================================================================== */
+const CS_PRODUCTS = {
+  11: { id: 11, name: "ChatGPT Plus" },
+  13: { id: 13, name: "Claude Pro" },
+};
+const CS_STARTER_CODES = [
+  { code:"IAPLUS-CGPT-1MES-A1X9", productId:11, service:"ChatGPT Plus", plan:"month", planLabel:"1 mes", durationDays:30, accessInfo:"Código inicial ChatGPT Plus · 1 mes",
+    credentials:{ heading:"ACCESO CHATGPT PLUS", email:"cliente.chatgpt.mes@iaplus.local", password:"Temporal-ChatGPT-30D", authenticator:"PENDIENTE", twoFaUrl:"" } },
+  { code:"IAPLUS-CLAU-1MES-B4K2", productId:13, service:"Claude Pro", plan:"month", planLabel:"1 mes", durationDays:30, accessInfo:"Código inicial Claude Pro · 1 mes",
+    credentials:{ heading:"ACCESO CLAUDE PRO", email:"cliente.claude.mes@iaplus.local", password:"Temporal-Claude-30D", authenticator:"PENDIENTE", twoFaUrl:"" } },
+  { code:"IAPLUS-CGPT-1ANO-C7M5", productId:11, service:"ChatGPT Plus", plan:"year", planLabel:"1 año", durationDays:365, accessInfo:"Código inicial ChatGPT Plus · 1 año",
+    credentials:{ heading:"ACCESO CHATGPT PLUS", email:"cliente.chatgpt.anual@iaplus.local", password:"Temporal-ChatGPT-365D", authenticator:"PENDIENTE", twoFaUrl:"" } },
+  { code:"IAPLUS-CLAU-1ANO-D8P3", productId:13, service:"Claude Pro", plan:"year", planLabel:"1 año", durationDays:365, accessInfo:"Código inicial Claude Pro · 1 año",
+    credentials:{ heading:"ACCESO CLAUDE PRO", email:"cliente.claude.anual@iaplus.local", password:"Temporal-Claude-365D", authenticator:"PENDIENTE", twoFaUrl:"" } },
+];
+const csNormalizeCode = v => String(v||"").trim().toUpperCase().replace(/\s+/g,"");
+const csRandHex = () => { const a=new Uint8Array(3); crypto.getRandomValues(a); return Array.from(a).map(x=>x.toString(16).padStart(2,"0")).join("").toUpperCase(); };
+function csFirestoreErrorMessage(error, fallback){
+  const code = String(error?.code || "");
+  if(code.includes("permission-denied")) return "Firebase bloqueó esta operación. Verifica que el dominio de Hostinger esté autorizado y que hayas publicado firestore.rules.";
+  if(code.includes("failed-precondition")) return "Falta un índice de Firestore. Abre el enlace que muestra la consola del navegador o publica firestore.indexes.json.";
+  if(code.includes("unavailable") || code.includes("network")) return "No hay conexión con Firebase. Revisa internet e inténtalo de nuevo.";
+  return error?.message || fallback;
 }
-window.adminGetDashboard = async () => {
-  if(!isAdminAuthUser())throw new Error("Sin permisos de administrador.");
-  try{
-    const data=await callData("adminGetDashboard");
-    if(data&&Array.isArray(data.users))return data;
-  }catch(error){console.warn("Dashboard backend no disponible; cargando usuarios directamente desde Firestore.",error);}
-  const users=await listRegisteredUsersDirect();
+function csRequireAdmin(){ if(!isAdminAuthUser()) throw new Error("Sin permisos de administrador."); }
+function csSanitizeCredentials(c={}){
   return {
-    users,
-    codes:[],orders:[],tickets:[],coupons:[],audits:[],daily:[],stock:{},settings:null,
-    metrics:{users:users.length,orders:0,paidOrders:0,revenue:0,openTickets:0,monthRevenue:0},
-    fallbackMode:true
+    heading: String(c.heading||"INFORMACIÓN DEL SERVICIO").slice(0,100),
+    email: String(c.email||"").slice(0,300),
+    password: String(c.password||"").slice(0,300),
+    authenticator: String(c.authenticator||"").slice(0,500),
+    twoFaUrl: String(c.twoFaUrl||"").slice(0,500),
+  };
+}
+
+async function csGetCurrentService(uid, productId, includeCredentials=false){
+  productId = Number(productId);
+  const now = Date.now();
+  const [actsSnap, stateSnap] = await Promise.all([
+    getDocs(query(collection(db, `users/${uid}/activations`), where("productId","==",productId))),
+    getDoc(doc(db, `users/${uid}/serviceStates/${productId}`)),
+  ]);
+  const rows = actsSnap.docs.map(d=>({id:d.id, ...d.data()})).sort((a,b)=>Number(a.startAt||0)-Number(b.startAt||0));
+  const state = stateSnap.exists()? stateSnap.data() : {};
+  const active = rows.find(r=>Number(r.startAt)<=now && Number(r.expiresAt)>now) || null;
+  const queued = rows.filter(r=>Number(r.startAt)>now);
+  const latest = rows.length? rows[rows.length-1] : null;
+  let result = active ? {...active} : (latest ? {...latest} : null);
+  if(!result && stateSnap.exists()){
+    result = { productId, service: state.service||CS_PRODUCTS[productId]?.name||"Servicio", activeUntilMs:Number(state.activeUntilMs||0), startAt:Number(state.activeUntilMs||0), expiresAt:Number(state.activeUntilMs||0) };
+  }
+  if(!result) return null;
+  result.service = result.service || state.service || CS_PRODUCTS[productId]?.name || "Servicio";
+  result.status = active ? "ACTIVE" : (queued.length ? "QUEUED" : "EXPIRED");
+  result.queuedRenewals = queued.length;
+  result.activeUntilMs = Math.max(Number(state.activeUntilMs||0), rows.reduce((m,r)=>Math.max(m,Number(r.expiresAt||0)),0));
+  result.historyCount = rows.length;
+  result.adminSuspended = state.suspended === true;
+  if(state.suspended === true){ result.status = "SUSPENDED"; result.suspension = { by: state.suspendedBy||"", atMs:Number(state.suspendedAtMs||0) }; }
+  if(!(includeCredentials && state.suspended !== true)) delete result.credentials;
+  return result;
+}
+
+async function csRedeemActivationCode(rawCode, productId){
+  const user = auth.currentUser;
+  if(!user) throw new Error("Debes iniciar sesión.");
+  const code = csNormalizeCode(rawCode);
+  productId = Number(productId);
+  if(!code || !CS_PRODUCTS[productId]) throw new Error("Código o servicio inválido.");
+  let dup;
+  try {
+    dup = await getDocs(query(collection(db, `users/${user.uid}/activations`), where("code","==",code), limit(1)));
+  } catch (error) {
+    throw new Error(csFirestoreErrorMessage(error, "No se pudo consultar tu historial de activaciones."));
+  }
+  if(!dup.empty){
+    const ex = dup.docs[0].data();
+    if(Number(ex.productId)!==productId) throw new Error(`Este código corresponde a ${ex.service||"otro servicio"}.`);
+    return { alreadyRedeemed:true, current: await csGetCurrentService(user.uid, productId, true) };
+  }
+  const nowMs = Date.now();
+  let activation;
+  try {
+    activation = await runTransaction(db, async tx=>{
+    const codeRef = doc(db, "activationCodes", code);
+    const codeSnap = await tx.get(codeRef);
+    if(!codeSnap.exists()) throw new Error("Código inválido o no registrado.");
+    const data = codeSnap.data();
+    if(data.active===false) throw new Error("Este código fue desactivado.");
+    if(Number(data.productId)!==productId) throw new Error(`Este código corresponde a ${data.service||"otro servicio"}.`);
+    const stateRef = doc(db, `users/${user.uid}/serviceStates/${productId}`);
+    const stateSnap = await tx.get(stateRef);
+    const durationDays = Number(data.durationDays || (data.plan==="year"?365:30));
+    const queueEnd = Number(stateSnap.exists()? stateSnap.data().activeUntilMs||0 : 0);
+    const startAt = Math.max(nowMs, queueEnd);
+    const expiresAt = startAt + durationDays*86400000;
+    const activationRef = doc(collection(db, `users/${user.uid}/activations`));
+    const act = {
+      activationId: activationRef.id, productId,
+      service: data.service||CS_PRODUCTS[productId].name,
+      plan: data.plan||"month", planLabel: data.planLabel||(durationDays>=300?"1 año":"1 mes"),
+      durationDays, code, startAt, expiresAt, queued: startAt>nowMs,
+      accessInfo: data.accessInfo||"Servicio activo",
+      credentials: data.credentials||null,
+      source: data.source||"activation_code", createdAtMs: nowMs,
+    };
+    tx.set(activationRef, act);
+    tx.set(stateRef, { productId, service:act.service, activeUntilMs:expiresAt, latestActivationId:activationRef.id, latestCode:code, updatedAtMs:nowMs }, {merge:true});
+    // El código NO se consume: queda igual de disponible para el siguiente
+    // usuario (cuenta compartida). Solo llevamos la cuenta de canjes.
+    tx.update(codeRef, { redeemedCount:(Number(data.redeemedCount)||0)+1, lastRedeemedBy:user.uid, lastRedeemedByEmail:user.email||"", lastRedeemedAtMs:nowMs, updatedAtMs:nowMs });
+    return act;
+    });
+  } catch (error) {
+    throw new Error(csFirestoreErrorMessage(error, "No se pudo activar el código. Intenta de nuevo."));
+  }
+  try{
+    await addDoc(collection(db, `users/${user.uid}/notifications`), {
+      type:"ACTIVATION",
+      title: activation.queued?"Renovación programada":"Servicio activado",
+      message: activation.queued?`Tu renovación de ${activation.service} comenzará el ${new Date(activation.startAt).toLocaleDateString("es-CO")}.`:`${activation.service} quedó activo correctamente.`,
+      read:false, createdAtMs: nowMs, createdAt: serverTimestamp(),
+    });
+  }catch(e){ console.warn("Aviso de activación:", e?.message||e); }
+  return { queued: activation.queued, activation, current: await csGetCurrentService(user.uid, productId, true) };
+}
+
+async function csAdminSeedStarterCodes(){
+  csRequireAdmin();
+  const created=[], existing=[];
+  for(const item of CS_STARTER_CODES){
+    const ref = doc(db, "activationCodes", item.code);
+    if((await getDoc(ref)).exists()){ existing.push(item.code); continue; }
+    await setDoc(ref, {
+      code:item.code, productId:item.productId, service:item.service, plan:item.plan, planLabel:item.planLabel,
+      durationDays:item.durationDays, accessInfo:item.accessInfo, credentials:item.credentials,
+      active:true, redeemedCount:0, source:"starter_seed",
+      createdBy: auth.currentUser?.email||"", createdAtMs: Date.now(), createdAt: serverTimestamp(),
+    });
+    created.push(item.code);
+  }
+  return { ok:true, created, existing, starterCodes: CS_STARTER_CODES.map(({credentials, ...s})=>s) };
+}
+
+async function csAdminCreateActivationCode(payload={}){
+  csRequireAdmin();
+  const code = csNormalizeCode(payload.code);
+  const productId = Number(payload.productId);
+  if(!code || !CS_PRODUCTS[productId]) throw new Error("Código o servicio inválido.");
+  const plan = payload.plan==="year"?"year":"month";
+  const durationDays = Math.max(1, Math.min(1000, Number(payload.durationDays||(plan==="year"?365:30))));
+  const ref = doc(db, "activationCodes", code);
+  if((await getDoc(ref)).exists()) throw new Error("Ese código ya existe.");
+  await setDoc(ref, {
+    code, productId, service: CS_PRODUCTS[productId].name, plan, planLabel: plan==="year"?"1 año":"1 mes",
+    durationDays, accessInfo: String(payload.accessInfo||payload.planLabel||"Servicio activo").slice(0,180),
+    credentials: csSanitizeCredentials(payload.credentials),
+    active:true, redeemedCount:0, source:"admin",
+    createdBy: auth.currentUser?.email||"", createdAtMs: Date.now(), createdAt: serverTimestamp(),
+  });
+  return { ok:true, code };
+}
+
+async function csAdminCreateActivationBatch(payload={}){
+  csRequireAdmin();
+  const productId = Number(payload.productId);
+  if(!CS_PRODUCTS[productId]) throw new Error("Servicio inválido.");
+  const plan = payload.plan==="year"?"year":"month";
+  const count = Math.max(1, Math.min(50, Number(payload.count||1)));
+  const durationDays = Math.max(1, Math.min(1000, Number(payload.durationDays||(plan==="year"?365:30))));
+  const credentials = csSanitizeCredentials(payload.credentials);
+  const batch = writeBatch(db);
+  const created = [];
+  for(let i=0;i<count;i++){
+    const code = `IAPLUS-${csRandHex()}-${csRandHex()}`;
+    batch.set(doc(db,"activationCodes",code), {
+      code, productId, service:CS_PRODUCTS[productId].name, plan, planLabel:plan==="year"?"1 año":"1 mes",
+      durationDays, accessInfo:String(payload.accessInfo||"Servicio activo").slice(0,180), credentials,
+      active:true, redeemedCount:0, source:"admin_batch",
+      createdBy:auth.currentUser?.email||"", createdAtMs:Date.now(), createdAt:serverTimestamp(),
+    });
+    created.push(code);
+  }
+  await batch.commit();
+  return { ok:true, codes:created };
+}
+
+async function csAdminToggleActivationCode(rawCode, active){
+  csRequireAdmin();
+  const code = csNormalizeCode(rawCode);
+  if(!code) throw new Error("Código inválido.");
+  const ref = doc(db, "activationCodes", code);
+  const snap = await getDoc(ref);
+  if(!snap.exists()) throw new Error("Código no encontrado.");
+  await updateDoc(ref, { active: !!active, updatedAtMs: Date.now(), updatedAt: serverTimestamp() });
+  return { ok:true };
+}
+
+// Sustituye las llamadas al backend por la implementación directa en Firestore.
+// (El resumen del panel admin —usuarios, pedidos, cupones, ingresos— se define
+// más abajo, junto con el resto de la tienda sin backend.)
+window.redeemActivationCode = (rawCode, productId) => csRedeemActivationCode(rawCode, productId);
+window.loadActivationRecord = async productId => auth.currentUser ? csGetCurrentService(auth.currentUser.uid, productId, true) : null;
+window.getMyServices = async () => {
+  const uid = auth.currentUser?.uid; const services=[];
+  for(const productId of [11,13]) services.push({ productId, service:CS_PRODUCTS[productId].name, current: uid ? await csGetCurrentService(uid, productId, false) : null });
+  return { services };
+};
+window.getMyActivationHistory = async () => {
+  const uid = auth.currentUser?.uid; if(!uid) return { activations:[] };
+  const snap = await getDocs(collection(db, `users/${uid}/activations`));
+  const rows = snap.docs.map(d=>({id:d.id, ...d.data()})).sort((a,b)=>Number(b.startAt||0)-Number(a.startAt||0));
+  return { activations: rows.map(({credentials, ...r})=>r) };
+};
+window.getMyNotifications = async () => {
+  const uid = auth.currentUser?.uid; if(!uid) return { notifications:[] };
+  try{
+    const snap = await getDocs(query(collection(db, `users/${uid}/notifications`), orderBy("createdAtMs","desc"), limit(30)));
+    return { notifications: snap.docs.map(d=>({id:d.id, ...d.data()})) };
+  }catch(e){ console.warn("Avisos:", e?.message||e); return { notifications:[] }; }
+};
+window.markNotificationRead = async id => {
+  const uid = auth.currentUser?.uid; if(!uid || !id) return { ok:false };
+  await setDoc(doc(db, `users/${uid}/notifications/${id}`), { read:true }, { merge:true });
+  return { ok:true };
+};
+window.adminSeedStarterCodes = () => csAdminSeedStarterCodes();
+window.adminCreateActivationCode = payload => csAdminCreateActivationCode(payload);
+window.adminCreateActivationBatch = payload => csAdminCreateActivationBatch(payload);
+window.adminToggleActivationCode = (code, active) => csAdminToggleActivationCode(code, active);
+
+/* =====================================================================
+   TIENDA SIN BACKEND — pedidos, cupones, referidos, soporte y el resto
+   del panel admin, todo resuelto en el navegador contra Firestore.
+   Completa el mismo enfoque usado arriba para la activación por código.
+   ===================================================================== */
+const CS_DEFAULT_STORE = {
+  whatsapp: "573018964476",
+  prices: { "11": { month: 20000, year: 50000 }, "13": { month: 20000, year: 50000 } },
+  lowStockThreshold: 3,
+  referralRewardDays: 0,
+};
+
+async function csGetStoreSettings(){
+  const snap = await getDoc(doc(db, "settings/store"));
+  const data = snap.exists() ? snap.data() : {};
+  const result = JSON.parse(JSON.stringify(CS_DEFAULT_STORE));
+  if(data.whatsapp) result.whatsapp = String(data.whatsapp).replace(/\D/g,"");
+  for(const id of ["11","13"]){
+    if(Number(data.prices?.[id]?.month) > 0) result.prices[id].month = Number(data.prices[id].month);
+    if(Number(data.prices?.[id]?.year) > 0) result.prices[id].year = Number(data.prices[id].year);
+  }
+  if(Number(data.lowStockThreshold) >= 0) result.lowStockThreshold = Number(data.lowStockThreshold);
+  if(Number(data.referralRewardDays) >= 0) result.referralRewardDays = Number(data.referralRewardDays);
+  return result;
+}
+
+function csPlanFor(productId, months, settings){
+  const id = String(Number(productId));
+  if(!CS_PRODUCTS[id]) throw new Error("Servicio no válido.");
+  const annual = Number(months) === 12;
+  const price = Number(annual ? settings.prices[id].year : settings.prices[id].month);
+  if(!(price > 0)) throw new Error("El servicio no tiene un precio válido.");
+  return {
+    id: Number(id), name: CS_PRODUCTS[id].name, plan: annual ? "year" : "month",
+    planMonths: annual ? 12 : 1, planLabel: annual ? "1 año" : "1 mes",
+    durationDays: annual ? 365 : 30, unitPrice: price, qty: 1, subtotal: price,
+  };
+}
+
+function csNormalizeCartItems(rawItems, settings){
+  if(!Array.isArray(rawItems) || rawItems.length < 1 || rawItems.length > 5) throw new Error("El pedido no contiene servicios válidos.");
+  const seen = new Set(), items = [];
+  for(const raw of rawItems){
+    const id = Number(raw?.id);
+    if(seen.has(id)) continue;
+    seen.add(id);
+    items.push(csPlanFor(id, Number(raw?.planMonths) === 12 ? 12 : 1, settings));
+  }
+  if(!items.length) throw new Error("El carrito está vacío.");
+  return items;
+}
+
+async function csApplyCoupon(rawCode, subtotal){
+  const code = csNormalizeCode(rawCode);
+  if(!code) return { code:"", discount:0, valid:false };
+  const snap = await getDoc(doc(db, "coupons", code));
+  if(!snap.exists()) throw new Error("El cupón no existe.");
+  const data = snap.data();
+  if(data.active === false) throw new Error("El cupón está desactivado.");
+  if(Number(data.expiresAtMs||0) > 0 && Number(data.expiresAtMs) < Date.now()) throw new Error("El cupón venció.");
+  if(Number(data.maxUses||0) > 0 && Number(data.usedCount||0) >= Number(data.maxUses)) throw new Error("El cupón alcanzó su límite de usos.");
+  if(Number(data.minSubtotal||0) > subtotal) throw new Error(`El cupón requiere una compra mínima de $${Number(data.minSubtotal).toLocaleString("es-CO")}.`);
+  let discount = 0;
+  if(data.type === "fixed") discount = Math.min(subtotal, Math.max(0, Number(data.value||0)));
+  else discount = Math.min(subtotal, Math.round(subtotal * Math.max(0, Math.min(100, Number(data.value||0))) / 100));
+  return { code, discount, valid: discount > 0 };
+}
+
+async function csValidateReferral(rawCode, buyerUid){
+  const code = csNormalizeCode(rawCode);
+  if(!code) return null;
+  const snap = await getDoc(doc(db, "referrals", code));
+  if(!snap.exists()) throw new Error("El código de referido no existe.");
+  const data = snap.data();
+  if(data.active === false) throw new Error("El código de referido está desactivado.");
+  if(String(data.ownerUid||"") === buyerUid) throw new Error("No puedes usar tu propio código de referido.");
+  return { code, ownerUid: data.ownerUid, ownerEmail: data.ownerEmail||"" };
+}
+
+function csOrderReference(prefix){
+  return `${prefix}-${Date.now()}-${csRandHex()}`;
+}
+
+async function csCreateOrder({ items, couponCode, referralCode, channel, returnUrl }){
+  const user = auth.currentUser;
+  if(!user) throw new Error("Debes iniciar sesión.");
+  const settings = await csGetStoreSettings();
+  const normalized = csNormalizeCartItems(items, settings);
+  const subtotal = normalized.reduce((sum,item)=>sum+item.subtotal, 0);
+  const coupon = await csApplyCoupon(couponCode, subtotal);
+  const referral = await csValidateReferral(referralCode, user.uid);
+  const total = Math.max(0, subtotal - coupon.discount);
+  if(total < 1) throw new Error("El total del pedido debe ser mayor que cero.");
+  const reference = csOrderReference(channel === "WHATSAPP" ? "IAPLUS-WA" : "IAPLUS");
+  const now = Date.now();
+  const order = {
+    reference, userId: user.uid, customerName: user.displayName||"", customerEmail: user.email||"",
+    items: normalized, subtotal, discount: coupon.discount, couponCode: coupon.code||"",
+    referralCode: referral?.code||"", referrerUid: referral?.ownerUid||"",
+    total, amountInCents: total*100, currency: "COP", channel,
+    status: channel === "WHATSAPP" ? "WHATSAPP_SENT" : "PENDING_PAYMENT",
+    paymentStatus: channel === "WHATSAPP" ? "WHATSAPP_SENT" : "PENDING",
+    fulfillmentStatus: "PENDING", returnUrl: String(returnUrl||""),
+    createdAtMs: now, updatedAtMs: now, createdAt: serverTimestamp(), updatedAt: serverTimestamp(),
+  };
+  await setDoc(doc(db, "orders", reference), order);
+  return { order, settings, coupon };
+}
+
+// Construye una activación a partir de un código dentro de una transacción.
+// Comparte la misma lógica que usa el canje manual de códigos (arriba), para
+// que una activación por pedido y una por código se comporten igual.
+function csBuildActivationTx(tx, { uid, email, codeRef, codeData, nowMs, stateSnap, coverageEndMs = 0 }){
+  const productId = Number(codeData.productId);
+  const durationDays = Number(codeData.durationDays || (codeData.plan === "year" ? 365 : 30));
+  const stateRef = doc(db, `users/${uid}/serviceStates/${productId}`);
+  const queueEnd = Math.max(Number(stateSnap?.exists?.() ? stateSnap.data()?.activeUntilMs||0 : 0), Number(coverageEndMs||0));
+  const startAt = Math.max(nowMs, queueEnd);
+  const expiresAt = startAt + durationDays*86400000;
+  const activationRef = doc(collection(db, `users/${uid}/activations`));
+  const activation = {
+    activationId: activationRef.id, productId,
+    service: codeData.service || CS_PRODUCTS[productId]?.name || "Servicio",
+    plan: codeData.plan || "month", planLabel: codeData.planLabel || (durationDays >= 300 ? "1 año" : "1 mes"),
+    durationDays, code: codeRef.id, startAt, expiresAt, queued: startAt > nowMs,
+    accessInfo: codeData.accessInfo || "Servicio activo", credentials: codeData.credentials || null,
+    source: codeData.source || "activation_code", createdAtMs: nowMs,
+  };
+  tx.set(activationRef, activation);
+  tx.set(stateRef, { productId, service: activation.service, activeUntilMs: expiresAt, latestActivationId: activationRef.id, latestCode: codeRef.id, updatedAtMs: nowMs }, { merge:true });
+  // El código NO se consume: queda igual de disponible para el siguiente
+  // pedido/usuario (cuenta compartida). Solo llevamos la cuenta de canjes.
+  tx.update(codeRef, { redeemedCount:(Number(codeData.redeemedCount)||0)+1, lastRedeemedBy:uid, lastRedeemedByEmail: email||"", lastRedeemedAtMs: nowMs, updatedAtMs: nowMs });
+  return activation;
+}
+
+async function csFulfillOrder(reference, actor){
+  const orderRef = doc(db, "orders", reference);
+  const nowMs = Date.now();
+  const result = await runTransaction(db, async tx => {
+    const orderSnap = await tx.get(orderRef);
+    if(!orderSnap.exists()) throw new Error("Pedido no encontrado.");
+    const order = orderSnap.data();
+    if(order.fulfillmentStatus === "FULFILLED") return { alreadyFulfilled:true, order };
+
+    const selectedCodes = [];
+    for(const item of order.items||[]){
+      const q = query(collection(db,"activationCodes"), where("productId","==",Number(item.id)), where("plan","==",item.plan), where("active","==",true), limit(1));
+      const codeSnap = await tx.get(q);
+      if(codeSnap.empty){
+        tx.update(orderRef, { fulfillmentStatus:"AWAITING_STOCK", status:"PAID_AWAITING_STOCK", updatedAtMs: nowMs, updatedAt: serverTimestamp() });
+        return { awaitingStock:true, order };
+      }
+      selectedCodes.push(codeSnap.docs[0]);
+    }
+
+    const stateSnaps = new Map();
+    for(const codeDoc of selectedCodes){
+      const pid = Number(codeDoc.data().productId);
+      if(!stateSnaps.has(pid)) stateSnaps.set(pid, await tx.get(doc(db, `users/${order.userId}/serviceStates/${pid}`)));
+    }
+
+    const activations = [];
+    for(const codeDoc of selectedCodes){
+      const pid = Number(codeDoc.data().productId);
+      activations.push(csBuildActivationTx(tx, { uid: order.userId, email: order.customerEmail, codeRef: codeDoc.ref, codeData: codeDoc.data(), nowMs, stateSnap: stateSnaps.get(pid) }));
+    }
+
+    tx.update(orderRef, { status:"APPROVED", fulfillmentStatus:"FULFILLED", fulfilledAtMs: nowMs, fulfilledBy: actor||"admin", activationIds: activations.map(a=>a.activationId), updatedAtMs: nowMs, updatedAt: serverTimestamp() });
+    const notifRef = doc(collection(db, `users/${order.userId}/notifications`));
+    tx.set(notifRef, { type:"ORDER_FULFILLED", title:"Servicio activado", message:`Tu pedido ${reference} fue pagado y activado correctamente.`, orderId: reference, read:false, createdAtMs: nowMs, createdAt: serverTimestamp() });
+    return { fulfilled:true, activations, order };
+  });
+
+  if(result?.fulfilled){
+    if(result.order?.couponCode){
+      await setDoc(doc(db,"coupons",result.order.couponCode), { usedCount: (await getDoc(doc(db,"coupons",result.order.couponCode))).data()?.usedCount+1 || 1, updatedAt: serverTimestamp() }, { merge:true }).catch(()=>{});
+    }
+    if(result.order?.referralCode && result.order?.referrerUid){
+      try{
+        const settings = await csGetStoreSettings();
+        const rewardDays = Number(settings.referralRewardDays||0);
+        const refSnap = await getDoc(doc(db,"referrals",result.order.referralCode));
+        await setDoc(doc(db,"referrals",result.order.referralCode), { successfulOrders: Number(refSnap.data()?.successfulOrders||0)+1, updatedAt: serverTimestamp() }, { merge:true });
+        if(rewardDays > 0){
+          const refUserSnap = await getDoc(doc(db,"users",result.order.referrerUid));
+          await setDoc(doc(db,"users",result.order.referrerUid), { referralRewardDaysPending: Number(refUserSnap.data()?.referralRewardDaysPending||0)+rewardDays }, { merge:true });
+          await addDoc(collection(db, `users/${result.order.referrerUid}/notifications`), { type:"REFERRAL_REWARD", title:"Nuevo referido confirmado", message:`Ganaste ${rewardDays} día(s) de beneficio pendiente por una compra referida.`, read:false, createdAtMs: Date.now(), createdAt: serverTimestamp() });
+        }
+      }catch(e){ console.warn("Recompensa de referido:", e?.message||e); }
+    }
+  }
+  return result;
+}
+
+async function csLogAdmin(action, target, meta={}){
+  try{
+    await addDoc(collection(db,"adminAudit"), { action: String(action||"ADMIN_ACTION").slice(0,80), target: String(target||"").slice(0,180), meta, adminUid: auth.currentUser?.uid||"", adminEmail: auth.currentUser?.email||"", createdAtMs: Date.now(), createdAt: serverTimestamp() });
+  }catch(e){ console.warn("Auditoría:", e?.message||e); }
+}
+
+// Pedidos y pagos
+window.createWhatsAppOrder = async payload => {
+  const { order, settings } = await csCreateOrder({ ...payload, channel:"WHATSAPP" });
+  return { reference: order.reference, total: order.total, subtotal: order.subtotal, discount: order.discount, items: order.items, whatsapp: settings.whatsapp };
+};
+window.saveWhatsAppOrder = async payload => {
+  const { order } = await csCreateOrder({ items: (payload.items||[]).map(i=>({ id:i.id, planMonths:i.planMonths })), couponCode:"", referralCode:"", channel:"WHATSAPP" });
+  return { reference: order.reference };
+};
+window.prepareWompiPayment = async () => ({ configured:false, reason:"WOMPI_NOT_CONFIGURED" });
+window.verifyWompiTransaction = async () => { throw new Error("El pago en línea con Wompi no está configurado."); };
+window.getMyOrders = async () => {
+  const uid = auth.currentUser?.uid; if(!uid) return { orders:[] };
+  const snap = await getDocs(query(collection(db,"orders"), where("userId","==",uid), orderBy("createdAtMs","desc")));
+  return { orders: snap.docs.map(d=>({ id:d.id, ...d.data() })) };
+};
+
+// Soporte
+window.createSupportTicket = async payload => {
+  const user = auth.currentUser; if(!user) throw new Error("Debes iniciar sesión.");
+  const message = String(payload?.message||"").trim().slice(0,2000);
+  if(message.length < 5) throw new Error("Describe el problema con un poco más de detalle.");
+  const nowMs = Date.now();
+  const ref = doc(collection(db,"tickets"));
+  await setDoc(ref, {
+    id: ref.id, userId: user.uid, customerName: user.displayName||"", customerEmail: user.email||"",
+    category: String(payload?.category||"Otro").slice(0,80), productId: Number(payload?.productId||0)||null,
+    orderId: String(payload?.orderId||"").slice(0,120), subject: String(payload?.subject||payload?.category||"Soporte").trim().slice(0,140),
+    status:"OPEN", priority:"NORMAL", messages:[{ by:"customer", text:message, atMs: nowMs }],
+    createdAtMs: nowMs, updatedAtMs: nowMs, createdAt: serverTimestamp(), updatedAt: serverTimestamp(),
+  });
+  return { id: ref.id };
+};
+window.getMyTickets = async () => {
+  const uid = auth.currentUser?.uid; if(!uid) return { tickets:[] };
+  const snap = await getDocs(query(collection(db,"tickets"), where("userId","==",uid)));
+  return { tickets: snap.docs.map(d=>({ id:d.id, ...d.data() })).sort((a,b)=>Number(b.updatedAtMs||0)-Number(a.updatedAtMs||0)) };
+};
+
+// Referidos
+window.getMyReferral = async () => {
+  const user = auth.currentUser; if(!user) return { code:"", successfulOrders:0, rewardDaysPending:0 };
+  const userRef = doc(db,"users",user.uid);
+  const userSnap = await getDoc(userRef);
+  let code = csNormalizeCode(userSnap.data()?.referralCode);
+  if(!code){
+    for(let attempt=0; attempt<10; attempt++){
+      const candidate = `REF-${csRandHex()}`;
+      const refRef = doc(db,"referrals",candidate);
+      if((await getDoc(refRef)).exists()) continue;
+      try{
+        await setDoc(refRef, { code:candidate, ownerUid:user.uid, ownerEmail:user.email||"", active:true, successfulOrders:0, createdAtMs:Date.now(), createdAt: serverTimestamp() });
+        await setDoc(userRef, { referralCode:candidate }, { merge:true });
+        code = candidate; break;
+      }catch(e){ /* colisión, reintenta con otro código */ }
+    }
+  }
+  const referralSnap = code ? await getDoc(doc(db,"referrals",code)) : null;
+  const freshUser = await getDoc(userRef);
+  return { code, successfulOrders: Number(referralSnap?.data()?.successfulOrders||0), rewardDaysPending: Number(freshUser.data()?.referralRewardDaysPending||0) };
+};
+
+// Panel admin: tienda, pedidos, cupones y soporte
+window.adminSaveSettings = async settings => {
+  csRequireAdmin();
+  const s = settings||{};
+  const payload = {
+    whatsapp: String(s.whatsapp||"").replace(/\D/g,""),
+    prices: { "11":{ month:Number(s.prices?.["11"]?.month||0), year:Number(s.prices?.["11"]?.year||0) }, "13":{ month:Number(s.prices?.["13"]?.month||0), year:Number(s.prices?.["13"]?.year||0) } },
+    lowStockThreshold: Math.max(0, Number(s.lowStockThreshold??3)),
+    referralRewardDays: Math.max(0, Number(s.referralRewardDays??0)),
+    allowWhatsAppFallback: s.allowWhatsAppFallback !== false,
+    updatedBy: auth.currentUser?.email||"", updatedAt: serverTimestamp(),
+  };
+  if(!payload.whatsapp || !payload.prices["11"].month || !payload.prices["11"].year || !payload.prices["13"].month || !payload.prices["13"].year) throw new Error("Revisa precios y WhatsApp.");
+  await setDoc(doc(db,"settings/store"), payload, { merge:true });
+  await csLogAdmin("SETTINGS_UPDATE","settings/store",{ whatsapp:payload.whatsapp });
+  return { ok:true, settings:payload };
+};
+window.adminCreateCoupon = async payload => {
+  csRequireAdmin();
+  const p = payload||{};
+  const code = csNormalizeCode(p.code);
+  if(!code) throw new Error("Código de cupón inválido.");
+  const type = p.type === "fixed" ? "fixed" : "percent";
+  const value = Number(p.value||0);
+  if(!(value > 0)) throw new Error("Valor de cupón inválido.");
+  const ref = doc(db,"coupons",code);
+  if((await getDoc(ref)).exists()) throw new Error("Ese cupón ya existe.");
+  await setDoc(ref, { code, type, value, minSubtotal:Math.max(0,Number(p.minSubtotal||0)), maxUses:Math.max(0,Number(p.maxUses||0)), usedCount:0, expiresAtMs:Math.max(0,Number(p.expiresAtMs||0)), active:true, createdAtMs:Date.now(), createdAt: serverTimestamp() });
+  await csLogAdmin("COUPON_CREATE", code, { type, value });
+  return { ok:true, code };
+};
+window.adminToggleCoupon = async (code, active) => {
+  csRequireAdmin();
+  const c = csNormalizeCode(code); if(!c) throw new Error("Cupón inválido.");
+  await setDoc(doc(db,"coupons",c), { active: !!active, updatedAt: serverTimestamp() }, { merge:true });
+  await csLogAdmin("COUPON_TOGGLE", c, { active });
+  return { ok:true };
+};
+window.adminReplyTicket = async (id, message) => {
+  csRequireAdmin();
+  const msg = String(message||"").trim().slice(0,2000);
+  if(!id || !msg) throw new Error("Ticket o mensaje inválido.");
+  const ref = doc(db,"tickets",id);
+  const snap = await getDoc(ref);
+  if(!snap.exists()) throw new Error("Ticket no encontrado.");
+  const messages = Array.isArray(snap.data()?.messages) ? snap.data().messages.slice(-29) : [];
+  messages.push({ by:"admin", text: msg, atMs: Date.now(), email: auth.currentUser?.email||"" });
+  await setDoc(ref, { messages, status:"IN_PROGRESS", updatedAtMs: Date.now(), updatedAt: serverTimestamp() }, { merge:true });
+  await csLogAdmin("TICKET_REPLY", id);
+  return { ok:true };
+};
+window.adminSetTicketStatus = async (id, status) => {
+  csRequireAdmin();
+  const s = ["OPEN","IN_PROGRESS","RESOLVED","CLOSED"].includes(status) ? status : "OPEN";
+  if(!id) throw new Error("Ticket inválido.");
+  await setDoc(doc(db,"tickets",id), { status:s, updatedAtMs: Date.now(), updatedAt: serverTimestamp() }, { merge:true });
+  await csLogAdmin("TICKET_STATUS", id, { status:s });
+  return { ok:true };
+};
+window.adminUpdateOrderStatus = async (reference, status) => {
+  csRequireAdmin();
+  if(!reference || !["PENDING_PAYMENT","APPROVED","DECLINED","VOIDED","CANCELLED","WHATSAPP_SENT"].includes(status)) throw new Error("Pedido o estado inválido.");
+  const ref = doc(db,"orders",reference);
+  if(!(await getDoc(ref)).exists()) throw new Error("Pedido no encontrado.");
+  await setDoc(ref, { status, paymentStatus: status==="APPROVED"?"APPROVED":status, updatedAtMs: Date.now(), updatedAt: serverTimestamp() }, { merge:true });
+  let result = null;
+  if(status === "APPROVED") result = await csFulfillOrder(reference, "admin");
+  await csLogAdmin("ORDER_STATUS", reference, { status });
+  return { ok:true, result };
+};
+window.adminFulfillOrder = async reference => {
+  csRequireAdmin();
+  if(!reference) throw new Error("Pedido inválido.");
+  const result = await csFulfillOrder(reference, "admin_manual");
+  await csLogAdmin("ORDER_FULFILL", reference, { fulfilled: Boolean(result?.fulfilled) });
+  return { ok:true, result };
+};
+window.adminAddOrderNote = async (reference, text) => {
+  csRequireAdmin();
+  const t = String(text||"").trim().slice(0,1200);
+  if(!reference || !t) throw new Error("Pedido o nota inválida.");
+  const ref = doc(db,"orders",reference);
+  const snap = await getDoc(ref);
+  if(!snap.exists()) throw new Error("Pedido no encontrado.");
+  const notes = Array.isArray(snap.data()?.adminNotes) ? snap.data().adminNotes.slice(-19) : [];
+  notes.push({ text:t, by: auth.currentUser?.email||"", atMs: Date.now() });
+  await setDoc(ref, { adminNotes: notes, updatedAtMs: Date.now(), updatedAt: serverTimestamp() }, { merge:true });
+  await csLogAdmin("ORDER_NOTE_ADD", reference);
+  return { ok:true };
+};
+window.adminSetServiceStatus = async (uid, productId, active) => {
+  csRequireAdmin();
+  const pid = Number(productId||0);
+  if(!uid) throw new Error("Cliente inválido.");
+  if(!CS_PRODUCTS[pid]) throw new Error("Servicio inválido.");
+  const ref = doc(db, `users/${uid}/serviceStates/${pid}`);
+  const snap = await getDoc(ref);
+  const current = snap.exists() ? snap.data() : {};
+  const payload = {
+    productId: pid, service: current.service || CS_PRODUCTS[pid].name, activeUntilMs: Number(current.activeUntilMs||0),
+    suspended: !active, updatedBy: auth.currentUser?.email||"", updatedAtMs: Date.now(), updatedAt: serverTimestamp(),
+  };
+  if(!active){ payload.suspendedBy = auth.currentUser?.email||""; payload.suspendedAtMs = Date.now(); }
+  else { payload.resumedBy = auth.currentUser?.email||""; payload.resumedAtMs = Date.now(); }
+  await setDoc(ref, payload, { merge:true });
+  await csLogAdmin(active ? "SERVICE_RESUME" : "SERVICE_SUSPEND", `${uid}:${pid}`, { productId:pid });
+  return { ok:true, suspended: !active };
+};
+window.adminSaveClientNote = async (uid, note, tags) => {
+  csRequireAdmin();
+  if(!uid) throw new Error("Cliente inválido.");
+  const cleanTags = Array.isArray(tags) ? tags.map(v=>String(v).trim().slice(0,40)).filter(Boolean).slice(0,10) : [];
+  await setDoc(doc(db,"adminClientMeta",uid), { note: String(note||"").trim().slice(0,2000), tags: cleanTags, updatedBy: auth.currentUser?.email||"", updatedAtMs: Date.now(), updatedAt: serverTimestamp() }, { merge:true });
+  await csLogAdmin("CLIENT_NOTE_UPDATE", uid, { tags: cleanTags });
+  return { ok:true };
+};
+window.adminSetUserDisabled = async (uid, disabled) => {
+  csRequireAdmin();
+  if(!uid || uid === auth.currentUser?.uid) throw new Error("No puedes modificar esta cuenta.");
+  await setDoc(doc(db,"adminClientMeta",uid), { disabled: !!disabled, updatedBy: auth.currentUser?.email||"", updatedAtMs: Date.now(), updatedAt: serverTimestamp() }, { merge:true });
+  await csLogAdmin(disabled ? "CLIENT_DISABLE" : "CLIENT_ENABLE", uid);
+  return { ok:true, disabled: !!disabled };
+};
+window.adminGetClientDetail = async uid => {
+  csRequireAdmin();
+  uid = String(uid||"").trim(); if(!uid) throw new Error("Cliente inválido.");
+  const [userSnap, statesSnap, actsSnap, ordersSnap, ticketsSnap, metaSnap] = await Promise.all([
+    getDoc(doc(db,"users",uid)),
+    getDocs(collection(db, `users/${uid}/serviceStates`)),
+    getDocs(collection(db, `users/${uid}/activations`)),
+    getDocs(query(collection(db,"orders"), where("userId","==",uid))),
+    getDocs(query(collection(db,"tickets"), where("userId","==",uid))),
+    getDoc(doc(db,"adminClientMeta",uid)),
+  ]);
+  if(!userSnap.exists()) throw new Error("Cliente no encontrado.");
+  const meta = metaSnap.exists() ? metaSnap.data() : {};
+  return {
+    user: { uid, ...userSnap.data(), disabled: meta.disabled === true },
+    states: statesSnap.docs.map(d=>({ id:d.id, ...d.data() })),
+    activations: actsSnap.docs.map(d=>{ const { credentials, ...safe } = d.data(); return { id:d.id, ...safe }; }).sort((a,b)=>Number(b.startAt||0)-Number(a.startAt||0)),
+    orders: ordersSnap.docs.map(d=>({ id:d.id, ...d.data() })).sort((a,b)=>Number(b.createdAtMs||0)-Number(a.createdAtMs||0)),
+    tickets: ticketsSnap.docs.map(d=>({ id:d.id, ...d.data() })).sort((a,b)=>Number(b.updatedAtMs||0)-Number(a.updatedAtMs||0)),
+    meta,
   };
 };
-window.adminSaveSettings = settings => callData("adminSaveSettings", settings);
-window.adminCreateActivationCode = payload => callData("adminCreateActivationCode", payload);
-window.adminToggleActivationCode = (code,active) => callData("adminToggleActivationCode", {code,active});
-window.adminCreateCoupon = payload => callData("adminCreateCoupon", payload);
-window.adminToggleCoupon = (code,active) => callData("adminToggleCoupon", {code,active});
-window.adminReplyTicket = (id,message) => callData("adminReplyTicket", {id,message});
-window.adminSetTicketStatus = (id,status) => callData("adminSetTicketStatus", {id,status});
-window.adminUpdateOrderStatus = (reference,status) => callData("adminUpdateOrderStatus", {reference,status});
-window.adminFulfillOrder = reference => callData("adminFulfillOrder", {reference});
-window.adminMigrateLegacyData = () => callData("adminMigrateLegacyData");
-window.adminCreateActivationBatch = payload => callData("adminCreateActivationBatch", payload);
-window.adminGetClientDetail = async uid => {
-  if(!isAdminAuthUser())throw new Error("Sin permisos de administrador.");
-  try{return await callData("adminGetClientDetail",{uid});}
-  catch(error){
-    const snap=await getDoc(doc(db,"users",uid));
-    if(!snap.exists())throw new Error("Usuario no encontrado.");
-    return {user:{uid:snap.id,...snap.data()},orders:[],states:[],activations:[],tickets:[],meta:{}};
+
+// Panel admin: reemplaza el resumen (dashboard) por uno con datos reales.
+async function csAdminGetDashboardFull(){
+  csRequireAdmin();
+  const [usersSnap, codesSnap, ordersSnap, ticketsSnap, couponsSnap, auditSnap, settings] = await Promise.all([
+    getDocs(collection(db,"users")),
+    getDocs(collection(db,"activationCodes")),
+    getDocs(collection(db,"orders")),
+    getDocs(collection(db,"tickets")),
+    getDocs(collection(db,"coupons")),
+    getDocs(query(collection(db,"adminAudit"), orderBy("createdAtMs","desc"), limit(80))).catch(()=>({docs:[]})),
+    csGetStoreSettings(),
+  ]);
+  const users = usersSnap.docs.map(d=>({ uid:d.id, ...d.data() })).sort((a,b)=>Number(b.lastLoginAtMs||b.createdAtMs||0)-Number(a.lastLoginAtMs||a.createdAtMs||0));
+  const codes = codesSnap.docs.map(d=>{ const { credentials, ...c } = d.data(); return { id:d.id, ...c }; }).sort((a,b)=>Number(b.createdAtMs||0)-Number(a.createdAtMs||0));
+  const orders = ordersSnap.docs.map(d=>({ id:d.id, ...d.data() })).sort((a,b)=>Number(b.createdAtMs||0)-Number(a.createdAtMs||0));
+  const tickets = ticketsSnap.docs.map(d=>({ id:d.id, ...d.data() })).sort((a,b)=>Number(b.updatedAtMs||0)-Number(a.updatedAtMs||0));
+  const coupons = couponsSnap.docs.map(d=>({ id:d.id, ...d.data() }));
+  const audits = (auditSnap.docs||[]).map(d=>({ id:d.id, ...d.data() }));
+  const paidOrders = orders.filter(o=>o.paymentStatus==="APPROVED");
+  const monthKey = new Date().toISOString().slice(0,7);
+  const monthRevenue = paidOrders.filter(o=>new Date(Number(o.createdAtMs||0)).toISOString().startsWith(monthKey)).reduce((sum,o)=>sum+Number(o.total||0),0);
+  const daily = [];
+  for(let offset=6; offset>=0; offset--){
+    const d = new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate()-offset);
+    const start = d.getTime(), end = start+86400000;
+    const rows = paidOrders.filter(o=>Number(o.createdAtMs||0)>=start && Number(o.createdAtMs||0)<end);
+    daily.push({ date: d.toISOString().slice(0,10), revenue: rows.reduce((sum,o)=>sum+Number(o.total||0),0), orders: rows.length });
   }
-};
-window.adminSetUserDisabled = (uid,disabled) => callData("adminSetUserDisabled", {uid,disabled});
-window.adminSaveClientNote = (uid,note,tags) => callData("adminSaveClientNote", {uid,note,tags});
-window.adminAddOrderNote = (reference,text) => callData("adminAddOrderNote", {reference,text});
+  const stock = {};
+  for(const id of [11,13]) for(const plan of ["month","year"]) stock[`${id}-${plan}`] = codes.filter(c=>Number(c.productId)===id && c.plan===plan && c.active!==false).length;
+  return {
+    settings, stock, daily, audits, coupons, tickets: tickets.slice(0,100), orders: orders.slice(0,150),
+    users: users.slice(0,250).map(u=>({ uid:u.uid, displayName:u.displayName||"", email:u.email||"", photoURL:u.photoURL||"", lastLoginAtMs:u.lastLoginAtMs||null, lastSeenAtMs:u.lastSeenAtMs||null, firstLoginAtMs:u.firstLoginAtMs||null, createdAtMs:u.createdAtMs||null, loginCount:u.loginCount||1 })),
+    codes: codes.slice(0,120),
+    metrics: {
+      users: users.length, codes: codes.length,
+      available: codes.filter(c=>c.active!==false).length,
+      used: codes.reduce((sum,c)=>sum+Number(c.redeemedCount||0),0),
+      orders: orders.length, paidOrders: paidOrders.length,
+      pendingOrders: orders.filter(o=>["PENDING","PENDING_PAYMENT","WHATSAPP_SENT"].includes(o.paymentStatus)).length,
+      awaitingStock: orders.filter(o=>o.fulfillmentStatus==="AWAITING_STOCK").length,
+      openTickets: tickets.filter(t=>!["RESOLVED","CLOSED"].includes(t.status)).length,
+      revenue: paidOrders.reduce((sum,o)=>sum+Number(o.total||0),0), monthRevenue,
+    },
+  };
+}
+window.adminGetDashboard = () => csAdminGetDashboardFull();
 
 startStoreSettingsListener();
 let resolveInitialAuth;
 const initialAuthReady = new Promise(resolve => { resolveInitialAuth = resolve; });
+window.initialAuthReady = initialAuthReady;
 let initialAuthResolved = false;
 onAuthStateChanged(auth,async user=>{
   window.setAdminIdentityStatus?.(false);
@@ -4561,7 +5323,8 @@ onAuthStateChanged(auth,async user=>{
     try{adminStatus=await window.adminIdentityStatus();}catch(error){console.warn("Identidad administrativa:",error);}
     window.setAdminIdentityStatus?.(adminStatus?.isAdmin===true);
     startOrdersListener(user);
-    window.setAuthMessage?.(adminStatus?.isAdmin?"Identidad administrativa verificada. Desbloquea el panel con tu PIN.":"Sesión iniciada correctamente con Google.","ok");
+    window.setAuthMessage?.(adminStatus?.isAdmin?"Acceso administrativo verificado para wannaia333@gmail.com.":"Sesión iniciada correctamente con Google.","ok");
+    if(adminStatus?.isAdmin===true && (!location.hash || ["#inicio","#mi-cuenta"].includes(location.hash))) location.hash = "admin";
     if(location.hash==="#mi-cuenta") window.refreshAccountExtras?.();
   }else{
     stopOrdersListener();
@@ -4572,18 +5335,64 @@ onAuthStateChanged(auth,async user=>{
   if(!initialAuthResolved){initialAuthResolved=true;resolveInitialAuth?.(user||null);}
 });
 
+// Navegadores internos de apps (Instagram, Facebook, TikTok, Line...) bloquean
+// el inicio de sesión de Google por política de Google (no es un bug nuestro),
+// y suelen fallar en silencio. Los detectamos para avisar antes de intentarlo.
+function detectInAppBrowser(){
+  const ua = navigator.userAgent || "";
+  const patterns = [
+    [/Instagram/i, "Instagram"],
+    [/FBAN|FBAV|FB_IAB/i, "Facebook"],
+    [/Messenger/i, "Messenger"],
+    [/musical_ly|BytedanceWebview|TikTok/i, "TikTok"],
+    [/Twitter/i, "X (Twitter)"],
+    [/LinkedInApp/i, "LinkedIn"],
+    [/Line\//i, "Line"],
+    [/Snapchat/i, "Snapchat"],
+    [/Pinterest/i, "Pinterest"],
+    [/WhatsApp/i, "WhatsApp"],
+  ];
+  for(const [re,name] of patterns){ if(re.test(ua)) return name; }
+  // Marca genérica de WebView de Android dentro de otra app (sin nombre reconocible).
+  if(/Android/i.test(ua) && /; ?wv\)/i.test(ua)) return "esta app";
+  return null;
+}
+
+function inAppBrowserMessage(appName){
+  return `Abriste el enlace dentro de ${appName}. Google no permite iniciar sesión ahí por seguridad. Toca los tres puntos (⋮) o el ícono de compartir arriba y elige "Abrir en Chrome" o "Abrir en el navegador".`;
+}
+
 try{
   const result=await getRedirectResult(auth);
   if(result?.user){
     window.setAuthUiUser?.(result.user);
     window.showToast?.("Bienvenido, "+(result.user.displayName||"usuario")+" ✓");
+    setTimeout(()=>window.closeAuthModal?.(),500);
+    location.hash = isConfiguredAdmin(result.user) ? "admin" : "mi-cuenta";
   }
-}catch(error){console.error("Google redirect:",error);}
+}catch(error){
+  console.error("Google redirect:",error);
+  const c=error?.code||"";
+  const inApp=detectInAppBrowser();
+  let msg = inApp ? inAppBrowserMessage(inApp) : "No fue posible completar el inicio de sesión con Google. Intenta de nuevo.";
+  if(!inApp){
+    if(c==="auth/unauthorized-domain")msg="Este dominio no está autorizado en Firebase Authentication.";
+    else if(c==="auth/web-storage-unsupported")msg="Tu navegador tiene bloqueado el almacenamiento (modo privado o cookies desactivadas). Actívalo e intenta de nuevo.";
+    else if(c==="auth/network-request-failed")msg="Fallo de conexión al iniciar sesión. Revisa tu internet e intenta de nuevo.";
+  }
+  window.openAuthModal?.();
+  window.setAuthMessage?.(msg,"error");
+}
 
 window.firebaseGoogleLogin=async()=>{
   window.openAuthModal?.();
   if(location.protocol==="file:"){
     window.setAuthMessage?.("El inicio con Google necesita HTTPS o un servidor local autorizado.","error");
+    return;
+  }
+  const inApp=detectInAppBrowser();
+  if(inApp){
+    window.setAuthMessage?.(inAppBrowserMessage(inApp),"error");
     return;
   }
   try{
@@ -4596,14 +5405,20 @@ window.firebaseGoogleLogin=async()=>{
     window.setAuthMessage?.("Sesión iniciada correctamente con Google.","ok");
     setTimeout(()=>window.closeAuthModal?.(),500);
     window.showToast?.("Bienvenido, "+(result.user.displayName||"usuario")+" ✓");
+    location.hash = isConfiguredAdmin(result.user) ? "admin" : "mi-cuenta";
   }catch(error){
     console.error("Google Sign-In:",error);
     const c=error?.code||"";
     let msg="No fue posible iniciar sesión con Google.";
     if(c==="auth/popup-closed-by-user")msg="Cerraste la ventana de Google antes de completar el inicio de sesión.";
-    else if(c==="auth/popup-blocked")msg="El navegador bloqueó la ventana de Google.";
+    else if(c==="auth/popup-blocked")msg="El navegador bloqueó la ventana de Google. Permite ventanas emergentes para este sitio e intenta de nuevo.";
     else if(c==="auth/unauthorized-domain")msg="Este dominio no está autorizado en Firebase Authentication.";
     else if(c==="auth/operation-not-allowed")msg="El proveedor Google no está habilitado en Firebase Authentication.";
+    else if(c==="auth/operation-not-supported-in-this-environment")msg="Este navegador no permite iniciar sesión con Google. Ábrelo en Chrome o Safari.";
+    else if(c==="auth/web-storage-unsupported")msg="Tu navegador tiene bloqueado el almacenamiento (modo privado o cookies desactivadas). Actívalo e intenta de nuevo.";
+    else if(c==="auth/network-request-failed")msg="Fallo de conexión al iniciar sesión. Revisa tu internet e intenta de nuevo.";
+    else if(c==="auth/too-many-requests")msg="Demasiados intentos. Espera un momento e intenta de nuevo.";
+    else if(c==="auth/user-disabled")msg="Esta cuenta fue deshabilitada por administración.";
     window.setAuthMessage?.(msg,"error");
   }finally{window.setAuthLoading?.(false);}
 };
@@ -4633,32 +5448,66 @@ if(paymentTransactionId){
 
 
 <script>
-/* Video de portada: ahorro de recursos y reanudación segura */
+/* Portada multimedia resistente: video incrustado + poster de respaldo. */
 (() => {
   const video = document.getElementById('heroBackgroundVideo');
-  if (!video) return;
+  const shell = video?.closest('.hero-video-shell');
+  const status = document.getElementById('heroVideoStatus');
+  if (!video || !shell) return;
+
   video.muted = true;
   video.defaultMuted = true;
+  video.playsInline = true;
+
   const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
   let heroVisible = true;
+  let failed = false;
+
+  const setStatus = text => { if (status) status.textContent = text; };
+  const showFallback = () => {
+    failed = true;
+    shell.classList.add('media-fallback');
+    video.classList.remove('is-ready');
+    setStatus('Portada optimizada');
+  };
+  const markReady = () => {
+    if (failed) return;
+    shell.classList.remove('media-fallback');
+    video.classList.add('is-ready');
+    setStatus('Video de portada activo');
+  };
   const syncPlayback = () => {
+    if (failed) return;
     if (reduceMotion?.matches || document.hidden || !heroVisible) {
       video.pause();
+      if (reduceMotion?.matches) setStatus('Portada estática por accesibilidad');
       return;
     }
     const promise = video.play();
-    if (promise?.catch) promise.catch(() => {});
+    if (promise?.catch) promise.catch(() => {
+      /* Algunos navegadores esperan interacción; el poster sigue visible. */
+      setStatus('Portada lista');
+    });
   };
+
+  video.addEventListener('loadeddata', markReady, {once:true});
+  video.addEventListener('canplay', () => { markReady(); syncPlayback(); }, {once:true});
+  video.addEventListener('error', showFallback, {once:true});
+
   if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(entries => {
-      heroVisible = !!entries[0]?.isIntersecting;
-      syncPlayback();
-    }, {threshold:.08});
-    io.observe(document.getElementById('inicio'));
+    const hero = document.getElementById('inicio');
+    if (hero) {
+      const io = new IntersectionObserver(entries => {
+        heroVisible = !!entries[0]?.isIntersecting;
+        syncPlayback();
+      }, {threshold:.08});
+      io.observe(hero);
+    }
   }
   document.addEventListener('visibilitychange', syncPlayback);
   reduceMotion?.addEventListener?.('change', syncPlayback);
-  video.addEventListener('canplay', syncPlayback, {once:true});
+
+  if (video.readyState >= 2) markReady();
   syncPlayback();
 })();
 </script>

@@ -1,0 +1,109 @@
+====================================================================
+ IA PLUS COLOMBIA — CÓMO SUBIR EL SITIO A HOSTINGER
+====================================================================
+
+ESTE PAQUETE TRAE DOS TIPOS DE ARCHIVOS — no los confundas:
+
+  1) VAN AL SERVIDOR (Hostinger, dentro de public_html):
+     index.html   <- el sitio completo (login en celular arreglado,
+                      activación, pedidos, cupones, soporte, panel
+                      admin, todo sin backend)
+     assets/      <- carpeta con el video, logos e imágenes
+     .htaccess    <- configuración de seguridad y HTTPS
+
+  2) SON SOLO PARA TI, NO SE SUBEN A HOSTINGER (se usan una sola vez
+     en la consola de Firebase, ver PASOS-PARA-ACTIVAR-CODIGOS.txt):
+     firestore.rules            <- reglas de seguridad de la base de datos
+     firestore.indexes.json     <- índices que necesita la tienda
+     PASOS-PARA-ACTIVAR-CODIGOS.txt <- guía completa paso a paso
+     CODIGOS_DE_ACCESO_INICIALES.txt <- 4 códigos de prueba
+
+No uses ningún otro archivo "index" de tu carpeta original — hay varias
+copias antiguas de prueba; esta es la única versión correcta.
+
+--------------------------------------------------------------------
+ PASO 1 — SUBIR LOS ARCHIVOS
+--------------------------------------------------------------------
+1. Entra a hpanel.hostinger.com -> tu hosting -> "Administrador de
+   archivos" (File Manager).
+2. Abre la carpeta  public_html  (es la raíz de tu dominio).
+3. Si ya hay un "index.html" de ejemplo ahí, bórralo.
+4. Sube estos 3 elementos DENTRO de public_html:
+   - index.html
+   - la carpeta completa  assets/
+   - .htaccess  (es un archivo "oculto": si tu computador no te deja
+     verlo, en el Administrador de archivos de Hostinger igual se
+     sube arrastrándolo o con "Subir archivos")
+5. La estructura final en public_html debe verse así:
+
+   public_html/
+   ├── index.html
+   ├── .htaccess
+   └── assets/
+       ├── hero-bg.mp4
+       ├── hero-poster.jpg
+       ├── logo-iaplus.png
+       ├── logo-chatgpt.png
+       ├── logo-openai.png
+       ├── logo-claude.png
+       └── promo-explosiva.png
+
+(También puedes subirlo por FTP con FileZilla si lo prefieres, usando
+las credenciales FTP que te da Hostinger en hPanel -> Archivos -> FTP.)
+
+--------------------------------------------------------------------
+ PASO 2 — ACTIVAR HTTPS (SSL)
+--------------------------------------------------------------------
+En hPanel -> tu dominio -> "SSL": activa el certificado SSL gratuito
+(normalmente ya viene activado en Hostinger). El .htaccess incluido
+fuerza HTTPS automáticamente — es OBLIGATORIO para que el inicio de
+sesión con Google funcione.
+
+--------------------------------------------------------------------
+ PASO 3 — AUTORIZAR TU DOMINIO EN FIREBASE (MUY IMPORTANTE)
+--------------------------------------------------------------------
+Si saltas este paso, el inicio de sesión con Google fallará para
+TODOS los usuarios en tu nuevo dominio (no solo en celular).
+
+1. Ve a https://console.firebase.google.com
+2. Proyecto: iapluscolombia-f9d76
+3. Menú: Authentication -> Settings -> "Dominios autorizados"
+   (Authorized domains)
+4. Clic en "Agregar dominio" y escribe tu dominio de Hostinger
+   (ejemplo: tudominio.com — y también www.tudominio.com si lo usas).
+5. Guarda.
+
+--------------------------------------------------------------------
+ PASO 4 — REGLAS DE FIRESTORE Y CÓDIGOS DE ACTIVACIÓN
+--------------------------------------------------------------------
+Si todavía no lo hiciste, sigue las instrucciones del archivo
+"PASOS-PARA-ACTIVAR-CODIGOS.txt" (reglas de Firestore + cargar los
+códigos iniciales). Es igual de necesario sin importar en qué hosting
+publiques la página.
+
+--------------------------------------------------------------------
+ SOBRE EL ARREGLO DE LOGIN EN CELULAR
+--------------------------------------------------------------------
+El problema era que algunos usuarios abren el enlace de la tienda
+desde el navegador INTERNO de Instagram, Facebook, TikTok o WhatsApp.
+Google bloquea el inicio de sesión dentro de esos navegadores por
+seguridad (no es un error del sitio). Ahora la página lo detecta y le
+muestra al usuario un aviso claro: "Toca los tres puntos (⋮) arriba y
+elige Abrir en Chrome / Abrir en el navegador". Antes esto fallaba en
+silencio y el usuario no entendía por qué "no pasaba nada".
+
+Para probarlo tú mismo: abre el enlace de tu tienda desde dentro de
+Instagram (tocando un link en un DM o en tu bio) y confirma que ahora
+aparece el mensaje explicativo.
+
+--------------------------------------------------------------------
+ LISTA RÁPIDA DE VERIFICACIÓN
+--------------------------------------------------------------------
+[ ] Subí index.html, assets/ y .htaccess a public_html
+[ ] El sitio carga con https:// (candado verde)
+[ ] Agregué mi dominio de Hostinger en Firebase Authorized domains
+[ ] Publiqué las reglas de Firestore (firestore.rules)
+[ ] Inicié sesión con wannaia333@gmail.com y cargué los códigos
+[ ] Probé iniciar sesión desde el celular (navegador normal, Chrome)
+[ ] Probé abrir el enlace desde Instagram/WhatsApp y vi el aviso
+====================================================================

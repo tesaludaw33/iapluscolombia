@@ -1,6 +1,7 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+
     function signedIn() {
       return request.auth != null;
     }
@@ -9,75 +10,128 @@ service cloud.firestore {
       return signedIn() && request.auth.uid == uid;
     }
 
-
-
-    // Configuración visible de la tienda. Las escrituras pasan por Cloud Functions.
-    match /settings/store {
-      allow read: if true;
-      allow write: if false;
+    // Administrador principal de IA Plus Colombia.
+    // Debe coincidir con el correo definido en index.html (ADMIN_EMAIL).
+    function isAdmin() {
+      return signedIn() && request.auth.token.email == 'wannaia333@gmail.com';
     }
 
-    // El usuario puede mantener únicamente su perfil básico. Los datos operativos
-    // de subcolecciones los escribe el backend con Admin SDK.
+    // Configuración pública de la tienda (precios, WhatsApp…).
+    match /settings/store {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Perfil del usuario. Cada quien administra únicamente su propio documento.
+    // El administrador puede leer los perfiles para el panel.
     match /users/{uid} {
-      allow read: if isOwner(uid);
+      allow read: if isOwner(uid) || isAdmin();
       allow create: if isOwner(uid)
         && request.resource.data.uid == uid
-        && request.resource.data.email == request.auth.token.email
-        && request.resource.data.keys().hasOnly(['uid','displayName','email','photoURL','lastLoginAt']);
+        && request.resource.data.email == request.auth.token.email;
       allow update: if isOwner(uid)
-        && request.resource.data.uid == uid
-        && request.resource.data.email == request.auth.token.email
-        && request.resource.data.diff(resource.data).affectedKeys()
-             .hasOnly(['uid','displayName','email','photoURL','lastLoginAt']);
+        && request.resource.data.uid == uid;
       allow delete: if false;
 
-      // Las subcolecciones operativas se consultan a través de Cloud Functions.
-      // Esto evita que registros heredados o campos internos queden expuestos
-      // por una lectura directa desde el SDK del navegador.
-      match /{document=**} {
-        allow read, write: if false;
+      // Historial de activaciones del usuario. Las crea el propio usuario al
+      // canjear un código; solo él (y el administrador) puede leerlas.
+      match /activations/{activationId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow create: if isOwner(uid);
+        allow update, delete: if isAdmin();
+      }
+
+      // Estado de cobertura por servicio (vigencia, suspensión…).
+      match /serviceStates/{productId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow write: if isOwner(uid) || isAdmin();
+      }
+
+      // Avisos internos del usuario.
+      match /notifications/{noticeId} {
+        allow read: if isOwner(uid);
+        allow write: if isOwner(uid) || isAdmin();
       }
     }
 
-    // Historial global de pedidos: el cliente solo consulta los suyos.
-    match /orders/{orderId} {
-      allow read: if signedIn() && resource.data.userId == request.auth.uid;
-      allow write: if false;
-    }
-
-    // Soporte: lectura del propietario o administrador; cambios por Functions.
-    match /tickets/{ticketId} {
-      allow read: if signedIn() && resource.data.userId == request.auth.uid;
-      allow write: if false;
-    }
-
-    // Colecciones sensibles: nunca se leen/escriben directamente desde el navegador.
+    // ==========================================================
+    // Códigos de activación (canje directo desde el navegador).
+    // Un mismo código puede ser canjeado por CUALQUIER cantidad de usuarios
+    // distintos (cuenta compartida): nunca se "consume". Solo el interruptor
+    // "active" del administrador puede desactivarlo.
+    // ==========================================================
     match /activationCodes/{code} {
-      allow read, write: if false;
-    }
-    match /activationSecrets/{code} {
-      allow read, write: if false;
-    }
-    match /coupons/{code} {
-      allow read, write: if false;
-    }
-    match /referrals/{code} {
-      allow read, write: if false;
-    }
-    match /adminSessions/{id} {
-      allow read, write: if false;
-    }
-    match /adminAudit/{id} {
-      allow read, write: if false;
-    }
-    match /adminClientMeta/{id} {
-      allow read, write: if false;
-    }
-    match /rateLimits/{id} {
-      allow read, write: if false;
+      // Administrador: control total (crear, listar, activar/desactivar, sembrar).
+      allow read, write: if isAdmin();
+
+      // Usuario autenticado: puede LEER un código concreto por su ID exacto
+      // (nunca listar toda la colección). Si no existe, se permite la lectura
+      // vacía para poder mostrar un mensaje claro en vez de un error de permisos.
+      allow get: if signedIn();
+
+      // Usuario autenticado: al canjear, solo puede llevar la cuenta de canjes
+      // (redeemedCount, lastRedeemedBy...); nunca puede tocar precio, servicio,
+      // credenciales ni el interruptor "active" del administrador.
+      allow update: if signedIn()
+        && resource.data.active != false
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['redeemedCount','lastRedeemedBy','lastRedeemedByEmail','lastRedeemedAtMs','updatedAtMs'])
+        && request.resource.data.redeemedCount
+             == (resource.data.redeemedCount is number ? resource.data.redeemedCount : 0) + 1
+        && request.resource.data.lastRedeemedBy == request.auth.uid;
     }
 
+    // Credenciales separadas (solo administrador; el modelo estático guarda las
+    // credenciales dentro del propio código, esta colección queda de reserva).
+    match /activationSecrets/{code} {
+      allow read, write: if isAdmin();
+    }
+
+    // Pedidos: el cliente crea y consulta los suyos (compra por WhatsApp);
+    // el administrador puede leer, aprobar y actualizar todos.
+    match /orders/{orderId} {
+      allow read: if isAdmin() || (signedIn() && resource.data.userId == request.auth.uid);
+      allow create: if signedIn()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.total is number
+        && request.resource.data.total > 0;
+      allow update, delete: if isAdmin();
+    }
+
+    // Soporte: lectura del propietario o administrador.
+    match /tickets/{ticketId} {
+      allow read: if isAdmin() || (signedIn() && resource.data.userId == request.auth.uid);
+      allow create: if isOwner(request.resource.data.userId);
+      allow update, delete: if isAdmin();
+    }
+
+    // Cupones: el administrador los crea y controla; cualquier usuario
+    // autenticado puede LEER uno concreto por su código exacto para
+    // validarlo al pagar (nunca listar el catálogo completo de cupones).
+    match /coupons/{code} {
+      allow get: if signedIn();
+      allow list: if isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // Referidos: el dueño crea su propio código; cualquier usuario autenticado
+    // puede LEER un código concreto para validarlo al pagar. Los contadores
+    // (usos, recompensas) solo los actualiza el administrador al aprobar un
+    // pedido, para que un cliente no pueda inflar sus propias referencias.
+    match /referrals/{code} {
+      allow get: if signedIn();
+      allow list: if isAdmin();
+      allow create: if signedIn() && request.resource.data.ownerUid == request.auth.uid;
+      allow update, delete: if isAdmin();
+    }
+
+    // Colecciones internas: nunca accesibles desde el navegador.
+    match /adminSessions/{id}   { allow read, write: if false; }
+    match /adminAudit/{id}      { allow read: if isAdmin(); allow create: if isAdmin(); allow update, delete: if false; }
+    match /adminClientMeta/{id} { allow read: if isAdmin(); allow write: if isAdmin(); }
+    match /rateLimits/{id}      { allow read, write: if false; }
+
+    // Todo lo demás queda bloqueado por defecto.
     match /{document=**} {
       allow read, write: if false;
     }

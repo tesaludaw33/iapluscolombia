@@ -6,3 +6,6 @@ functions/.env.*
 !functions/.env.example
 functions/.secret.local
 *.log
+
+# Respaldos locales (no versionar)
+versiones-anteriores-NO-USAR/
